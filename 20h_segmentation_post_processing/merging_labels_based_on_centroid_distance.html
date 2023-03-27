@@ -64,7 +64,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '20h_segmentation_post_processing/merging_labels_based_on_centroid_distance';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Merging objects using machine learning" href="merge_objects_using_machine_learning.html" />
+    <link rel="next" title="Merging labels according to edge-to-edge-distances" href="merging_labels_based_on_edge_to_edge_distance.html" />
     <link rel="prev" title="Merging annotated labels" href="merge_annotated_labels.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -301,6 +301,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="merge_labels.html">Merging labels</a></li>
 <li class="toctree-l2"><a class="reference internal" href="merge_annotated_labels.html">Merging annotated labels</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Merging labels according to centroid-distances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="merging_labels_based_on_edge_to_edge_distance.html">Merging labels according to edge-to-edge-distances</a></li>
 <li class="toctree-l2"><a class="reference internal" href="merge_objects_using_machine_learning.html">Merging objects using machine learning</a></li>
 <li class="toctree-l2"><a class="reference internal" href="remove_labels_on_image_edges.html">Remove labels on image edges</a></li>
 <li class="toctree-l2"><a class="reference internal" href="select_labels.html">Select labels using machine learning</a></li>
@@ -717,7 +718,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="merging-labels-according-to-centroid-distances">
 <h1>Merging labels according to centroid-distances<a class="headerlink" href="#merging-labels-according-to-centroid-distances" title="Permalink to this heading">#</a></h1>
-<p>In this notebook we will merge labels in a label image according to their distances to each other. Labels close-by will be merged.</p>
+<p>In this notebook we will merge labels in a label image according to their centroid-distances to each other. Labels close-by will be merged.</p>
 <p>See also</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://forum.image.sc/t/measure-distances-between-labels/79125">Image.sc discussion</a></p></li>
@@ -917,11 +918,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="merge_objects_using_machine_learning.html"
+       href="merging_labels_based_on_edge_to_edge_distance.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Merging objects using machine learning</p>
+        <p class="prev-next-title">Merging labels according to edge-to-edge-distances</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
