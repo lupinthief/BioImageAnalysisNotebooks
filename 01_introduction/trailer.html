@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -719,6 +719,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-segmentation">Image segmentation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measurements-and-feature-extraction">Measurements and feature extraction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-tables">Working with tables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting">Plotting</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">Descriptive statistics</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-statistics">Spatial statistics</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">Visualization</a></li>
@@ -743,10 +744,12 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">skimage.io</span> <span class="kn">import</span> <span class="n">imread</span><span class="p">,</span> <span class="n">imshow</span>
 <span class="kn">import</span> <span class="nn">pyclesperanto_prototype</span> <span class="k">as</span> <span class="nn">cle</span>
-<span class="kn">from</span> <span class="nn">cellpose</span> <span class="kn">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">io</span>
 <span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">measure</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span>
 <span class="kn">import</span> <span class="nn">apoc</span>
+<span class="kn">from</span> <span class="nn">stardist.models</span> <span class="kn">import</span> <span class="n">StarDist2D</span> 
+<span class="kn">from</span> <span class="nn">csbdeep.utils</span> <span class="kn">import</span> <span class="n">normalize</span>
 </pre></div>
 </div>
 </div>
@@ -780,7 +783,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9909e90f457c0ef059140aa402af24f8da867b93b4edebcceb2cc17958351494.png" src="../_images/9909e90f457c0ef059140aa402af24f8da867b93b4edebcceb2cc17958351494.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>_imshow.py (46): The imshow parameter color_map is deprecated. Use colormap instead.
+</pre></div>
+</div>
+<img alt="../_images/2adebb30489298c565207a8129bda13f8ea8e7aa0991c5382fb4d4247ed47cff.png" src="../_images/2adebb30489298c565207a8129bda13f8ea8e7aa0991c5382fb4d4247ed47cff.png" />
 </div>
 </div>
 <p>We often don’t work on the whole image to setup image analysis routines, we instead crop out interesting regions to concentrate on.</p>
@@ -793,7 +799,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/407e705f8302ed8a08a27f9e322d1971d8f2488c0461ab6825806654c22e529d.png" src="../_images/407e705f8302ed8a08a27f9e322d1971d8f2488c0461ab6825806654c22e529d.png" />
+<img alt="../_images/9a4b34dbefe733771eab80e9b1894fc5ac8af06aac1c2d206e6d56f1834b6b64.png" src="../_images/9a4b34dbefe733771eab80e9b1894fc5ac8af06aac1c2d206e6d56f1834b6b64.png" />
 </div>
 </div>
 </section>
@@ -803,14 +809,14 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># subtract background using a top-hat filter</span>
-<span class="n">background_subtracted_image</span> <span class="o">=</span> <span class="n">cle</span><span class="o">.</span><span class="n">top_hat_box</span><span class="p">(</span><span class="n">cropped_image</span><span class="p">,</span> <span class="n">radius_x</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">radius_y</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">background_subtracted_image</span> <span class="o">=</span> <span class="n">cle</span><span class="o">.</span><span class="n">top_hat_box</span><span class="p">(</span><span class="n">cropped_image</span><span class="p">,</span> <span class="n">radius_x</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">radius_y</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 
 <span class="n">cle</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">background_subtracted_image</span><span class="p">,</span> <span class="n">color_map</span><span class="o">=</span><span class="s1">&#39;Greys_r&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3c784dae7887f1e5565ed16a0b57c4e9bb2f389cb0201b76b23cddda7653aeee.png" src="../_images/3c784dae7887f1e5565ed16a0b57c4e9bb2f389cb0201b76b23cddda7653aeee.png" />
+<img alt="../_images/da71a197ee4309368fd87ac94570594d695794d195bd43bf953c722e0161d0ff.png" src="../_images/da71a197ee4309368fd87ac94570594d695794d195bd43bf953c722e0161d0ff.png" />
 </div>
 </div>
 </section>
@@ -819,12 +825,13 @@ document.write(`
 <p>For segmenting the nuclei in the given image, a huge number of algorithms exist. Modern approaches of deep-learning are gaining more and more attention because once trained, deep-learning based models are very easy to use. For example, there are models for segmenting nuclei using the <a class="reference external" href="https://cellpose.readthedocs.io/">CellPose</a> algorithm. It will result in a label image visualizing all nuclei in different colors.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load cellpose model</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Cellpose</span><span class="p">(</span><span class="n">gpu</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">model_type</span><span class="o">=</span><span class="s1">&#39;nuclei&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># creates a pretrained model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">StarDist2D</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="s1">&#39;2D_versatile_fluo&#39;</span><span class="p">)</span>
 
-<span class="c1"># apply model</span>
-<span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># This means we are processing single channel greyscale images.</span>
-<span class="n">label_image</span><span class="p">,</span> <span class="n">flows</span><span class="p">,</span> <span class="n">styles</span><span class="p">,</span> <span class="n">diams</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="n">cropped_image</span><span class="p">,</span> <span class="n">diameter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="n">channels</span><span class="p">)</span>
+<span class="n">axis_norm</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">normalized_image</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">background_subtracted_image</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mf">99.8</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis_norm</span><span class="p">)</span>
+
+<span class="n">label_image</span><span class="p">,</span> <span class="n">details</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_instances</span><span class="p">(</span><span class="n">normalized_image</span><span class="p">)</span>
 
 <span class="c1"># show result</span>
 <span class="n">cle</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">label_image</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -832,7 +839,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9d6d7ff959b0d2b7022108b956b1a4d3eec56ddef00a37f0370676188858d6d0.png" src="../_images/9d6d7ff959b0d2b7022108b956b1a4d3eec56ddef00a37f0370676188858d6d0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Found model &#39;2D_versatile_fluo&#39; for &#39;StarDist2D&#39;.
+Loading network weights from &#39;weights_best.h5&#39;.
+Loading thresholds from &#39;thresholds.json&#39;.
+Using default values: prob_thresh=0.479071, nms_thresh=0.3.
+1/1 [==============================] - 0s 227ms/step
+</pre></div>
+</div>
+<img alt="../_images/5407b05064427a3e46b67a33b7229f70cf83f30b617e9af715236d05fdf79af6.png" src="../_images/5407b05064427a3e46b67a33b7229f70cf83f30b617e9af715236d05fdf79af6.png" />
 </div>
 </div>
 </section>
@@ -843,7 +857,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">statistics</span> <span class="o">=</span> <span class="n">measure</span><span class="o">.</span><span class="n">regionprops_table</span><span class="p">(</span><span class="n">label_image</span><span class="p">,</span> 
                                        <span class="n">intensity_image</span><span class="o">=</span><span class="n">cropped_image</span><span class="p">,</span>
-                                       <span class="n">properties</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="s1">&#39;mean_intensity&#39;</span><span class="p">))</span>
+                                       <span class="n">properties</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="s1">&#39;mean_intensity&#39;</span><span class="p">,</span> <span class="s1">&#39;major_axis_length&#39;</span><span class="p">,</span> <span class="s1">&#39;minor_axis_length&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -881,68 +895,237 @@ document.write(`
       <th></th>
       <th>area</th>
       <th>mean_intensity</th>
+      <th>major_axis_length</th>
+      <th>minor_axis_length</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>364</td>
-      <td>35866.392857</td>
+      <td>594.0</td>
+      <td>40572.809764</td>
+      <td>28.611591</td>
+      <td>26.537947</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>891</td>
-      <td>33722.372615</td>
+      <td>645.0</td>
+      <td>43764.872868</td>
+      <td>33.511511</td>
+      <td>24.566916</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>356</td>
-      <td>24384.025281</td>
+      <td>1105.0</td>
+      <td>51970.561991</td>
+      <td>45.232031</td>
+      <td>31.456308</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>898</td>
-      <td>37399.743875</td>
+      <td>718.0</td>
+      <td>47015.487465</td>
+      <td>31.023274</td>
+      <td>29.520883</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>822</td>
-      <td>35182.845499</td>
+      <td>791.0</td>
+      <td>49132.515803</td>
+      <td>36.382253</td>
+      <td>27.718301</td>
     </tr>
     <tr>
       <th>...</th>
       <td>...</td>
       <td>...</td>
+      <td>...</td>
+      <td>...</td>
     </tr>
     <tr>
-      <th>94</th>
-      <td>981</td>
-      <td>46618.353721</td>
+      <th>105</th>
+      <td>238.0</td>
+      <td>30477.126050</td>
+      <td>20.252197</td>
+      <td>15.276536</td>
     </tr>
     <tr>
-      <th>95</th>
-      <td>718</td>
-      <td>42108.785515</td>
+      <th>106</th>
+      <td>615.0</td>
+      <td>32886.154472</td>
+      <td>41.030760</td>
+      <td>19.874280</td>
     </tr>
     <tr>
-      <th>96</th>
-      <td>620</td>
-      <td>43798.804839</td>
+      <th>107</th>
+      <td>110.0</td>
+      <td>33042.445455</td>
+      <td>14.366347</td>
+      <td>9.945911</td>
     </tr>
     <tr>
-      <th>97</th>
-      <td>641</td>
-      <td>47469.379095</td>
+      <th>108</th>
+      <td>222.0</td>
+      <td>43304.180180</td>
+      <td>25.370549</td>
+      <td>11.637599</td>
     </tr>
     <tr>
-      <th>98</th>
-      <td>216</td>
-      <td>43791.847222</td>
+      <th>109</th>
+      <td>167.0</td>
+      <td>43378.808383</td>
+      <td>17.895110</td>
+      <td>13.015369</td>
     </tr>
   </tbody>
 </table>
-<p>99 rows × 2 columns</p>
+<p>110 rows × 4 columns</p>
 </div></div></div>
+</div>
+<p>We can use existing table columns to compute other measurements, such as the <code class="docutils literal notranslate"><span class="pre">aspect_ratio</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;aspect_ratio&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;major_axis_length&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">dataframe</span><span class="p">[</span><span class="s1">&#39;minor_axis_length&#39;</span><span class="p">]</span>
+<span class="n">dataframe</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>area</th>
+      <th>mean_intensity</th>
+      <th>major_axis_length</th>
+      <th>minor_axis_length</th>
+      <th>aspect_ratio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>594.0</td>
+      <td>40572.809764</td>
+      <td>28.611591</td>
+      <td>26.537947</td>
+      <td>1.078139</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>645.0</td>
+      <td>43764.872868</td>
+      <td>33.511511</td>
+      <td>24.566916</td>
+      <td>1.364091</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1105.0</td>
+      <td>51970.561991</td>
+      <td>45.232031</td>
+      <td>31.456308</td>
+      <td>1.437932</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>718.0</td>
+      <td>47015.487465</td>
+      <td>31.023274</td>
+      <td>29.520883</td>
+      <td>1.050892</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>791.0</td>
+      <td>49132.515803</td>
+      <td>36.382253</td>
+      <td>27.718301</td>
+      <td>1.312572</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>105</th>
+      <td>238.0</td>
+      <td>30477.126050</td>
+      <td>20.252197</td>
+      <td>15.276536</td>
+      <td>1.325706</td>
+    </tr>
+    <tr>
+      <th>106</th>
+      <td>615.0</td>
+      <td>32886.154472</td>
+      <td>41.030760</td>
+      <td>19.874280</td>
+      <td>2.064516</td>
+    </tr>
+    <tr>
+      <th>107</th>
+      <td>110.0</td>
+      <td>33042.445455</td>
+      <td>14.366347</td>
+      <td>9.945911</td>
+      <td>1.444448</td>
+    </tr>
+    <tr>
+      <th>108</th>
+      <td>222.0</td>
+      <td>43304.180180</td>
+      <td>25.370549</td>
+      <td>11.637599</td>
+      <td>2.180050</td>
+    </tr>
+    <tr>
+      <th>109</th>
+      <td>167.0</td>
+      <td>43378.808383</td>
+      <td>17.895110</td>
+      <td>13.015369</td>
+      <td>1.374921</td>
+    </tr>
+  </tbody>
+</table>
+<p>110 rows × 5 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="plotting">
+<h2>Plotting<a class="headerlink" href="#plotting" title="Permalink to this heading">#</a></h2>
+<p>Measurements can be visualized using plots.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seaborn</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;aspect_ratio&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;mean_intensity&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot: xlabel=&#39;area&#39;, ylabel=&#39;aspect_ratio&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/b37296678b922ca681f8417a55e7f078f7bc3e5d0b128ee2a98e8274f6e930fc.png" src="../_images/b37296678b922ca681f8417a55e7f078f7bc3e5d0b128ee2a98e8274f6e930fc.png" />
+</div>
 </div>
 </section>
 <section id="descriptive-statistics">
@@ -958,7 +1141,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean nucleus area is 625.9191919191919 +- 241.2726223974426 pixels
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean nucleus area is 612.1636363636363 +- 253.5312255207425 pixels
 </pre></div>
 </div>
 </div>
@@ -971,7 +1154,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">distance_mesh</span> <span class="o">=</span> <span class="n">cle</span><span class="o">.</span><span class="n">draw_distance_mesh_between_proximal_labels</span><span class="p">(</span>
                     <span class="n">label_image</span><span class="p">,</span> 
-                    <span class="n">maximum_distance</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+                    <span class="n">maximum_distance</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
 
 <span class="c1"># for visualization purposes we make the lines a bit thicker</span>
 <span class="n">distance_mesh</span> <span class="o">=</span> <span class="n">cle</span><span class="o">.</span><span class="n">maximum_box</span><span class="p">(</span><span class="n">distance_mesh</span><span class="p">,</span> <span class="n">radius_x</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">radius_y</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -983,7 +1166,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9d7abdd13b87cbf69173a3f6cd7b4dedb6bab2126c2844190f9b253626a1716b.png" src="../_images/9d7abdd13b87cbf69173a3f6cd7b4dedb6bab2126c2844190f9b253626a1716b.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>_imshow.py (46): The imshow parameter color_map is deprecated. Use colormap instead.
+</pre></div>
+</div>
+<img alt="../_images/8d0e4fe51be4876a26ac8be105f9cee8f5b923a5da418824d1debd6bbd285af2.png" src="../_images/8d0e4fe51be4876a26ac8be105f9cee8f5b923a5da418824d1debd6bbd285af2.png" />
 </div>
 </div>
 </section>
@@ -1004,7 +1190,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/09beda0941beb9ad4f01cfeb2306a232d8cd32ce3536041317d48ba15555eccf.png" src="../_images/09beda0941beb9ad4f01cfeb2306a232d8cd32ce3536041317d48ba15555eccf.png" />
+<img alt="../_images/6059667857f916cc2602abb057f2e00120fba830818c562016d3c768054291f3.png" src="../_images/6059667857f916cc2602abb057f2e00120fba830818c562016d3c768054291f3.png" />
 </div>
 </div>
 <p>We can also take measurements from the table above and create a visualization where we see those values color-coded.</p>
@@ -1019,7 +1205,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 364, 891, 356, 898, 822, 1087, 640, 283, 554, 1173, 701, 888, 665, 1381, 704, 824, 406, 248, 270, 716, 726, 596, 146, 677, 119, 423, 642, 939, 853, 822, 545, 523, 657, 551, 656, 598, 159, 686, 641, 904, 480, 55, 1076, 783, 471, 676, 556, 553, 315, 767, 317, 591, 583, 675, 678, 459, 764, 836, 841, 783, 958, 681, 761, 190, 812, 396, 401, 706, 686, 259, 407, 882, 674, 535, 428, 582, 661, 665, 643, 681, 765, 454, 707, 655, 377, 156, 1111, 689, 646, 633, 482, 553, 841, 720, 981, 718, 620, 641, 216]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 594.0, 645.0, 1105.0, 718.0, 791.0, 598.0, 719.0, 620.0, 706.0, 863.0, 541.0, 586.0, 919.0, 688.0, 551.0, 602.0, 730.0, 798.0, 739.0, 694.0, 941.0, 483.0, 658.0, 916.0, 741.0, 418.0, 663.0, 741.0, 845.0, 532.0, 712.0, 883.0, 642.0, 1089.0, 647.0, 683.0, 556.0, 560.0, 509.0, 461.0, 671.0, 1068.0, 704.0, 714.0, 213.0, 955.0, 526.0, 725.0, 765.0, 850.0, 696.0, 1034.0, 556.0, 394.0, 423.0, 573.0, 688.0, 748.0, 291.0, 888.0, 651.0, 487.0, 1107.0, 493.0, 985.0, 724.0, 861.0, 845.0, 258.0, 391.0, 339.0, 957.0, 403.0, 782.0, 236.0, 774.0, 686.0, 843.0, 712.0, 492.0, 199.0, 327.0, 567.0, 1482.0, 757.0, 417.0, 921.0, 73.0, 401.0, 237.0, 114.0, 774.0, 259.0, 581.0, 463.0, 338.0, 288.0, 266.0, 291.0, 653.0, 648.0, 167.0, 500.0, 393.0, 475.0, 238.0, 615.0, 110.0, 222.0, 167.0]
 </pre></div>
 </div>
 </div>
@@ -1033,7 +1219,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/858dbd17c197f15cd967092798b87095be00f41e3b68dad871cdb7650970e4e0.png" src="../_images/858dbd17c197f15cd967092798b87095be00f41e3b68dad871cdb7650970e4e0.png" />
+<img alt="../_images/b72c8c5b0138dc4c5c179d37d166cf986bc7121acd09748ef54280ffa89dcc6e.png" src="../_images/b72c8c5b0138dc4c5c179d37d166cf986bc7121acd09748ef54280ffa89dcc6e.png" />
 </div>
 </div>
 </section>
@@ -1050,7 +1236,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4581b110e5eede1f3af1292ce852742d6b2902431acc9013eba3c8e0d4aafb86.png" src="../_images/4581b110e5eede1f3af1292ce852742d6b2902431acc9013eba3c8e0d4aafb86.png" />
+<img alt="../_images/66ce4a1d96ea0330086d87df2b97183134c1bd1f7b2c01086f5cd1eafb474a2f.png" src="../_images/66ce4a1d96ea0330086d87df2b97183134c1bd1f7b2c01086f5cd1eafb474a2f.png" />
 </div>
 </div>
 </section>
@@ -1082,7 +1268,10 @@ document.write(`
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../intro.html"
@@ -1102,7 +1291,10 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -1122,6 +1314,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-segmentation">Image segmentation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measurements-and-feature-extraction">Measurements and feature extraction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-tables">Working with tables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting">Plotting</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descriptive-statistics">Descriptive statistics</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-statistics">Spatial statistics</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization">Visualization</a></li>
@@ -1134,7 +1327,7 @@ document.write(`
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -1164,7 +1357,7 @@ Copyright: Licensed <a href="https://creativecommons.org/licenses/by/4.0/" targe
 </div>
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -1173,8 +1366,8 @@ Copyright: Licensed <a href="https://creativecommons.org/licenses/by/4.0/" targe
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>
