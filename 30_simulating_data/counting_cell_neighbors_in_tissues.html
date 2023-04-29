@@ -61,6 +61,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '30_simulating_data/counting_cell_neighbors_in_tissues';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Advanced python programming" href="../03_advanced_python/readme.html" />
+    <link rel="prev" title="Simulation of image formation + image restoration" href="basic_simulation_noise_background_nuclei.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en">
   </head>
@@ -286,7 +288,7 @@ const thebe_selector_output = ".output, .cell_output"
                     </li>
                 
 
-                    <li class="nav-item">
+                    <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="readme.html">
                         Simulating data
                       </a>
@@ -615,7 +617,7 @@ const thebe_selector_output = ".output, .cell_output"
                     </li>
                 
 
-                    <li class="nav-item">
+                    <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="readme.html">
                         Simulating data
                       </a>
@@ -830,8 +832,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../12_image_analysis_basics/readme.html">Image analysis basics</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../12_image_analysis_basics/01_Images_as_arrays.html">Images are lists of numbers: Numpy arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12_image_analysis_basics/01_Images_as_arrays.html">Images are arrays of numbers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../12_image_analysis_basics/02_Opening_visualizing_images.html">Working with images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../12_image_analysis_basics/brightness_and_contrast.html">Brightness and Contrast</a></li>
+
 <li class="toctree-l2"><a class="reference internal" href="../12_image_analysis_basics/03_Computing_with_images.html">Computing with images</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../12_image_analysis_basics/04_Cropping_images.html">Cropping images</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../12_image_analysis_basics/05_Masking_images.html">Indexing numpy arrays</a></li>
@@ -861,7 +865,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../18_image_filtering/readme.html">Image filtering</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../18_image_filtering/01_Filtering.html">Filtering images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../18_image_filtering/image_filtering.html">Image Processing Filters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../18_image_filtering/convolution.html">Convolution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../18_image_filtering/02_noise_removal.html">Noise removal filters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../18_image_filtering/03_background_removal.html">Background removal filters</a></li>
@@ -896,9 +900,10 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../20_image_segmentation/readme.html">Image segmentation</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../20_image_segmentation/06_Introduction_to_image_segmentation.html">Image segmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../20_image_segmentation/terminology.html">Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../20_image_segmentation/binarization.html">Image Binarization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../20_image_segmentation/07_Thresholding.html">Thresholding</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../20_image_segmentation/08_binary_mask_refinement.html">Binary mask refinement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../20_image_segmentation/08a_split_touching_objects.html">Split touching objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../20_image_segmentation/09_connected_component_labeling.html">Label images</a></li>
 
@@ -925,6 +930,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../20h_segmentation_post_processing/readme.html">Segmentation post-processing</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../20h_segmentation_post_processing/morphological_operations.html">Post-processing binary images using morphological operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../20h_segmentation_post_processing/open_close_labels.html">Label image refinement</a></li>
 
 
@@ -942,6 +948,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../20h_segmentation_post_processing/select_labels_based_on_size.html">Select labels based on their size</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../20h_segmentation_post_processing/select_labels.html">Select labels using machine learning</a></li>
 
+<li class="toctree-l2"><a class="reference internal" href="../20h_segmentation_post_processing/identify_labels_touching_background.html">Identifying labels which touch the background</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../20h_segmentation_post_processing/sequential_labeling.html">Sequential object (re-)labeling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../20h_segmentation_post_processing/inner_and_outer_cell_borders.html">Inner and outer cell borders</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../20h_segmentation_post_processing/refine_cell_segmentation.html">Post-processing for membrane-based cell segmentation</a></li>
@@ -970,7 +977,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Quantitative analysis</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../22_feature_extraction/readme.html">Feature extraction</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../22_feature_extraction/quantitative_measurements.html">Quantitative image analysis</a></li>
 
@@ -1032,7 +1039,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../29_algorithm_validation/quantiative_comparison.html">Quantitative labeling comparison</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="readme.html">Simulating data</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="readme.html">Simulating data</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="basic_simulation_noise_background_nuclei.html">Simulation of image formation + image restoration</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Counting cell neighbors in tissues</a></li>
 </ul>
 </li>
 </ul>
@@ -1993,6 +2002,20 @@ title="Print to PDF"
             <footer class="bd-footer-article">
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+  <a class='left-prev' id="prev-link" href="basic_simulation_noise_background_nuclei.html" title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+          <p class="prev-next-subtitle">previous</p>
+          <p class="prev-next-title">Simulation of image formation + image restoration</p>
+      </div>
+  </a>
+  <a class='right-next' id="next-link" href="../03_advanced_python/readme.html" title="next page">
+  <div class="prev-next-info">
+      <p class="prev-next-subtitle">next</p>
+      <p class="prev-next-title">Advanced python programming</p>
+  </div>
+  <i class="fa-solid fa-angle-right"></i>
+  </a>
 </div>
             </footer>
             

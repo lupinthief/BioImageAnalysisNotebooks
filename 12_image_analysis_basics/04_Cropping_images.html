@@ -832,8 +832,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="readme.html">Image analysis basics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01_Images_as_arrays.html">Images are lists of numbers: Numpy arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_Images_as_arrays.html">Images are arrays of numbers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_Opening_visualizing_images.html">Working with images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="brightness_and_contrast.html">Brightness and Contrast</a></li>
+
 <li class="toctree-l2"><a class="reference internal" href="03_Computing_with_images.html">Computing with images</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Cropping images</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05_Masking_images.html">Indexing numpy arrays</a></li>
@@ -863,7 +865,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../18_image_filtering/readme.html">Image filtering</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../18_image_filtering/01_Filtering.html">Filtering images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../18_image_filtering/image_filtering.html">Image Processing Filters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../18_image_filtering/convolution.html">Convolution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../18_image_filtering/02_noise_removal.html">Noise removal filters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../18_image_filtering/03_background_removal.html">Background removal filters</a></li>
@@ -898,9 +900,10 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../20_image_segmentation/readme.html">Image segmentation</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../20_image_segmentation/06_Introduction_to_image_segmentation.html">Image segmentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../20_image_segmentation/terminology.html">Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../20_image_segmentation/binarization.html">Image Binarization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../20_image_segmentation/07_Thresholding.html">Thresholding</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../20_image_segmentation/08_binary_mask_refinement.html">Binary mask refinement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../20_image_segmentation/08a_split_touching_objects.html">Split touching objects</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../20_image_segmentation/09_connected_component_labeling.html">Label images</a></li>
 
@@ -927,6 +930,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../20h_segmentation_post_processing/readme.html">Segmentation post-processing</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../20h_segmentation_post_processing/morphological_operations.html">Post-processing binary images using morphological operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../20h_segmentation_post_processing/open_close_labels.html">Label image refinement</a></li>
 
 
@@ -944,6 +948,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../20h_segmentation_post_processing/select_labels_based_on_size.html">Select labels based on their size</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../20h_segmentation_post_processing/select_labels.html">Select labels using machine learning</a></li>
 
+<li class="toctree-l2"><a class="reference internal" href="../20h_segmentation_post_processing/identify_labels_touching_background.html">Identifying labels which touch the background</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../20h_segmentation_post_processing/sequential_labeling.html">Sequential object (re-)labeling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../20h_segmentation_post_processing/inner_and_outer_cell_borders.html">Inner and outer cell borders</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../20h_segmentation_post_processing/refine_cell_segmentation.html">Post-processing for membrane-based cell segmentation</a></li>
@@ -1034,7 +1039,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../29_algorithm_validation/quantiative_comparison.html">Quantitative labeling comparison</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../30_simulating_data/readme.html">Simulating data</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../30_simulating_data/readme.html">Simulating data</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../30_simulating_data/basic_simulation_noise_background_nuclei.html">Simulation of image formation + image restoration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../30_simulating_data/counting_cell_neighbors_in_tissues.html">Counting cell neighbors in tissues</a></li>
 </ul>
 </li>
 </ul>
@@ -1356,7 +1363,6 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage.io</span> <span class="kn">import</span> <span class="n">imread</span><span class="p">,</span> <span class="n">imshow</span>
-<span class="kn">from</span> <span class="nn">microfilm.microplot</span> <span class="kn">import</span> <span class="n">microshow</span>
 </pre></div>
 </div>
 </div>
@@ -1384,12 +1390,15 @@ title="Print to PDF"
 <p>Recap: Visualization using <code class="docutils literal notranslate"><span class="pre">imshow</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">microshow</span><span class="p">(</span><span class="n">image</span><span class="p">);</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/86f9061a06b2f20b3ed3ddd41075e98754f485f36a8cd0d44daae4545e43ad8f.png" src="../_images/86f9061a06b2f20b3ed3ddd41075e98754f485f36a8cd0d44daae4545e43ad8f.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x2448a01e9d0&gt;
+</pre></div>
+</div>
+<img alt="../_images/9a8c839dc0acff2ba809f86a23468055d8bdd1640593ff51f6da4c23eaeaaa5e.png" src="../_images/9a8c839dc0acff2ba809f86a23468055d8bdd1640593ff51f6da4c23eaeaaa5e.png" />
 </div>
 </div>
 <p>Cropping images works exactly like cropping lists and tuples, by using indices to specify the range of elements to use:</p>
@@ -1397,12 +1406,12 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cropped_image1</span> <span class="o">=</span> <span class="n">image</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">128</span><span class="p">]</span>
 
-<span class="n">microshow</span><span class="p">(</span><span class="n">cropped_image1</span><span class="p">);</span>
+<span class="n">imshow</span><span class="p">(</span><span class="n">cropped_image1</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/27be97b137b2dce30383667fdd64d86234a697631c7c41f39586bc2dac2d29e5.png" src="../_images/27be97b137b2dce30383667fdd64d86234a697631c7c41f39586bc2dac2d29e5.png" />
+<img alt="../_images/166eed5c1c0ee8fe248cd58b80a3ba6890fe8f13143de5e8c646a1a7a0ab4b6e.png" src="../_images/166eed5c1c0ee8fe248cd58b80a3ba6890fe8f13143de5e8c646a1a7a0ab4b6e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1417,12 +1426,12 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cropped_image2</span> <span class="o">=</span> <span class="n">image</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">:]</span>
 
-<span class="n">microshow</span><span class="p">(</span><span class="n">cropped_image2</span><span class="p">);</span>
+<span class="n">imshow</span><span class="p">(</span><span class="n">cropped_image2</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4c135bf74d4af68a91573786f42faf6067989d808a651f159fdc8ef93e4ec527.png" src="../_images/4c135bf74d4af68a91573786f42faf6067989d808a651f159fdc8ef93e4ec527.png" />
+<img alt="../_images/6984d54e12d0cfc03d33deacd59308e9501822d4506d7273fd2bebfca85d82e3.png" src="../_images/6984d54e12d0cfc03d33deacd59308e9501822d4506d7273fd2bebfca85d82e3.png" />
 </div>
 </div>
 <section id="sub-sampling-images">
@@ -1432,12 +1441,12 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sampled_image</span> <span class="o">=</span> <span class="n">image</span><span class="p">[::</span><span class="mi">5</span><span class="p">,</span> <span class="p">::</span><span class="mi">5</span><span class="p">]</span>
 
-<span class="n">microshow</span><span class="p">(</span><span class="n">sampled_image</span><span class="p">);</span>
+<span class="n">imshow</span><span class="p">(</span><span class="n">sampled_image</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d506d9c0da4555aae39431d5548ff3928be380b203087f1ce33808488e517f7d.png" src="../_images/d506d9c0da4555aae39431d5548ff3928be380b203087f1ce33808488e517f7d.png" />
+<img alt="../_images/9acacd83d855db9ff4df52fe458641d10f4ceb657e208677466e538cfd68ad56.png" src="../_images/9acacd83d855db9ff4df52fe458641d10f4ceb657e208677466e538cfd68ad56.png" />
 </div>
 </div>
 </section>
@@ -1448,12 +1457,12 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flipped_image</span> <span class="o">=</span> <span class="n">image</span><span class="p">[::,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
-<span class="n">microshow</span><span class="p">(</span><span class="n">flipped_image</span><span class="p">);</span>
+<span class="n">imshow</span><span class="p">(</span><span class="n">flipped_image</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/cb56f30ebca2f88ab6b6fa413208234edb4229be1e438e180c00d6c433fb1000.png" src="../_images/cb56f30ebca2f88ab6b6fa413208234edb4229be1e438e180c00d6c433fb1000.png" />
+<img alt="../_images/9975815040af600d91ec3649a4a64b2ef821164b2b1d7babdd7702cfab6e38c0.png" src="../_images/9975815040af600d91ec3649a4a64b2ef821164b2b1d7babdd7702cfab6e38c0.png" />
 </div>
 </div>
 </section>
