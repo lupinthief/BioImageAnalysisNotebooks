@@ -1548,7 +1548,7 @@ Bead 3 at position 125.43960571289062 35.972496032714844 23.39095115661621
 </div>
 </div>
 </div>
-<p>After we determined a well centered PSF, we can save it for later re-use. Before doing that, we normalize the PSF. Goal is to have an image where the total intensity is <code class="docutils literal notranslate"><span class="pre">1</span></code>. This makes sure that an image that is deconvolvolution using this PSF later on does not modify the image’s intensity range.</p>
+<p>After we determined a well centered PSF, we can save it for later re-use. Before doing that, we normalize the PSF. Goal is to have an image where the total intensity is <code class="docutils literal notranslate"><span class="pre">1</span></code>. This makes sure that an image that is deconvolved using this PSF later on does not modify the image’s intensity range.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">normalized_psf</span> <span class="o">=</span> <span class="n">avg_psf_image</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">avg_psf_image</span><span class="p">)</span>
