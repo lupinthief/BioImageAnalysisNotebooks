@@ -445,6 +445,10 @@ const thebe_selector_output = ".output, .cell_output"
   
 
   
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
+  
 
 </div>
   </nav>
@@ -1109,6 +1113,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="readme.html">Prompt engineering</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-27"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01_prompting.html">Prompting chatGPT</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Generating images using DALL-E</a></li>
+
 <li class="toctree-l2"><a class="reference internal" href="03_generating_code.html">Generating code</a></li>
 </ul>
 </li>
@@ -1329,7 +1334,9 @@ title="Print to PDF"
       
   </ul>
 </div>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary" data-toggle="tooltip" data-placement="left" title="Toggle secondary sidebar">
+            <span class="fa-solid fa-list"></span>
+        </label>
     </div>
 </div>
             </div>
@@ -1342,6 +1349,24 @@ title="Print to PDF"
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Generating images using DALL-E
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -1359,6 +1384,8 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">openai</span>
 <span class="kn">from</span> <span class="nn">skimage.io</span> <span class="kn">import</span> <span class="n">imread</span><span class="p">,</span> <span class="n">imshow</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">random</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 
 <span class="k">def</span> <span class="nf">prompt_image</span><span class="p">(</span><span class="n">message</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">512</span><span class="p">):</span>
     <span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
@@ -1368,31 +1395,13 @@ title="Print to PDF"
     <span class="p">)</span>
     <span class="n">image_url</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;url&#39;</span><span class="p">]</span>
     <span class="n">image</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="n">image_url</span><span class="p">)</span>
+    
     <span class="k">return</span> <span class="n">image</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span> <span class="o">=</span> <span class="n">prompt_image</span><span class="p">(</span><span class="s1">&#39;a black white cat&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1d68d92cb20&gt;
-</pre></div>
-</div>
-<img alt="../_images/960067ba29b59917a8c8c56e5ebe64a867e15b925019f57cbbfdbf05d7aaee14.png" src="../_images/960067ba29b59917a8c8c56e5ebe64a867e15b925019f57cbbfdbf05d7aaee14.png" />
-</div>
-</div>
+<p>When generating scientific images, they may, or may not be a proper representation. Presumably, DALL-E was trained on many natural images (showing cars, trees, houses, etc.) and not so many images of cells.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nuclei</span> <span class="o">=</span> <span class="n">prompt_image</span><span class="p">(</span><span class="s1">&#39;an image of 100 nuclei in a fluorescence microscopy image&#39;</span><span class="p">)</span>
@@ -1401,12 +1410,13 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1d68da5a4c0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1fbf59d58b0&gt;
 </pre></div>
 </div>
-<img alt="../_images/b77ef5b382845e4e956aafa8bc72a7c4f012308129f8bee40c61ecd520af5891.png" src="../_images/b77ef5b382845e4e956aafa8bc72a7c4f012308129f8bee40c61ecd520af5891.png" />
+<img alt="../_images/378cbc930a92b9a34270191d5a7d274b40925d361837e379338e1eed0dfd2eeb.png" src="../_images/378cbc930a92b9a34270191d5a7d274b40925d361837e379338e1eed0dfd2eeb.png" />
 </div>
 </div>
+<p>Maybe, generating images of histological slices is more promising.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">histology</span> <span class="o">=</span> <span class="n">prompt_image</span><span class="p">(</span><span class="s1">&#39;a histology image of lung cancer cells and some healthy tissue&#39;</span><span class="p">)</span>
@@ -1415,10 +1425,61 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1d68dc7dfa0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1fbf5a18940&gt;
 </pre></div>
 </div>
-<img alt="../_images/7b0ec88beb53487ee63b0b19e89f587b6be153831777a82470bbe50e53ae0090.png" src="../_images/7b0ec88beb53487ee63b0b19e89f587b6be153831777a82470bbe50e53ae0090.png" />
+<img alt="../_images/eb9775ae8d1f20fbb59d59338ced3350e40dd5548933c93ea22992f55a7c5a04.png" src="../_images/eb9775ae8d1f20fbb59d59338ced3350e40dd5548933c93ea22992f55a7c5a04.png" />
+</div>
+</div>
+</section>
+<section id="exercise">
+<h1>Exercise<a class="headerlink" href="#exercise" title="Permalink to this heading">#</a></h1>
+<p>Evaluating generated images is an active research field. One approach is to present readers real images and generated images asking them to identify which are real. In the following list of four images of cats sitting next to microscopes, one cat is real. Which one? Why?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">images</span> <span class="o">=</span> <span class="p">[</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;../../data/real_cat.png&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat_microscope_prompt</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Image of a cat sitting behind a microscope.</span>
+<span class="s2">Both are on a brown floor in front of a white wall.</span>
+<span class="s2">The cat is mostly white and has some black dots.</span>
+<span class="s2">The cat sits straight.</span>
+<span class="s2">The cat is a bit larger than the microsope.</span>
+<span class="s2">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">images</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prompt_image</span><span class="p">(</span><span class="n">cat_microscope_prompt</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fix</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">images</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">image</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">images</span><span class="p">):</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/e67d358a8e773eecd2fb65ca585208361f020752dbe904ac1454d0037841350b.png" src="../_images/e67d358a8e773eecd2fb65ca585208361f020752dbe904ac1454d0037841350b.png" />
 </div>
 </div>
 </section>
@@ -1471,6 +1532,32 @@ title="Print to PDF"
           </div>
           
           
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
+  
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Generating images using DALL-E
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
+  </a>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+            </div>
           
           
         </div>
