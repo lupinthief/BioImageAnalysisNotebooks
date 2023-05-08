@@ -1123,9 +1123,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../40_tabular_data_wrangling/introduction_dataframes.html">Introduction to working with DataFrames</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../40_tabular_data_wrangling/explore_dataset.html">Exploring tabular data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../40_tabular_data_wrangling/append_tables.html">Appending tables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../40_tabular_data_wrangling/select_rows_and_columns.html">Selecting columns</a></li>
-
+<li class="toctree-l2"><a class="reference internal" href="../40_tabular_data_wrangling/select_rows_and_columns.html">Selecting rows and columns in pandas DataFrames</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../40_tabular_data_wrangling/handling_NaNs.html">Handling NaN values</a></li>
+
 
 <li class="toctree-l2"><a class="reference internal" href="../40_tabular_data_wrangling/summarizing_subsets.html">Summarizing subsets of data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../40_tabular_data_wrangling/pivot_tables.html">Pivot tables</a></li>
@@ -1773,7 +1773,7 @@ title="Print to PDF"
 </section>
 <section id="prediction">
 <h2>Prediction<a class="headerlink" href="#prediction" title="Permalink to this heading">#</a></h2>
-<p>To apply a classifier to the whole dataset, or any other dataset, we need to bring the data into the same format as used for training. We can reuse the function <code class="docutils literal notranslate"><span class="pre">select_data</span></code> for that. Furthermore, we need to drop rows from our table where not-a-number (<a class="reference external" href="https://en.wikipedia.org/wiki/NaN">NaN</a>) values appeared (<a class="reference internal" href="../40_tabular_data_wrangling/handling_NaNs.html#tabular-data-wrangling-handling-nan-values"><span class="std std-ref">read more</span></a>).</p>
+<p>To apply a classifier to the whole dataset, or any other dataset, we need to bring the data into the same format as used for training. We can reuse the function <code class="docutils literal notranslate"><span class="pre">select_data</span></code> for that. Furthermore, we need to drop rows from our table where not-a-number (<a class="reference external" href="https://en.wikipedia.org/wiki/NaN">NaN</a>) values appeared (<span class="xref myst">read more</span>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table_without_nans</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s2">&quot;any&quot;</span><span class="p">)</span>

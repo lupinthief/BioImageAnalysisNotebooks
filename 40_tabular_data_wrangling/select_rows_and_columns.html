@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Selecting columns &#8212; Bio-image Analysis Notebooks</title>
+    <title>Selecting rows and columns in pandas DataFrames &#8212; Bio-image Analysis Notebooks</title>
   
   
   
@@ -1123,9 +1123,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="introduction_dataframes.html">Introduction to working with DataFrames</a></li>
 <li class="toctree-l2"><a class="reference internal" href="explore_dataset.html">Exploring tabular data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="append_tables.html">Appending tables</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Selecting columns</a></li>
-
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Selecting rows and columns in pandas DataFrames</a></li>
 <li class="toctree-l2"><a class="reference internal" href="handling_NaNs.html">Handling NaN values</a></li>
+
 
 <li class="toctree-l2"><a class="reference internal" href="summarizing_subsets.html">Summarizing subsets of data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pivot_tables.html">Pivot tables</a></li>
@@ -1343,7 +1343,7 @@ title="Print to PDF"
             
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Selecting columns</h1>
+    <h1>Selecting rows and columns in pandas DataFrames</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -1353,12 +1353,12 @@ title="Print to PDF"
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#selecting-columns">
    Selecting columns
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#selecting-rows">
    Selecting rows
   </a>
@@ -1372,13 +1372,9 @@ title="Print to PDF"
 
             <article class="bd-article" role="main">
               
-  <div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Selecting rows and columns in pandas DataFrames</span>
-</pre></div>
-</div>
-</div>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="selecting-rows-and-columns-in-pandas-dataframes">
+<h1>Selecting rows and columns in pandas DataFrames<a class="headerlink" href="#selecting-rows-and-columns-in-pandas-dataframes" title="Permalink to this heading">#</a></h1>
+<p>Often, it makes sense to select certain columns or rows for our analysis. Lets have a look on how we can do so.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -1386,6 +1382,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>Therefore, we create a dictionary with rando values and turn it into a table</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
@@ -1465,10 +1462,12 @@ title="Print to PDF"
 </div></div></div>
 </div>
 <section id="selecting-columns">
-<h1>Selecting columns<a class="headerlink" href="#selecting-columns" title="Permalink to this heading">#</a></h1>
+<h2>Selecting columns<a class="headerlink" href="#selecting-columns" title="Permalink to this heading">#</a></h2>
+<p>Now we can select one or more columns by putting them as ‘strings’ into [square brackets]:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table</span><span class="p">[[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selected_columns</span> <span class="o">=</span> <span class="n">table</span><span class="p">[[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">]]</span>
+<span class="n">selected_columns</span>
 </pre></div>
 </div>
 </div>
@@ -1532,11 +1531,12 @@ title="Print to PDF"
 </div>
 </section>
 <section id="selecting-rows">
-<h1>Selecting rows<a class="headerlink" href="#selecting-rows" title="Permalink to this heading">#</a></h1>
+<h2>Selecting rows<a class="headerlink" href="#selecting-rows" title="Permalink to this heading">#</a></h2>
+<p>Now we are selecting rows which have in column ‘A’ a value higher than 20:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">20</span>
-<span class="n">table</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selected_rows</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">20</span>
+<span class="n">table</span><span class="p">[</span><span class="n">selected_rows</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1587,6 +1587,7 @@ title="Print to PDF"
 </table>
 </div></div></div>
 </div>
+<p>We can also shorten these two lines of code into one line. See for example here if we want to get the rows which have in column ‘A’ a value lower than 20.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table</span><span class="p">[</span><span class="n">table</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">]</span>
@@ -1640,6 +1641,7 @@ title="Print to PDF"
 </table>
 </div></div></div>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1700,12 +1702,12 @@ title="Print to PDF"
 </div>
 <nav id="bd-toc-nav" class="page-toc">
     <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#selecting-columns">
    Selecting columns
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#selecting-rows">
    Selecting rows
   </a>
