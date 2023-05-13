@@ -1115,6 +1115,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="02_generating_images.html">Generating images using DALL-E</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="03_generating_code.html">Generating code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_generating_code_for_processing_images.html">Generating code for processing images</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="05_generating_advanced_image_processing_code.html">Generating advanced image analysis code</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="20_langchain.html">Prompting tasks using LangChain</a></li>
 </ul>
 </li>
 </ul>
@@ -1360,11 +1365,13 @@ title="Print to PDF"
               
   <section class="tex2jax_ignore mathjax_ignore" id="prompt-engineering">
 <h1>Prompt engineering<a class="headerlink" href="#prompt-engineering" title="Permalink to this heading">#</a></h1>
-<p>In this chapter we will learn about prompt engineering. Prompts are used to request information or code from large language models such as from chatGPT / OpenAI. For now we will focus on this one platform.</p>
+<p>In this chapter we will learn about prompt engineering. Prompts are used to request information or code from large language models such as from chatGPT / OpenAI. We will also use <a class="reference external" href="https://github.com/hwchase17/langchain">LangChain</a> execute custom tasks.</p>
+<p>Note: Generated code is not always reproducible. I had to execute some of the notebooks in this chapter multiple times to make them show useful examples. When executing them again, you may get different results and error messages. As the output also depends on software installed on OpenAI’s remote server, these notebooks may not produce the same result ever again in the far future.</p>
 <section id="installation-instructions">
 <h2>Installation instructions<a class="headerlink" href="#installation-instructions" title="Permalink to this heading">#</a></h2>
-<p>The OpenAI API can be installed using pip.</p>
+<p>The OpenAI API and LangChain can be installed using pip.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">openai</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">langchain</span>
 </pre></div>
 </div>
 <p>In order to make it to work, you need to get a [paid] subscription to the <a class="reference external" href="https://openai.com/blog/openai-api">openAI API</a>. Note: Executing the notebooks in this chapter may cost actual money.
