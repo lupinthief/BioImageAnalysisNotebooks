@@ -445,6 +445,10 @@ const thebe_selector_output = ".output, .cell_output"
   
 
   
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
+  
 
 </div>
   </nav>
@@ -1118,6 +1122,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="05_generating_advanced_image_processing_code.html">Generating advanced image analysis code</a></li>
 
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Prompting tasks using LangChain</a></li>
+
 </ul>
 </li>
 </ul>
@@ -1337,7 +1342,9 @@ title="Print to PDF"
       
   </ul>
 </div>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary" data-toggle="tooltip" data-placement="left" title="Toggle secondary sidebar">
+            <span class="fa-solid fa-list"></span>
+        </label>
     </div>
 </div>
             </div>
@@ -1350,6 +1357,24 @@ title="Print to PDF"
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Prompting tasks using LangChain
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -1359,7 +1384,7 @@ title="Print to PDF"
   <section id="prompting-tasks-using-langchain">
 <h1>Prompting tasks using LangChain<a class="headerlink" href="#prompting-tasks-using-langchain" title="Permalink to this heading">#</a></h1>
 <p>In this notebook we demonstrate how to prompt for executing tasks using chatGPT and <a class="reference external" href="https://github.com/hwchase17/langchain">LangChain</a>. Using English language, we ask for doing something with data, and LangChain will execute the task.</p>
-<p>This example is a modified example from the <a class="reference external" href="https://python.langchain.com/en/latest/modules/agents/agents/examples/chat_conversation_agent.html">LangChang documentation</a></p>
+<p>This example is a modified example from the <a class="reference external" href="https://python.langchain.com/en/latest/modules/agents/agents/examples/chat_conversation_agent.html">LangChain documentation</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain.agents</span> <span class="kn">import</span> <span class="n">Tool</span>
@@ -1454,9 +1479,6 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Retrying langchain.chat_models.openai.ChatOpenAI.completion_with_retry.&lt;locals&gt;._completion_with_retry in 1.0 seconds as it raised RateLimitError: That model is currently overloaded with other requests. You can retry your request, or contact us through our help center at help.openai.com if the error persists. (Please include the request ID 7b468bc328ad13b324981e0ae339530b in your message.).
-</pre></div>
-</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Your name is Robert&#39;
 </pre></div>
 </div>
@@ -1488,6 +1510,10 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+</section>
+<section id="exercise">
+<h1>Exercise<a class="headerlink" href="#exercise" title="Permalink to this heading">#</a></h1>
+<p>Add a <code class="docutils literal notranslate"><span class="pre">print('Hello</span> <span class="pre">world')</span></code> to the function <code class="docutils literal notranslate"><span class="pre">reverse</span></code>, rerun the entire notebook and execue the last cell above multiple times. Is the <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">world</span></code> printed every time? If not, why?</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1538,6 +1564,32 @@ title="Print to PDF"
           </div>
           
           
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
+  
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Prompting tasks using LangChain
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
+  </a>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+            </div>
           
           
         </div>
