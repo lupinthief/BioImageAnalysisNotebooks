@@ -1384,8 +1384,7 @@ title="Print to PDF"
 </pre></div>
 </div>
 <p>Afterwards, installation can proceed using conda <em>and</em> pip:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">pyopencl</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="n">pyclesperanto</span><span class="o">-</span><span class="n">prototype</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mamba</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">l</span> <span class="n">pyclesperanto</span><span class="o">-</span><span class="n">prototype</span>
 </pre></div>
 </div>
 <p>Afterwards, you can test it for example by executing these commands in a python script or jupyter notebook:</p>
@@ -1399,8 +1398,8 @@ title="Print to PDF"
 <section id="installation-of-optional-requirements">
 <h2>Installation of optional requirements<a class="headerlink" href="#installation-of-optional-requirements" title="Permalink to this heading">#</a></h2>
 <p>In this chapter, we will also take a look at <a class="reference external" href="https://cupy.dev">cupy</a>, an <a class="reference external" href="https://en.wikipedia.org/wiki/CUDA">NVidia CUDA</a> based GPU-accelerated processing library and <a class="reference external" href="https://github.com/haesleinhuepf/napari-cupy-image-processing">napari-cupy-image-processing</a>, a scriptable napari plugin. These two can be installed using the following commands. This will however only work on computers that have a CUDA-compatible NVidia graphics card.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">cupy</span> <span class="n">cudatoolkit</span><span class="o">=</span><span class="mf">10.2</span>
-<span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">napari</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mamba</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">cupy</span> <span class="n">cudatoolkit</span><span class="o">=</span><span class="mf">10.2</span>
+<span class="n">mamba</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">napari</span>
 <span class="n">pip</span> <span class="n">install</span> <span class="n">napari</span><span class="o">-</span><span class="n">cupy</span><span class="o">-</span><span class="n">image</span><span class="o">-</span><span class="n">processing</span>
 </pre></div>
 </div>

@@ -445,6 +445,10 @@ const thebe_selector_output = ".output, .cell_output"
   
 
   
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
+  
 
 </div>
   </nav>
@@ -1328,7 +1332,9 @@ title="Print to PDF"
       
   </ul>
 </div>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary" data-toggle="tooltip" data-placement="left" title="Toggle secondary sidebar">
+            <span class="fa-solid fa-list"></span>
+        </label>
     </div>
 </div>
             </div>
@@ -1341,6 +1347,24 @@ title="Print to PDF"
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#see-also">
+   See also
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation-of-requirements">
+   Installation of requirements
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -1356,6 +1380,25 @@ title="Print to PDF"
 </a></p></li>
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=HnRcKln5amw">(Bench)mark: Pitfalls in AI Validation | Annika Reinke</a></p></li>
 </ul>
+<section id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www-users.york.ac.uk/~mb55/meas/ab83.pdf">%he Analysis of Method Comparison Studies (D.G. Altman and J.M. Bland 1983)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=PbSrSupnZFQ">Method comparison and Bland-Altman plots</a></p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/model_evaluation.html">Sklearn: Metrics and scoring</a></p></li>
+</ul>
+</section>
+<section id="installation-of-requirements">
+<h2>Installation of requirements<a class="headerlink" href="#installation-of-requirements" title="Permalink to this heading">#</a></h2>
+<p>In this chapter we will use the <a class="reference external" href="https://www.statsmodels.org/stable/index.html">statsmodels library</a> for statistical testing.
+You can install it using mamba/conda or pip:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mamba</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">statsmodels</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">statsmodels</span>
+</pre></div>
+</div>
+</section>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -1408,6 +1451,32 @@ title="Print to PDF"
           </div>
           
           
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
+  
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#see-also">
+   See also
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation-of-requirements">
+   Installation of requirements
+  </a>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+            </div>
           
           
         </div>
