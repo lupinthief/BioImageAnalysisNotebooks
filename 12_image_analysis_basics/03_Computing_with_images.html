@@ -1403,8 +1403,14 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="n">image1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 <span class="n">image1</span>
 </pre></div>
 </div>
@@ -1425,9 +1431,9 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.27194417, 0.30500551, 0.88970898, 0.74560188, 0.91738941],
-       [0.98418878, 0.2635199 , 0.25729652, 0.22427242, 0.39387982],
-       [0.59095273, 0.90222827, 0.4722848 , 0.05913885, 0.96609068]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.1389824 , 0.99979463, 0.82577042, 0.79474507, 0.23101268],
+       [0.27034647, 0.01410389, 0.20435784, 0.0721552 , 0.61984191],
+       [0.85459468, 0.58800162, 0.62462822, 0.01819988, 0.06607906]])
 </pre></div>
 </div>
 </div>
@@ -1476,9 +1482,9 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.27194417, 1.30500551, 1.88970898, 1.74560188, 1.91738941],
-       [1.98418878, 1.2635199 , 1.25729652, 1.22427242, 1.39387982],
-       [1.59095273, 1.90222827, 1.4722848 , 1.05913885, 1.96609068]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.1389824 , 1.99979463, 1.82577042, 1.79474507, 1.23101268],
+       [1.27034647, 1.01410389, 1.20435784, 1.0721552 , 1.61984191],
+       [1.85459468, 1.58800162, 1.62462822, 1.01819988, 1.06607906]])
 </pre></div>
 </div>
 </div>
@@ -1495,9 +1501,12 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.3021585 , -1.18742543, -0.11686086, -0.29356349, -0.08622324],
-       [-0.01593755, -1.3336264 , -1.35752608, -1.49489381, -0.93170945],
-       [-0.52601924, -0.10288772, -0.75017308, -2.82786728, -0.03449758]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-1.97340794e+00, -2.05388747e-04, -1.91438488e-01,
+        -2.29733884e-01, -1.46528267e+00],
+       [-1.30805091e+00, -4.26130469e+00, -1.58788269e+00,
+        -2.62893591e+00, -4.78290819e-01],
+       [-1.57127986e-01, -5.31025584e-01, -4.70598659e-01,
+        -4.00634024e+00, -2.71690330e+00]])
 </pre></div>
 </div>
 </div>
@@ -1514,7 +1523,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5495668473697417
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4215075982440046
 </pre></div>
 </div>
 </div>
@@ -1527,9 +1536,9 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.27194417, 0.30500551, 0.88970898, 0.74560188, 0.91738941],
-       [0.98418878, 0.2635199 , 0.25729652, 0.22427242, 0.39387982],
-       [0.59095273, 0.90222827, 0.4722848 , 0.05913885, 0.96609068]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.1389824 , 0.99979463, 0.82577042, 0.79474507, 0.23101268],
+       [0.27034647, 0.01410389, 0.20435784, 0.0721552 , 0.61984191],
+       [0.85459468, 0.58800162, 0.62462822, 0.01819988, 0.06607906]])
 </pre></div>
 </div>
 </div>
@@ -1542,7 +1551,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.61569523, 0.49025123, 0.53976343, 0.34300438, 0.75911997])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.42130785, 0.53396671, 0.55158549, 0.29503338, 0.30564455])
 </pre></div>
 </div>
 </div>
@@ -1556,7 +1565,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.31182981411327126
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3362691013424119
 </pre></div>
 </div>
 </div>
@@ -1569,17 +1578,32 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.31182981411327126
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3362691013424119
 </pre></div>
 </div>
 </div>
 </div>
 <p>are completely equivalent. In the latter case using the dot notation, you might hear that <code class="docutils literal notranslate"><span class="pre">std()</span></code> is a <em>method</em> of <code class="docutils literal notranslate"><span class="pre">image2</span></code>.</p>
+<p>Finally we might want to have a look at the actual distribution of pixel values.
+For this we take a look at the <a class="reference external" href="https://en.wikipedia.org/wiki/Histogram">histogram</a> of the image.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Finally</span> <span class="n">we</span> <span class="n">might</span> <span class="n">want</span> <span class="n">to</span> <span class="n">have</span> <span class="n">a</span> <span class="n">look</span> <span class="n">at</span> <span class="n">the</span> <span class="n">actual</span> <span class="n">distribution</span> <span class="n">of</span> <span class="n">pixel</span> <span class="n">values</span><span class="o">.</span> <span class="n">For</span> <span class="n">this</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number_of_bins</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">min_max</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">histogram</span><span class="p">,</span><span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">image2</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span><span class="n">number_of_bins</span><span class="p">,</span><span class="n">min_max</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">image2</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">number_of_bins</span><span class="p">,</span> <span class="n">min_max</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f1096d40d837e3fb2566f9bf2ec79e1169ddc427af6ff8d26e10e49374e021af.png" src="../_images/f1096d40d837e3fb2566f9bf2ec79e1169ddc427af6ff8d26e10e49374e021af.png" />
 </div>
 </div>
 </section>
