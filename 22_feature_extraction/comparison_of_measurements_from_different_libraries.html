@@ -995,12 +995,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="readme.html">Feature extraction</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="quantitative_measurements.html">Quantitative image analysis</a></li>
-
-
 <li class="toctree-l2"><a class="reference internal" href="count_blobs.html">Counting bright objects in images</a></li>
 <li class="toctree-l2"><a class="reference internal" href="statistics_with_pyclesperanto.html">Basic statistics with pyclesperanto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="statistics_with_scikit_image.html">Statistics using Scikit-image</a></li>
 <li class="toctree-l2"><a class="reference internal" href="statistics_with_simpleitk.html">Statistics using SimpleITK</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Comparison of measurements from different libraries</a></li>
+
 <li class="toctree-l2"><a class="reference internal" href="measure_intensity_on_label_edges.html">Measuring intensity on label borders</a></li>
 <li class="toctree-l2"><a class="reference internal" href="intensities_along_lines.html">Descriptive statistics of [many] lines in an image</a></li>
 <li class="toctree-l2"><a class="reference internal" href="shape_descriptors_based_on_neighborhood_graphs.html">Shape descriptors based on neighborhood graphs</a></li>
@@ -1362,14 +1362,26 @@ title="Print to PDF"
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#scatter-plot">
-   Scatter plot
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Comparison of measurements from different libraries
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scatter-plot">
+     Scatter plot
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bland-altman-plot">
+     Bland-Altman plot
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bland-altman-plot">
-   Bland-Altman plot
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
   </a>
  </li>
 </ul>
@@ -1383,68 +1395,382 @@ title="Print to PDF"
               
   <section class="tex2jax_ignore mathjax_ignore" id="comparison-of-measurements-from-different-libraries">
 <h1>Comparison of measurements from different libraries<a class="headerlink" href="#comparison-of-measurements-from-different-libraries" title="Permalink to this heading">#</a></h1>
+<p>We now compare the implementation of the measurement <code class="docutils literal notranslate"><span class="pre">perimeter</span></code> in <a class="reference external" href="https://github.com/haesleinhuepf/napari-skimage-regionprops">napari-skimage-regionprops</a> <code class="docutils literal notranslate"><span class="pre">regionprops_table</span></code> and <a class="reference external" href="https://github.com/haesleinhuepf/napari-simpleitk-image-processing">napari-simpleitk-image-processing</a> <code class="docutils literal notranslate"><span class="pre">label_statistics</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">skimage.io</span> <span class="kn">import</span> <span class="n">imread</span>
-<span class="kn">from</span> <span class="nn">skimage.measure</span> <span class="kn">import</span> <span class="n">regionprops</span>
 <span class="kn">from</span> <span class="nn">pyclesperanto_prototype</span> <span class="kn">import</span> <span class="n">imshow</span>
+<span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">filters</span>
+<span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">measure</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">napari_simpleitk_image_processing</span> <span class="kn">import</span> <span class="n">watershed_otsu_labeling</span>
+<span class="kn">from</span> <span class="nn">napari_skimage_regionprops</span> <span class="kn">import</span> <span class="n">regionprops_table</span>
+<span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">filters</span>
 <span class="kn">from</span> <span class="nn">napari_simpleitk_image_processing</span> <span class="kn">import</span> <span class="n">label_statistics</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\maral\mambaforge\envs\feature_blogpost\lib\site-packages\morphometrics\measure\label.py:7: TqdmExperimentalWarning: Using `tqdm.autonotebook.tqdm` in notebook mode. Use `tqdm.tqdm` instead to force console mode (e.g. in jupyter console)
+  from tqdm.autonotebook import tqdm
+</pre></div>
 </div>
+</div>
+</div>
+<p>Therefore, we need an <code class="docutils literal notranslate"><span class="pre">image</span></code> and a <code class="docutils literal notranslate"><span class="pre">label</span> <span class="pre">image</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">blobs</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="s1">&#39;../../data/blobs.tif&#39;</span><span class="p">)</span>
-<span class="n">labels</span> <span class="o">=</span> <span class="n">watershed_otsu_labeling</span><span class="p">(</span><span class="n">blobs</span><span class="p">)</span>
-<span class="n">imshow</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load image</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="s2">&quot;../../data/blobs.tif&quot;</span><span class="p">)</span>
+
+<span class="c1"># denoising</span>
+<span class="n">blurred_image</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">gaussian</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># binarization</span>
+<span class="n">threshold</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">threshold_otsu</span><span class="p">(</span><span class="n">blurred_image</span><span class="p">)</span>
+<span class="n">thresholded_image</span> <span class="o">=</span> <span class="n">blurred_image</span> <span class="o">&gt;=</span> <span class="n">threshold</span>
+
+<span class="c1"># labeling</span>
+<span class="n">label_image</span> <span class="o">=</span> <span class="n">measure</span><span class="o">.</span><span class="n">label</span><span class="p">(</span><span class="n">thresholded_image</span><span class="p">)</span>
+
+<span class="c1"># visualization</span>
+<span class="n">imshow</span><span class="p">(</span><span class="n">label_image</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/32de5d268b3ec73ee73a2a6a5a6d45a4c259bf1b0d81bdd8d6cf14df01f48b63.png" src="../_images/32de5d268b3ec73ee73a2a6a5a6d45a4c259bf1b0d81bdd8d6cf14df01f48b63.png" />
+<img alt="../_images/5257573298d6a444b6a34d09506d6cf9a10aab208bce52c927a91ea6491b20ee.png" src="../_images/5257573298d6a444b6a34d09506d6cf9a10aab208bce52c927a91ea6491b20ee.png" />
 </div>
 </div>
+<p>We derive the perimeter measurements using the <code class="docutils literal notranslate"><span class="pre">regionprops_table</span></code> function</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simpleitk_statistics</span> <span class="o">=</span> <span class="n">label_statistics</span><span class="p">(</span><span class="n">blobs</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
-<span class="n">skimage_statistics</span> <span class="o">=</span> <span class="n">regionprops</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">intensity_image</span><span class="o">=</span><span class="n">blobs</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simpleitk_statistics</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">skimage_statistics</span> <span class="o">=</span> <span class="n">regionprops_table</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">label_image</span><span class="p">,</span> <span class="n">perimeter</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">skimage_statistics</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;label&#39;, &#39;maximum&#39;, &#39;mean&#39;, &#39;median&#39;, &#39;minimum&#39;, &#39;sigma&#39;, &#39;sum&#39;, &#39;variance&#39;, &#39;bbox_0&#39;, &#39;bbox_1&#39;, &#39;bbox_2&#39;, &#39;bbox_3&#39;, &#39;centroid_0&#39;, &#39;centroid_1&#39;, &#39;elongation&#39;, &#39;feret_diameter&#39;, &#39;flatness&#39;, &#39;roundness&#39;, &#39;equivalent_ellipsoid_diameter_0&#39;, &#39;equivalent_ellipsoid_diameter_1&#39;, &#39;equivalent_spherical_perimeter&#39;, &#39;equivalent_spherical_radius&#39;, &#39;number_of_pixels&#39;, &#39;number_of_pixels_on_border&#39;, &#39;perimeter&#39;, &#39;perimeter_on_border&#39;, &#39;perimeter_on_border_ratio&#39;, &#39;principal_axes0&#39;, &#39;principal_axes1&#39;, &#39;principal_axes2&#39;, &#39;principal_axes3&#39;, &#39;principal_moments0&#39;, &#39;principal_moments1&#39;])
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>label</th>
+      <th>area</th>
+      <th>bbox_area</th>
+      <th>equivalent_diameter</th>
+      <th>convex_area</th>
+      <th>max_intensity</th>
+      <th>mean_intensity</th>
+      <th>min_intensity</th>
+      <th>perimeter</th>
+      <th>perimeter_crofton</th>
+      <th>standard_deviation_intensity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>429</td>
+      <td>750</td>
+      <td>23.371345</td>
+      <td>479</td>
+      <td>232.0</td>
+      <td>191.440559</td>
+      <td>128.0</td>
+      <td>89.012193</td>
+      <td>87.070368</td>
+      <td>29.793138</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>183</td>
+      <td>231</td>
+      <td>15.264430</td>
+      <td>190</td>
+      <td>224.0</td>
+      <td>179.846995</td>
+      <td>128.0</td>
+      <td>53.556349</td>
+      <td>53.456120</td>
+      <td>21.270534</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>658</td>
+      <td>756</td>
+      <td>28.944630</td>
+      <td>673</td>
+      <td>248.0</td>
+      <td>205.604863</td>
+      <td>120.0</td>
+      <td>95.698485</td>
+      <td>93.409370</td>
+      <td>29.392255</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>433</td>
+      <td>529</td>
+      <td>23.480049</td>
+      <td>445</td>
+      <td>248.0</td>
+      <td>217.515012</td>
+      <td>120.0</td>
+      <td>77.455844</td>
+      <td>76.114262</td>
+      <td>35.852345</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>472</td>
+      <td>551</td>
+      <td>24.514670</td>
+      <td>486</td>
+      <td>248.0</td>
+      <td>213.033898</td>
+      <td>128.0</td>
+      <td>83.798990</td>
+      <td>82.127941</td>
+      <td>28.741080</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>57</th>
+      <td>58</td>
+      <td>213</td>
+      <td>285</td>
+      <td>16.468152</td>
+      <td>221</td>
+      <td>224.0</td>
+      <td>184.525822</td>
+      <td>120.0</td>
+      <td>52.284271</td>
+      <td>52.250114</td>
+      <td>28.255467</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>59</td>
+      <td>79</td>
+      <td>108</td>
+      <td>10.029253</td>
+      <td>84</td>
+      <td>248.0</td>
+      <td>184.810127</td>
+      <td>128.0</td>
+      <td>39.313708</td>
+      <td>39.953250</td>
+      <td>33.739912</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>60</td>
+      <td>88</td>
+      <td>110</td>
+      <td>10.585135</td>
+      <td>92</td>
+      <td>216.0</td>
+      <td>182.727273</td>
+      <td>128.0</td>
+      <td>45.692388</td>
+      <td>46.196967</td>
+      <td>24.417173</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>61</td>
+      <td>52</td>
+      <td>75</td>
+      <td>8.136858</td>
+      <td>56</td>
+      <td>248.0</td>
+      <td>189.538462</td>
+      <td>128.0</td>
+      <td>30.692388</td>
+      <td>32.924135</td>
+      <td>37.867411</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>62</td>
+      <td>48</td>
+      <td>68</td>
+      <td>7.817640</td>
+      <td>53</td>
+      <td>224.0</td>
+      <td>173.833333</td>
+      <td>128.0</td>
+      <td>33.071068</td>
+      <td>35.375614</td>
+      <td>27.987596</td>
+    </tr>
+  </tbody>
+</table>
+<p>62 rows × 11 columns</p>
+</div></div></div>
+</div>
+<p>… and using the <code class="docutils literal notranslate"><span class="pre">label_statistics</span></code> function</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simpleitk_statistics</span> <span class="o">=</span> <span class="n">label_statistics</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">label_image</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">intensity</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">perimeter</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">simpleitk_statistics</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>label</th>
+      <th>perimeter</th>
+      <th>perimeter_on_border</th>
+      <th>perimeter_on_border_ratio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>87.070368</td>
+      <td>16.0</td>
+      <td>0.183759</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>53.456120</td>
+      <td>21.0</td>
+      <td>0.392846</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>93.409370</td>
+      <td>23.0</td>
+      <td>0.246228</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>76.114262</td>
+      <td>20.0</td>
+      <td>0.262763</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>82.127941</td>
+      <td>40.0</td>
+      <td>0.487045</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>57</th>
+      <td>58</td>
+      <td>52.250114</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>59</td>
+      <td>39.953250</td>
+      <td>18.0</td>
+      <td>0.450527</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>60</td>
+      <td>46.196967</td>
+      <td>22.0</td>
+      <td>0.476222</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>61</td>
+      <td>32.924135</td>
+      <td>15.0</td>
+      <td>0.455593</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>62</td>
+      <td>35.375614</td>
+      <td>17.0</td>
+      <td>0.480557</td>
+    </tr>
+  </tbody>
+</table>
+<p>62 rows × 4 columns</p>
+</div></div></div>
 </div>
+<p>For this comparison, we are only interested in the column named <code class="docutils literal notranslate"><span class="pre">perimeter</span></code>. So we are selecting this column and convert the included measurements into a <a class="reference external" href="https://haesleinhuepf.github.io/BioImageAnalysisNotebooks/12_image_analysis_basics/01_Images_as_arrays.html">numpy array</a>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">simpleitk_perimeter</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">simpleitk_statistics</span><span class="p">[</span><span class="s1">&#39;feret_diameter&#39;</span><span class="p">])[</span><span class="mi">1</span><span class="p">:]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">skimage_perimeter</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">s</span><span class="o">.</span><span class="n">feret_diameter_max</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">skimage_statistics</span><span class="p">])[</span><span class="mi">1</span><span class="p">:]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">skimage_perimeter</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">skimage_statistics</span><span class="p">[</span><span class="s1">&#39;perimeter&#39;</span><span class="p">])</span>
+<span class="n">simpleitk_perimeter</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">simpleitk_statistics</span><span class="p">[</span><span class="s1">&#39;perimeter&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 </div>
 <section id="scatter-plot">
 <h2>Scatter plot<a class="headerlink" href="#scatter-plot" title="Permalink to this heading">#</a></h2>
+<p>If we now use <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html">matplotlib</a> to plot the two perimeter measurements against each other, we receive the following scatter plot:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">skimage_perimeter</span><span class="p">,</span> <span class="n">simpleitk_perimeter</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
@@ -1452,32 +1778,58 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fe23878a550&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1912b551220&gt;]
 </pre></div>
 </div>
-<img alt="../_images/069d5b6c8ec85f29f2d1537339c524c4fd2da0e8a7ad268a591539aa08608fec.png" src="../_images/069d5b6c8ec85f29f2d1537339c524c4fd2da0e8a7ad268a591539aa08608fec.png" />
+<img alt="../_images/a199e4a5139ff8707348dbf2cdb5fe5d8d0185d394fc2128db214aa7beed9a62.png" src="../_images/a199e4a5139ff8707348dbf2cdb5fe5d8d0185d394fc2128db214aa7beed9a62.png" />
 </div>
 </div>
+<p>If the two libraries would compute the perimeter in the same way, all of our datapoints would lie on a straight line. As you can see, they are not. This suggests that perimeter is implemented differently in <a class="reference external" href="https://github.com/haesleinhuepf/napari-skimage-regionprops">napari-skimage-regionprops</a> adn <a class="reference external" href="https://github.com/haesleinhuepf/napari-simpleitk-image-processing">napari-simpleitk-image-processing</a>.</p>
 </section>
 <section id="bland-altman-plot">
 <h2>Bland-Altman plot<a class="headerlink" href="#bland-altman-plot" title="Permalink to this heading">#</a></h2>
+<p>The <a class="reference external" href="https://www.youtube.com/watch?v=PbSrSupnZFQ">Bland-Altman plot</a> helps to visualize the difference between measurements. We can compute a Bland-Altman plot for our two different <code class="docutils literal notranslate"><span class="pre">perimeter</span></code> implementations like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean</span> <span class="o">=</span> <span class="p">(</span><span class="n">skimage_perimeter</span> <span class="o">+</span> <span class="n">simpleitk_perimeter</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># compute mean, diff, md and sd</span>
+<span class="n">mean</span> <span class="o">=</span> <span class="p">(</span><span class="n">skimage_perimeter</span> <span class="o">+</span> <span class="n">simpleitk_perimeter</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
 <span class="n">diff</span> <span class="o">=</span> <span class="n">skimage_perimeter</span> <span class="o">-</span> <span class="n">simpleitk_perimeter</span>
+<span class="n">md</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span> <span class="c1"># mean of difference</span>
+<span class="n">sd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">diff</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># standard deviation of difference</span>
 
+<span class="c1"># add mean and diff</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">diff</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+
+<span class="c1"># add lines</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">md</span><span class="p">,</span>           <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">md</span> <span class="o">+</span> <span class="mf">1.96</span><span class="o">*</span><span class="n">sd</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">md</span> <span class="o">-</span> <span class="mf">1.96</span><span class="o">*</span><span class="n">sd</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+
+<span class="c1"># add title and axes labels</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Bland-Altman Plot&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Average Measurement&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Difference of Measurement&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fe2482454f0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Difference of Measurement&#39;)
 </pre></div>
 </div>
-<img alt="../_images/2c38216a3d958dc9f6debac3a68f185e28a2777fe6d00997bad31da3d1fdbd3e.png" src="../_images/2c38216a3d958dc9f6debac3a68f185e28a2777fe6d00997bad31da3d1fdbd3e.png" />
+<img alt="../_images/c9bab1caceed295d1113ca7f8000162dfc9bcf1b97aebc64be3fcd662f5ca0ca.png" src="../_images/c9bab1caceed295d1113ca7f8000162dfc9bcf1b97aebc64be3fcd662f5ca0ca.png" />
 </div>
 </div>
+<p>With</p>
+<ul class="simple">
+<li><p>center line = mean difference between the methods</p></li>
+<li><p>two outer lines = confidence interval of agreement (<em>CI</em>)</p></li>
+</ul>
+<p>The points do not go towards 0 which means it is not an agreement with random relative error, but systematic. This makes a lot of sense, because we are comparing here the <strong>implementation</strong> of a measurement.</p>
 </section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="exercise">
+<h1>Exercise<a class="headerlink" href="#exercise" title="Permalink to this heading">#</a></h1>
+<p>Use the functions <code class="docutils literal notranslate"><span class="pre">regionprops_table</span></code> and <code class="docutils literal notranslate"><span class="pre">label_statistics</span></code> to measure <code class="docutils literal notranslate"><span class="pre">feret_diameter_max</span></code> of your label image. Plot the Scatter plot and the Bland-Altman plot. Do you think <code class="docutils literal notranslate"><span class="pre">feret_diameter_max</span></code> is implemented differently in the two libraries?</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1538,14 +1890,26 @@ title="Print to PDF"
 </div>
 <nav id="bd-toc-nav" class="page-toc">
     <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#scatter-plot">
-   Scatter plot
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Comparison of measurements from different libraries
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scatter-plot">
+     Scatter plot
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bland-altman-plot">
+     Bland-Altman plot
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bland-altman-plot">
-   Bland-Altman plot
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
   </a>
  </li>
 </ul>

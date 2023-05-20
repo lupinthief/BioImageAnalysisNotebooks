@@ -995,12 +995,12 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="readme.html">Feature extraction</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Quantitative image analysis</a></li>
-
-
 <li class="toctree-l2"><a class="reference internal" href="count_blobs.html">Counting bright objects in images</a></li>
 <li class="toctree-l2"><a class="reference internal" href="statistics_with_pyclesperanto.html">Basic statistics with pyclesperanto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="statistics_with_scikit_image.html">Statistics using Scikit-image</a></li>
 <li class="toctree-l2"><a class="reference internal" href="statistics_with_simpleitk.html">Statistics using SimpleITK</a></li>
 <li class="toctree-l2"><a class="reference internal" href="comparison_of_measurements_from_different_libraries.html">Comparison of measurements from different libraries</a></li>
+
 <li class="toctree-l2"><a class="reference internal" href="measure_intensity_on_label_edges.html">Measuring intensity on label borders</a></li>
 <li class="toctree-l2"><a class="reference internal" href="intensities_along_lines.html">Descriptive statistics of [many] lines in an image</a></li>
 <li class="toctree-l2"><a class="reference internal" href="shape_descriptors_based_on_neighborhood_graphs.html">Shape descriptors based on neighborhood graphs</a></li>
@@ -1362,17 +1362,12 @@ title="Print to PDF"
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Quantitative image analysis
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#measurements-region-properties">
    Measurements / region properties
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
    Exercises
   </a>
@@ -1399,9 +1394,10 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage.io</span> <span class="kn">import</span> <span class="n">imread</span>
 <span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">filters</span>
-
 <span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">measure</span>
 <span class="kn">from</span> <span class="nn">pyclesperanto_prototype</span> <span class="kn">import</span> <span class="n">imshow</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
 </div>
@@ -1427,13 +1423,12 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5529dd2d36e2d172715eed01a07d6d80f4dbad63062bb259eed5acdb6d9cbc06.png" src="../_images/5529dd2d36e2d172715eed01a07d6d80f4dbad63062bb259eed5acdb6d9cbc06.png" />
+<img alt="../_images/5257573298d6a444b6a34d09506d6cf9a10aab208bce52c927a91ea6491b20ee.png" src="../_images/5257573298d6a444b6a34d09506d6cf9a10aab208bce52c927a91ea6491b20ee.png" />
 </div>
 </div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="measurements-region-properties">
-<h1>Measurements / region properties<a class="headerlink" href="#measurements-region-properties" title="Permalink to this heading">#</a></h1>
-<p>To read out properties from regions, we use the <a class="reference external" href="https://scikit-image.org/docs/dev/api/skimage.measure.html#skimage.measure.regionprops">regionprops</a> function:</p>
+<section id="measurements-region-properties">
+<h2>Measurements / region properties<a class="headerlink" href="#measurements-region-properties" title="Permalink to this heading">#</a></h2>
+<p>To read out properties from regions, we use the <a class="reference external" href="https://scikit-image.org/docs/dev/api/skimage.measure.html#skimage.measure.regionprops"><code class="docutils literal notranslate"><span class="pre">regionprops</span></code></a> function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># analyse objects</span>
@@ -1450,234 +1445,34 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;skimage.measure._regionprops.RegionProperties at 0x195f1e6a0&gt;,
- &lt;skimage.measure._regionprops.RegionProperties at 0x1961f61c0&gt;,
- &lt;skimage.measure._regionprops.RegionProperties at 0x1961f6040&gt;,
- &lt;skimage.measure._regionprops.RegionProperties at 0x1961f60a0&gt;,
- &lt;skimage.measure._regionprops.RegionProperties at 0x110c69310&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;skimage.measure._regionprops.RegionProperties at 0x1c272b8f8e0&gt;,
+ &lt;skimage.measure._regionprops.RegionProperties at 0x1c26d278af0&gt;,
+ &lt;skimage.measure._regionprops.RegionProperties at 0x1c26d2784c0&gt;,
+ &lt;skimage.measure._regionprops.RegionProperties at 0x1c26d278b20&gt;,
+ &lt;skimage.measure._regionprops.RegionProperties at 0x1c26d278b80&gt;]
 </pre></div>
 </div>
 </div>
 </div>
-<p>We can reorganize the measurements into a dictionary containing arrays. We introduced them earlier as <a class="reference external" href="https://nbviewer.jupyter.org/github/BiAPoL/Bio-image_Analysis_with_Python/blob/main/python_basics/06_Dictionaries_and_tables.ipynb">tables</a>:</p>
+<p>If you are interested which properties we measured: They are listed in the <a class="reference external" href="https://scikit-image.org/docs/dev/api/skimage.measure.html#skimage.measure.regionprops">documentation of the <code class="docutils literal notranslate"><span class="pre">measure.regionprops</span></code> function</a>. Basically, we now have a variable <code class="docutils literal notranslate"><span class="pre">properties</span></code> which contains 40 different features. But we are only interested in a small subset of them.</p>
+<p>Therefore, we can reorganize the measurements into a dictionary containing arrays with our features of interest:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">statistics</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;area&#39;</span><span class="p">:</span>       <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">area</span>               <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">properties</span><span class="p">],</span>
     <span class="s1">&#39;mean&#39;</span><span class="p">:</span>       <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">mean_intensity</span>     <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">properties</span><span class="p">],</span>
-    <span class="s1">&#39;major_axis&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">major_axis_length</span>  <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">properties</span><span class="p">]</span>
+    <span class="s1">&#39;major_axis&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">major_axis_length</span>  <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">properties</span><span class="p">],</span>
+    <span class="s1">&#39;minor_axis&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">minor_axis_length</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">properties</span><span class="p">]</span>
 <span class="p">}</span>
-
-<span class="n">statistics</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;area&#39;: [429,
-  183,
-  658,
-  433,
-  472,
-  280,
-  75,
-  271,
-  227,
-  27,
-  494,
-  649,
-  96,
-  225,
-  448,
-  397,
-  513,
-  423,
-  268,
-  349,
-  158,
-  406,
-  422,
-  254,
-  503,
-  282,
-  675,
-  176,
-  358,
-  542,
-  599,
-  7,
-  635,
-  192,
-  594,
-  19,
-  264,
-  896,
-  473,
-  239,
-  166,
-  408,
-  413,
-  239,
-  374,
-  647,
-  378,
-  577,
-  66,
-  169,
-  467,
-  612,
-  539,
-  203,
-  556,
-  850,
-  278,
-  213,
-  79,
-  88,
-  52,
-  48],
- &#39;mean&#39;: [191.44055944055944,
-  179.84699453551912,
-  205.6048632218845,
-  217.5150115473441,
-  213.03389830508473,
-  205.65714285714284,
-  164.16,
-  176.0590405904059,
-  189.53303964757708,
-  149.33333333333334,
-  190.0080971659919,
-  172.42526964560864,
-  166.41666666666666,
-  196.8,
-  209.03571428571428,
-  180.0705289672544,
-  194.86939571150097,
-  196.27423167848698,
-  200.77611940298507,
-  190.64756446991404,
-  183.69620253164558,
-  187.21182266009853,
-  202.54028436018956,
-  180.5984251968504,
-  198.6958250497018,
-  189.33333333333334,
-  199.07555555555555,
-  195.3181818181818,
-  197.7877094972067,
-  198.760147601476,
-  190.85141903171953,
-  146.28571428571428,
-  193.22204724409448,
-  181.83333333333334,
-  210.45117845117846,
-  150.31578947368422,
-  189.93939393939394,
-  198.59821428571428,
-  205.5137420718816,
-  191.59832635983264,
-  184.09638554216866,
-  179.80392156862746,
-  199.94188861985472,
-  188.21757322175733,
-  195.76470588235293,
-  200.70479134466768,
-  208.23280423280423,
-  201.01213171577123,
-  188.36363636363637,
-  181.53846153846155,
-  167.58886509635974,
-  220.0261437908497,
-  189.5213358070501,
-  199.96059113300493,
-  216.93525179856115,
-  197.9294117647059,
-  190.44604316546761,
-  184.52582159624413,
-  184.81012658227849,
-  182.72727272727272,
-  189.53846153846155,
-  173.83333333333334],
- &#39;major_axis&#39;: [34.77923003414236,
-  20.950530036869296,
-  30.19848422590625,
-  24.508790749585156,
-  31.08476574192099,
-  20.456703267018653,
-  10.455950805204104,
-  22.270013595805494,
-  18.204772873013326,
-  12.678548278670085,
-  26.121885258285065,
-  33.385906778814366,
-  12.546653692400314,
-  18.35737770149141,
-  26.27274937409412,
-  35.8698551687111,
-  27.860019629951697,
-  28.010713581438814,
-  21.468307192278967,
-  22.917689441728474,
-  15.666167580602863,
-  23.865287484124742,
-  32.6668803721007,
-  19.57228408508096,
-  33.24776088170501,
-  20.24089328396192,
-  36.442424525819675,
-  20.498286890054775,
-  23.711197998545444,
-  29.20849759104235,
-  47.75343594118352,
-  3.0237157840738176,
-  40.67149576429511,
-  16.77158509151243,
-  28.811758210746788,
-  6.09093638927516,
-  20.588317981737514,
-  54.585718360111564,
-  32.95587965343868,
-  19.25126182233261,
-  16.687880082810175,
-  26.756617235381256,
-  25.62619404615955,
-  18.831258251302966,
-  24.783530938010692,
-  30.43602504101513,
-  23.49797787654461,
-  27.804675105924606,
-  16.651155953717765,
-  17.042194757272345,
-  35.316994908476254,
-  32.401948630679065,
-  30.13681620111402,
-  24.67233590691917,
-  27.47945909705002,
-  41.32954022794983,
-  21.637743417307323,
-  18.753879494637765,
-  18.287488895428375,
-  21.673692014391232,
-  14.33510391276191,
-  16.925659950161798]}
 </pre></div>
 </div>
 </div>
 </div>
-<p>You can also add custom columns by computing your own metric, for example the <code class="docutils literal notranslate"><span class="pre">aspect_ratio</span></code>:</p>
+<p>Reading those dictionaries of arrays is not very convenient. For that we introduce <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html">pandas DataFrames</a> which are commonly used by data scientists. “DataFrames” is just another term for “tables” used in Python.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">statistics</span><span class="p">[</span><span class="s1">&#39;aspect_ratio&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">major_axis_length</span> <span class="o">/</span> <span class="n">p</span><span class="o">.</span><span class="n">minor_axis_length</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">properties</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Reading those dictionaries of arrays is not very convenient. Thus, we use the <span class="xref myst">pandas library</span> which is a common asset for data scientists.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">statistics</span><span class="p">)</span>
-<span class="n">dataframe</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">statistics</span><span class="p">)</span>
+<span class="n">df</span>
 </pre></div>
 </div>
 </div>
@@ -1703,7 +1498,7 @@ title="Print to PDF"
       <th>area</th>
       <th>mean</th>
       <th>major_axis</th>
-      <th>aspect_ratio</th>
+      <th>minor_axis</th>
     </tr>
   </thead>
   <tbody>
@@ -1712,35 +1507,35 @@ title="Print to PDF"
       <td>429</td>
       <td>191.440559</td>
       <td>34.779230</td>
-      <td>2.088249</td>
+      <td>16.654732</td>
     </tr>
     <tr>
       <th>1</th>
       <td>183</td>
       <td>179.846995</td>
       <td>20.950530</td>
-      <td>1.782168</td>
+      <td>11.755645</td>
     </tr>
     <tr>
       <th>2</th>
       <td>658</td>
       <td>205.604863</td>
       <td>30.198484</td>
-      <td>1.067734</td>
+      <td>28.282790</td>
     </tr>
     <tr>
       <th>3</th>
       <td>433</td>
       <td>217.515012</td>
       <td>24.508791</td>
-      <td>1.061942</td>
+      <td>23.079220</td>
     </tr>
     <tr>
       <th>4</th>
       <td>472</td>
       <td>213.033898</td>
       <td>31.084766</td>
-      <td>1.579415</td>
+      <td>19.681190</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1754,6 +1549,130 @@ title="Print to PDF"
       <td>213</td>
       <td>184.525822</td>
       <td>18.753879</td>
+      <td>14.468993</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>79</td>
+      <td>184.810127</td>
+      <td>18.287489</td>
+      <td>5.762488</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>88</td>
+      <td>182.727273</td>
+      <td>21.673692</td>
+      <td>5.389867</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>52</td>
+      <td>189.538462</td>
+      <td>14.335104</td>
+      <td>5.047883</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>48</td>
+      <td>173.833333</td>
+      <td>16.925660</td>
+      <td>3.831678</td>
+    </tr>
+  </tbody>
+</table>
+<p>62 rows × 4 columns</p>
+</div></div></div>
+</div>
+<p>You can also add custom columns by computing your own metric, for example the <code class="docutils literal notranslate"><span class="pre">aspect_ratio</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;aspect_ratio&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">major_axis_length</span> <span class="o">/</span> <span class="n">p</span><span class="o">.</span><span class="n">minor_axis_length</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">properties</span><span class="p">]</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>area</th>
+      <th>mean</th>
+      <th>major_axis</th>
+      <th>minor_axis</th>
+      <th>aspect_ratio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>429</td>
+      <td>191.440559</td>
+      <td>34.779230</td>
+      <td>16.654732</td>
+      <td>2.088249</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>183</td>
+      <td>179.846995</td>
+      <td>20.950530</td>
+      <td>11.755645</td>
+      <td>1.782168</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>658</td>
+      <td>205.604863</td>
+      <td>30.198484</td>
+      <td>28.282790</td>
+      <td>1.067734</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>433</td>
+      <td>217.515012</td>
+      <td>24.508791</td>
+      <td>23.079220</td>
+      <td>1.061942</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>472</td>
+      <td>213.033898</td>
+      <td>31.084766</td>
+      <td>19.681190</td>
+      <td>1.579415</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>57</th>
+      <td>213</td>
+      <td>184.525822</td>
+      <td>18.753879</td>
+      <td>14.468993</td>
       <td>1.296143</td>
     </tr>
     <tr>
@@ -1761,6 +1680,7 @@ title="Print to PDF"
       <td>79</td>
       <td>184.810127</td>
       <td>18.287489</td>
+      <td>5.762488</td>
       <td>3.173540</td>
     </tr>
     <tr>
@@ -1768,6 +1688,7 @@ title="Print to PDF"
       <td>88</td>
       <td>182.727273</td>
       <td>21.673692</td>
+      <td>5.389867</td>
       <td>4.021193</td>
     </tr>
     <tr>
@@ -1775,6 +1696,7 @@ title="Print to PDF"
       <td>52</td>
       <td>189.538462</td>
       <td>14.335104</td>
+      <td>5.047883</td>
       <td>2.839825</td>
     </tr>
     <tr>
@@ -1782,17 +1704,18 @@ title="Print to PDF"
       <td>48</td>
       <td>173.833333</td>
       <td>16.925660</td>
+      <td>3.831678</td>
       <td>4.417297</td>
     </tr>
   </tbody>
 </table>
-<p>62 rows × 4 columns</p>
+<p>62 rows × 5 columns</p>
 </div></div></div>
 </div>
 <p>Those dataframes can be saved to disk conveniently:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;blobs_analysis.csv&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;blobs_analysis.csv&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1800,10 +1723,8 @@ title="Print to PDF"
 <p>Furthermore, one can measure properties from our <code class="docutils literal notranslate"><span class="pre">statistics</span></code> table using <a class="reference external" href="https://numpy.org/doc/stable/">numpy</a>. For example the mean area:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="c1"># measure mean area</span>
-<span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">statistics</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># measure mean area</span>
+<span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1814,8 +1735,8 @@ title="Print to PDF"
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="exercises">
-<h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h1>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this heading">#</a></h2>
 <p>Analyse the loaded blobs <code class="docutils literal notranslate"><span class="pre">image</span></code>.</p>
 <ul class="simple">
 <li><p>How many objects are in it?</p></li>
@@ -1829,6 +1750,7 @@ title="Print to PDF"
 <ul class="simple">
 <li><p>What are mean and standard deviation of the area of the segmented objects?</p></li>
 </ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1889,17 +1811,12 @@ title="Print to PDF"
 </div>
 <nav id="bd-toc-nav" class="page-toc">
     <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Quantitative image analysis
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#measurements-region-properties">
    Measurements / region properties
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercises">
    Exercises
   </a>
