@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>&lt;no title&gt; &#8212; Bio-image Analysis Notebooks</title>
+    <title>Measuring features in a time-lapse dataset &#8212; Bio-image Analysis Notebooks</title>
   
   
   
@@ -64,6 +64,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '34_timelapse_analysis/intensity_over_time';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Parameter optimization" href="../35_parameter_optimization/readme.html" />
+    <link rel="prev" title="Timelapse analysis" href="readme.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en">
   </head>
@@ -334,6 +336,13 @@ const thebe_selector_output = ".output, .cell_output"
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../33_batch_processing/readme.html">
                         Batch processing
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="readme.html">
+                        Timelapse analysis
                       </a>
                     </li>
                 
@@ -677,6 +686,13 @@ const thebe_selector_output = ".output, .cell_output"
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../33_batch_processing/readme.html">
                         Batch processing
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="readme.html">
+                        Timelapse analysis
                       </a>
                     </li>
                 
@@ -1082,7 +1098,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced techniques</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03_advanced_python/readme.html">Advanced python programming</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../03_advanced_python/custom_libraries.html">Custom libraries</a></li>
 
@@ -1125,13 +1141,17 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../33_batch_processing/14_process_timelapse.html">Processing timelapse data</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../35_parameter_optimization/readme.html">Parameter optimization</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-27"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="readme.html">Timelapse analysis</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-27"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Measuring features in a time-lapse dataset</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../35_parameter_optimization/readme.html">Parameter optimization</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../35_parameter_optimization/optimization_basics.html">Optimization basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../35_parameter_optimization/label_image_optimizer.html">Optimize segmentation algorithms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../35_parameter_optimization/membrane_segmentation.html">Optimizing parameters for membrane-image based cell segmentation</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../07_prompt_engineering/readme.html">Prompt engineering</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../07_prompt_engineering/readme.html">Prompt engineering</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../07_prompt_engineering/01_prompting.html">Prompting chatGPT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../07_prompt_engineering/02_generating_images.html">Generating images using DALL-E</a></li>
 
@@ -1149,7 +1169,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tabular data, plots and statistics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../40_tabular_data_wrangling/readme.html">Tabular data wrangling</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../40_tabular_data_wrangling/readme.html">Tabular data wrangling</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-30"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../40_tabular_data_wrangling/introduction_dataframes.html">Introduction to working with DataFrames</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../40_tabular_data_wrangling/explore_dataset.html">Exploring tabular data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../40_tabular_data_wrangling/append_tables.html">Appending tables</a></li>
@@ -1162,7 +1182,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../40_tabular_data_wrangling/tidy_data.html">Tidy-Data</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../40a_sql/readme.html">Querying databases</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-30"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../40a_sql/readme.html">Querying databases</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-31"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../40a_sql/select.html">Querying databases using SQL</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../40a_sql/join.html">Combining tables</a></li>
@@ -1173,7 +1193,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../41_descriptive_statistics/readme.html">Descriptive statistics</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-31"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../41_descriptive_statistics/readme.html">Descriptive statistics</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../41_descriptive_statistics/basic_descriptive_statistics.html">Descriptive statistics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../41_descriptive_statistics/descriptive_statistics_label_images.html">Descriptive statistics of labeled images</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../41_descriptive_statistics/Bland_altman_analysis.html">Method comparison</a></li>
@@ -1181,7 +1201,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../47_clustering/readme.html">Clustering</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../47_clustering/readme.html">Clustering</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-33"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../47_clustering/trailer.html">Clustering - a quick walkthrough</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../47_clustering/umap.html">Clustering with UMAPs</a></li>
 
@@ -1198,7 +1218,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../47_clustering/interactive_dimensionality_reduction_and_clustering/readme.html">Interactive dimensionality reduction and clustering</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../51_plotting/readme.html">Plotting</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-33"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../51_plotting/readme.html">Plotting</a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-34"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../51_plotting/plotting_matplotlib.html">Plotting with Matplotlib</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../51_plotting/plotting_seaborn.html">Introduction to Seaborn</a></li>
@@ -1207,7 +1227,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../51_plotting/bland_altman_analysis.html">Bland-Altman plots</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../60_data_visualization/readme.html">Data visualization</a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-34"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../60_data_visualization/readme.html">Data visualization</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-35"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../60_data_visualization/overlay_text_on_image.html">Overlay texts on images</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../60_data_visualization/parametric_maps.html">Parametric maps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../60_data_visualization/quantitative_neighbor_maps.html">Quantitative maps from neighbor statistics</a></li>
@@ -1373,7 +1393,7 @@ title="Print to PDF"
             
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>Measuring features in a time-lapse dataset</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -1382,7 +1402,37 @@ title="Print to PDF"
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#developing-a-workflow">
+   Developing a workflow
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizing-images-and-image-stacks">
+   Visualizing images and image stacks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#measuring-features-on-an-image-and-a-label-image">
+   Measuring features on an image and a label image
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#measuring-features-on-the-whole-time-lapse-dataset">
+   Measuring features on the whole time-lapse dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#short-side-note-what-is-a-good-way-to-write-a-function">
+   Short side note: What is a good way to write a function?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#libraries-to-extract-features-of-all-timepoints">
+   Libraries to extract features of all timepoints
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -1392,23 +1442,37 @@ title="Print to PDF"
 
             <article class="bd-article" role="main">
               
-  <div class="cell docutils container">
+  <section class="tex2jax_ignore mathjax_ignore" id="measuring-features-in-a-time-lapse-dataset">
+<h1>Measuring features in a time-lapse dataset<a class="headerlink" href="#measuring-features-in-a-time-lapse-dataset" title="Permalink to this heading">#</a></h1>
+<p>In this notebook, we will develop a workflow on a single timepoint of a timelapse and will learn how to apply the workflow on the whole time-lapse. This involves the following steps: preoprocessing, segmentation and feature extraction.</p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage.io</span> <span class="kn">import</span> <span class="n">imread</span>
 <span class="kn">import</span> <span class="nn">pyclesperanto_prototype</span> <span class="k">as</span> <span class="nn">cle</span>
 <span class="kn">from</span> <span class="nn">skimage.measure</span> <span class="kn">import</span> <span class="n">regionprops_table</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">scipy.ndimage</span> <span class="kn">import</span> <span class="n">zoom</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="developing-a-workflow">
+<h2>Developing a workflow<a class="headerlink" href="#developing-a-workflow" title="Permalink to this heading">#</a></h2>
+<p>First, we are reading in the image, scaling it and converting it to a <a class="reference external" href="https://haesleinhuepf.github.io/BioImageAnalysisNotebooks/12_image_analysis_basics/05_Masking_images.html">numpy</a>-array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># reading in the image</span>
+<span class="n">image_stack</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="s2">&quot;../../data/CalibZAPWfixed_000154_max.tif&quot;</span><span class="p">)[::</span><span class="mi">10</span><span class="p">,:</span><span class="mi">200</span><span class="p">,:</span><span class="mi">200</span><span class="p">]</span>
+
+<span class="c1"># scaling the image and converting it to a np-array</span>
+<span class="n">image_stack</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">cle</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">image_stack</span><span class="p">,</span> <span class="n">factor_z</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">factor_y</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">factor_x</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">auto_size</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_stack</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="s2">&quot;../../data/CalibZAPWfixed_000154_max.tif&quot;</span><span class="p">)[::</span><span class="mi">10</span><span class="p">,:</span><span class="mi">200</span><span class="p">,:</span><span class="mi">200</span><span class="p">]</span>
-<span class="n">image_stack</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">cle</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">image_stack</span><span class="p">,</span> <span class="n">factor_z</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">factor_x</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">factor_y</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">auto_size</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
-<span class="n">image_stack</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_stack</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -1418,6 +1482,14 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>Next, we define a function <code class="docutils literal notranslate"><span class="pre">segment_single_image</span></code> which does <a class="reference external" href="https://haesleinhuepf.github.io/BioImageAnalysisNotebooks/18_image_filtering/03_background_removal.html">background subtraction</a> using <code class="docutils literal notranslate"><span class="pre">top_hat_box</span></code> and segmentation using <a class="reference external" href="https://haesleinhuepf.github.io/BioImageAnalysisNotebooks/20_image_segmentation/11_voronoi_otsu_labeling.html"><code class="docutils literal notranslate"><span class="pre">voronoi_otsu_labeling</span></code></a>.</p>
+<p>Therefore, it needs as input:</p>
+<ul class="simple">
+<li><p>an image</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bg_radius</span></code> (= background radius)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">spot_sigma</span></code> and <code class="docutils literal notranslate"><span class="pre">outline_sigma</span></code>.</p></li>
+</ul>
+<p>It returns the labels as numpy-array:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">segment_single_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">bg_radius</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">spot_sigma</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">outline_sigma</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
@@ -1428,9 +1500,11 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>We try the function on timepoint 6 (= 5th frame as we are counting from 0):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">segment_single_image</span><span class="p">(</span><span class="n">image_stack</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tp_6</span> <span class="o">=</span> <span class="n">segment_single_image</span><span class="p">(</span><span class="n">image_stack</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">tp_6</span>
 </pre></div>
 </div>
 </div>
@@ -1446,11 +1520,33 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+</section>
+<section id="visualizing-images-and-image-stacks">
+<h2>Visualizing images and image stacks<a class="headerlink" href="#visualizing-images-and-image-stacks" title="Permalink to this heading">#</a></h2>
+<p>We can visualize our numpy-array like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cle</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">tp_6</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/6f48dc80fbda344f5e2b25e80a0eece8d2e67e658b25a523cf43c453dd2635cb.png" src="../_images/6f48dc80fbda344f5e2b25e80a0eece8d2e67e658b25a523cf43c453dd2635cb.png" />
+</div>
+</div>
+<p>Now we can run our function in a for-loop over the whole time-lapse dataset:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">segmented_slices</span> <span class="o">=</span> <span class="p">[</span><span class="n">segment_single_image</span><span class="p">(</span><span class="n">image</span><span class="p">)</span> <span class="k">for</span> <span class="n">image</span> <span class="ow">in</span> <span class="n">image_stack</span><span class="p">]</span>
 <span class="n">segmented_stack</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">segmented_slices</span><span class="p">)</span>
-<span class="n">segmented_stack</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Our <code class="docutils literal notranslate"><span class="pre">segmented_stack</span></code> should keep the same shape as the original <code class="docutils literal notranslate"><span class="pre">image_stack</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">segmented_stack</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -1460,16 +1556,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cle</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">segmented_slices</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/92f87e3414470e3e81e11abde2ca63d43067a371b6ff6c261d30d325b8bfb5ab.png" src="../_images/92f87e3414470e3e81e11abde2ca63d43067a371b6ff6c261d30d325b8bfb5ab.png" />
-</div>
-</div>
+<p>It does! Now, we can use <code class="docutils literal notranslate"><span class="pre">stackview</span></code> to visualize our whole image_stack. The function <code class="docutils literal notranslate"><span class="pre">curtain</span></code> provides a slider to visualize the label image on top of the original image.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">stackview</span>
@@ -1478,25 +1565,131 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "e1066e7a30914eeda84cde1dad1b0e9e", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "2e0c3da423044d318be53bb633d0ebfd", "version_major": 2, "version_minor": 0}</script></div>
 </div>
+<p>If you move the <code class="docutils literal notranslate"><span class="pre">Slice</span></code> slider you can see the segmentation result of the individual timepoints. As you can see, objects are not keeping the same label number over several frames. We are not doing tracking here, just segmenting timepoint-by-timepoint.</p>
+</section>
+<section id="measuring-features-on-an-image-and-a-label-image">
+<h2>Measuring features on an image and a label image<a class="headerlink" href="#measuring-features-on-an-image-and-a-label-image" title="Permalink to this heading">#</a></h2>
+<p>Our goal is to extract features from this time-lapse dataset.
+Therefore, we define another function <code class="docutils literal notranslate"><span class="pre">analyze_mean_intensity_single_timepoint</span></code>. The name says it all.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">analyze_single_timepoint</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">frame</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">analyze_mean_intensity_single_timepoint</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">frame</span><span class="p">):</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">regionprops_table</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">frame</span><span class="p">],</span> <span class="n">intensity_image</span><span class="o">=</span><span class="n">image</span><span class="p">[</span><span class="n">frame</span><span class="p">],</span> <span class="n">properties</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mean_intensity&#39;</span><span class="p">]))</span>
     <span class="n">df</span><span class="p">[</span><span class="s1">&#39;frame&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span>
     <span class="k">return</span> <span class="n">df</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">analyze_single_timepoint</span><span class="p">(</span><span class="n">image_stack</span><span class="p">,</span> <span class="n">segmented_stack</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we try it out on timepoint 6 of our time-lapse dataset:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">analyze_mean_intensity_single_timepoint</span><span class="p">(</span><span class="n">image_stack</span><span class="p">,</span> <span class="n">segmented_stack</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_frames</span> <span class="o">=</span> <span class="n">image_stack</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">all_frames_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">analyze_single_timepoint</span><span class="p">(</span><span class="n">image_stack</span><span class="p">,</span> <span class="n">segmented_stack</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_frames</span><span class="p">)])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean_intensity</th>
+      <th>frame</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>193.721710</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>154.925858</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>142.510788</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>102.849998</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>88.570175</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>172</th>
+      <td>154.884216</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>173</th>
+      <td>147.652908</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>174</th>
+      <td>126.156464</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>175</th>
+      <td>89.161293</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>176</th>
+      <td>135.688721</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+<p>177 rows × 2 columns</p>
+</div></div></div>
+</div>
+<p>As we can see, the function returns a table with the mean intensities of the labels in a particular frame.</p>
+</section>
+<section id="measuring-features-on-the-whole-time-lapse-dataset">
+<h2>Measuring features on the whole time-lapse dataset<a class="headerlink" href="#measuring-features-on-the-whole-time-lapse-dataset" title="Permalink to this heading">#</a></h2>
+<p>Next, we want to apply our function on the whole stack. We use a <a class="reference external" href="https://haesleinhuepf.github.io/BioImageAnalysisNotebooks/02_python_basics/08_loops.html">for-loop</a> to do so:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_frames</span> <span class="o">=</span> <span class="n">image_stack</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">all_frames_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">analyze_mean_intensity_single_timepoint</span><span class="p">(</span><span class="n">image_stack</span><span class="p">,</span> <span class="n">segmented_stack</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_frames</span><span class="p">)])</span>
 <span class="n">all_frames_df</span>
 </pre></div>
 </div>
@@ -1585,6 +1778,7 @@ title="Print to PDF"
 <p>1702 rows × 2 columns</p>
 </div></div></div>
 </div>
+<p>Now, we want to measure how long it takes to execute our code snipped. Therefore, we use <a class="reference external" href="https://docs.python.org/3/library/timeit.html"><code class="docutils literal notranslate"><span class="pre">timeit</span></code></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">timeit</span>
@@ -1595,16 +1789,21 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
-<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">analyze_single_timepoint</span><span class="p">(</span><span class="n">image_stack</span><span class="p">,</span> <span class="n">segmented_stack</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_frames</span><span class="p">)])</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">analyze_mean_intensity_single_timepoint</span><span class="p">(</span><span class="n">image_stack</span><span class="p">,</span> <span class="n">segmented_stack</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_frames</span><span class="p">)])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>87 ms ± 649 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>115 ms ± 2.77 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
 </pre></div>
 </div>
 </div>
 </div>
+<p>It tells us the execution time per loop (here per image) in our time-lapse dataset.</p>
+</section>
+<section id="short-side-note-what-is-a-good-way-to-write-a-function">
+<h2>Short side note: What is a good way to write a function?<a class="headerlink" href="#short-side-note-what-is-a-good-way-to-write-a-function" title="Permalink to this heading">#</a></h2>
+<p>If we define functions, one function should do only one thing. Then, this function can be called by another function which brings another novelty. We call this modularization. Have a look at the two functions<code class="docutils literal notranslate"><span class="pre">get_intensity_for_timepoint</span></code> and <code class="docutils literal notranslate"><span class="pre">get_intensity</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_intensity_for_timepoint</span><span class="p">(</span><span class="n">intensity_image</span><span class="p">,</span> <span class="n">label_layer</span><span class="p">):</span>
@@ -1620,22 +1819,21 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(10, 1, 1200, 1200)
-</pre></div>
-</div>
-</div>
-</div>
+<p>The first function measures the mean_intensity and the second function applies this on a whole time-lapse dataset. Therefore, the functions both have one main task and the first function is nested in the second one.</p>
+</section>
+<section id="libraries-to-extract-features-of-all-timepoints">
+<h2>Libraries to extract features of all timepoints<a class="headerlink" href="#libraries-to-extract-features-of-all-timepoints" title="Permalink to this heading">#</a></h2>
+<p>Now, we want to measure different intensity-based parameters on all timepoints. Therefore, we use <code class="docutils literal notranslate"><span class="pre">regionprops_table_all_frames</span></code> from <a class="reference external" href="https://github.com/haesleinhuepf/napari-skimage-regionprops">napari_skimage_regionprops</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">napari_skimage_regionprops</span> <span class="kn">import</span> <span class="n">regionprops_table_all_frames</span>
-<span class="n">stats</span> <span class="o">=</span> <span class="n">regionprops_table_all_frames</span><span class="p">(</span><span class="n">image_stack</span><span class="p">[:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,:,:],</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span> <span class="o">=</span> <span class="n">regionprops_table_all_frames</span><span class="p">(</span><span class="n">image_stack</span><span class="p">[:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,:,:],</span> 
                              <span class="n">segmented_stack</span><span class="p">[:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,:,:],</span>
                              <span class="n">size</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                              <span class="n">intensity</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1787,6 +1985,207 @@ analyzing frame 9
 <p>1702 rows × 6 columns</p>
 </div></div></div>
 </div>
+<p>You could also use <code class="docutils literal notranslate"><span class="pre">label_statistics_in_all_frames</span></code> from <a class="reference external" href="https://github.com/haesleinhuepf/napari-simpleitk-image-processing">napari-simpleitk-image-processing</a> which provides some additional intensity-based parameters:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">napari_simpleitk_image_processing._simpleitk_image_processing</span> <span class="kn">import</span> <span class="n">label_statistics_in_all_frames</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span> <span class="o">=</span> <span class="n">label_statistics_in_all_frames</span><span class="p">(</span><span class="n">image_stack</span><span class="p">[:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,:,:],</span> 
+                             <span class="n">segmented_stack</span><span class="p">[:,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,:,:],</span>
+                             <span class="n">size</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                             <span class="n">intensity</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">stats</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>analyzing frame 0
+analyzing frame 1
+analyzing frame 2
+analyzing frame 3
+analyzing frame 4
+analyzing frame 5
+analyzing frame 6
+analyzing frame 7
+analyzing frame 8
+analyzing frame 9
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>label</th>
+      <th>maximum</th>
+      <th>mean</th>
+      <th>median</th>
+      <th>minimum</th>
+      <th>sigma</th>
+      <th>sum</th>
+      <th>variance</th>
+      <th>frame</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>255.0</td>
+      <td>223.347113</td>
+      <td>248.525391</td>
+      <td>91.0</td>
+      <td>40.523332</td>
+      <td>626712.0</td>
+      <td>1642.140432</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>97.0</td>
+      <td>93.042553</td>
+      <td>97.119141</td>
+      <td>70.0</td>
+      <td>7.740232</td>
+      <td>4373.0</td>
+      <td>59.911193</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>154.0</td>
+      <td>112.046817</td>
+      <td>110.068359</td>
+      <td>68.0</td>
+      <td>16.513038</td>
+      <td>213001.0</td>
+      <td>272.680439</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>245.0</td>
+      <td>192.766438</td>
+      <td>201.708984</td>
+      <td>85.0</td>
+      <td>39.019508</td>
+      <td>589287.0</td>
+      <td>1522.522001</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>255.0</td>
+      <td>162.704329</td>
+      <td>162.861328</td>
+      <td>67.0</td>
+      <td>42.199321</td>
+      <td>684009.0</td>
+      <td>1780.782651</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1697</th>
+      <td>336</td>
+      <td>189.0</td>
+      <td>135.748642</td>
+      <td>140.314453</td>
+      <td>61.0</td>
+      <td>30.544961</td>
+      <td>349960.0</td>
+      <td>932.994614</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>1698</th>
+      <td>337</td>
+      <td>173.0</td>
+      <td>116.306430</td>
+      <td>115.048828</td>
+      <td>38.0</td>
+      <td>35.472278</td>
+      <td>170040.0</td>
+      <td>1258.282491</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>1699</th>
+      <td>338</td>
+      <td>183.0</td>
+      <td>121.075317</td>
+      <td>123.169922</td>
+      <td>39.0</td>
+      <td>38.376643</td>
+      <td>162362.0</td>
+      <td>1472.766711</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>1700</th>
+      <td>339</td>
+      <td>133.0</td>
+      <td>98.173594</td>
+      <td>97.904297</td>
+      <td>55.0</td>
+      <td>22.264490</td>
+      <td>40153.0</td>
+      <td>495.707536</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>1701</th>
+      <td>340</td>
+      <td>110.0</td>
+      <td>82.390476</td>
+      <td>84.369141</td>
+      <td>48.0</td>
+      <td>16.601144</td>
+      <td>17302.0</td>
+      <td>275.597995</td>
+      <td>9</td>
+    </tr>
+  </tbody>
+</table>
+<p>1702 rows × 9 columns</p>
+</div></div></div>
+</div>
+<p>If you are interested in the differences between the libraries, you can go to <a class="reference external" href="https://haesleinhuepf.github.io/BioImageAnalysisNotebooks/22_feature_extraction/readme.html">feature_extraction</a>.</p>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1816,6 +2215,20 @@ analyzing frame 9
             <footer class="bd-footer-article">
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+  <a class='left-prev' id="prev-link" href="readme.html" title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+          <p class="prev-next-subtitle">previous</p>
+          <p class="prev-next-title">Timelapse analysis</p>
+      </div>
+  </a>
+  <a class='right-next' id="next-link" href="../35_parameter_optimization/readme.html" title="next page">
+  <div class="prev-next-info">
+      <p class="prev-next-subtitle">next</p>
+      <p class="prev-next-title">Parameter optimization</p>
+  </div>
+  <i class="fa-solid fa-angle-right"></i>
+  </a>
 </div>
             </footer>
             
@@ -1831,7 +2244,37 @@ analyzing frame 9
     <i class="fa-solid fa-list"></i> On this page
 </div>
 <nav id="bd-toc-nav" class="page-toc">
-    <ul class="simple visible nav section-nav flex-column">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#developing-a-workflow">
+   Developing a workflow
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizing-images-and-image-stacks">
+   Visualizing images and image stacks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#measuring-features-on-an-image-and-a-label-image">
+   Measuring features on an image and a label image
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#measuring-features-on-the-whole-time-lapse-dataset">
+   Measuring features on the whole time-lapse dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#short-side-note-what-is-a-good-way-to-write-a-function">
+   Short side note: What is a good way to write a function?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#libraries-to-extract-features-of-all-timepoints">
+   Libraries to extract features of all timepoints
+  </a>
+ </li>
 </ul>
 
 </nav>
