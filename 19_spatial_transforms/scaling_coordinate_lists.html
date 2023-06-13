@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Importing functions and packages &#8212; Bio-image Analysis Notebooks</title>
+    <title>Scaling coordinate lists &#8212; Bio-image Analysis Notebooks</title>
   
   
   
@@ -58,11 +58,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '02_python_basics/10_Import_packages';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '19_spatial_transforms/scaling_coordinate_lists';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Writing substainable code" href="../04_sustainable_code/readme.html" />
-    <link rel="prev" title="Functions" href="09_custom_functions.html" />
+    <link rel="next" title="Image segmentation" href="../20_image_segmentation/readme.html" />
+    <link rel="prev" title="Affine transforms using clesperanto" href="affine_transforms_clesperanto.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en">
   </head>
@@ -150,8 +150,8 @@ const thebe_selector_output = ".output, .cell_output"
                     </li>
                 
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="readme.html">
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../02_python_basics/readme.html">
                         Python basics
                       </a>
                     </li>
@@ -211,8 +211,8 @@ const thebe_selector_output = ".output, .cell_output"
                     </li>
                 
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../19_spatial_transforms/readme.html">
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="readme.html">
                         Spatial transforms
                       </a>
                     </li>
@@ -459,10 +459,6 @@ const thebe_selector_output = ".output, .cell_output"
   
 
   
-  <label class="sidebar-toggle secondary-toggle" for="__secondary">
-      <span class="fa-solid fa-outdent"></span>
-  </label>
-  
 
 </div>
   </nav>
@@ -500,8 +496,8 @@ const thebe_selector_output = ".output, .cell_output"
                     </li>
                 
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="readme.html">
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../02_python_basics/readme.html">
                         Python basics
                       </a>
                     </li>
@@ -561,8 +557,8 @@ const thebe_selector_output = ".output, .cell_output"
                     </li>
                 
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../19_spatial_transforms/readme.html">
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="readme.html">
                         Spatial transforms
                       </a>
                     </li>
@@ -839,30 +835,30 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../01_introduction/trailer.html">Trailer: Bio-image Analysis with Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../01_introduction/readme.html">Setting up your computer</a></li>
 
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="readme.html">Python basics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01_our_first_juptyer_notebook.html">Python code in Jupyter notebooks</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02_python_basics/readme.html">Python basics</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02_python_basics/01_our_first_juptyer_notebook.html">Python code in Jupyter notebooks</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="02_Math_in_python.html">Basic math in python</a></li>
-
-
-<li class="toctree-l2"><a class="reference internal" href="03_Dont_try_this_at_home.html">Pitfalls when working with Jupyter notebooks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04_Basic_types.html">Basic types in python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_python_basics/02_Math_in_python.html">Basic math in python</a></li>
 
 
-<li class="toctree-l2"><a class="reference internal" href="05_lists_tuples.html">Lists and tuples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_python_basics/03_Dont_try_this_at_home.html">Pitfalls when working with Jupyter notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_python_basics/04_Basic_types.html">Basic types in python</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../02_python_basics/05_lists_tuples.html">Lists and tuples</a></li>
 
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="05a_cropping_lists.html">Cropping lists</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05b_sorting_lists.html">Sorting lists</a></li>
-<li class="toctree-l2"><a class="reference internal" href="06_Dictionaries_and_tables.html">Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_python_basics/05a_cropping_lists.html">Cropping lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_python_basics/05b_sorting_lists.html">Sorting lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_python_basics/06_Dictionaries_and_tables.html">Dictionaries</a></li>
 
 
-<li class="toctree-l2"><a class="reference internal" href="07_Conditions.html">Conditions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="08_loops.html">Loops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="09_custom_functions.html">Functions</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Importing functions and packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_python_basics/07_Conditions.html">Conditions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_python_basics/08_loops.html">Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_python_basics/09_custom_functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_python_basics/10_Import_packages.html">Importing functions and packages</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../04_sustainable_code/readme.html">Writing substainable code</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -925,17 +921,17 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../18a_deconvolution/richardson_lucy_deconvolution.html">Richardson-Lucy-Deconvolution on OpenCL-compatible GPUs</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../19_spatial_transforms/readme.html">Spatial transforms</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../19_spatial_transforms/coordinate_systems.html">Coordinate systems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../19_spatial_transforms/cropping.html">Slicing and cropping</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../19_spatial_transforms/scaling.html">Scaling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../19_spatial_transforms/affine_transforms_scikit_image.html">Affine transforms using scikit-image</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../19_spatial_transforms/affine_transforms_scipy.html">Affine transforms using Scipy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../19_spatial_transforms/affine_transforms_cupy.html">Affine transforms using cupy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../19_spatial_transforms/affine_transforms_clesperanto.html">Affine transforms using clesperanto</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="readme.html">Spatial transforms</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="coordinate_systems.html">Coordinate systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cropping.html">Slicing and cropping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scaling.html">Scaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="affine_transforms_scikit_image.html">Affine transforms using scikit-image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="affine_transforms_scipy.html">Affine transforms using Scipy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="affine_transforms_cupy.html">Affine transforms using cupy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="affine_transforms_clesperanto.html">Affine transforms using clesperanto</a></li>
 
 
-<li class="toctree-l2"><a class="reference internal" href="../19_spatial_transforms/scaling_coordinate_lists.html">Scaling coordinate lists</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Scaling coordinate lists</a></li>
 </ul>
 </li>
 </ul>
@@ -1324,7 +1320,7 @@ title="Source repository"
 </a>
 </a>
       
-      <li><a href="https://github.com/haesleinhuepf/BioImageAnalysisNotebooks/issues/new?title=Issue%20on%20page%20%2F02_python_basics/10_Import_packages.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/haesleinhuepf/BioImageAnalysisNotebooks/issues/new?title=Issue%20on%20page%20%2F19_spatial_transforms/scaling_coordinate_lists.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
@@ -1349,7 +1345,7 @@ title="Open an issue"
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
-      <li><a href="../_sources/02_python_basics/10_Import_packages.ipynb" target="_blank"
+      <li><a href="../_sources/19_spatial_transforms/scaling_coordinate_lists.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
@@ -1382,9 +1378,7 @@ title="Print to PDF"
       
   </ul>
 </div>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary" data-toggle="tooltip" data-placement="left" title="Toggle secondary sidebar">
-            <span class="fa-solid fa-list"></span>
-        </label>
+
     </div>
 </div>
             </div>
@@ -1392,286 +1386,103 @@ title="Print to PDF"
             
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Importing functions and packages</h1>
+    <h1>Scaling coordinate lists</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#basic-import">
-   Basic import
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#alternative-import-formulation">
-   Alternative import formulation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#name-shortening">
-     Name shortening
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#specific-functions">
-     Specific functions
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sub-modules">
-   Sub-modules
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise">
-   Exercise
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
 
             <article class="bd-article" role="main">
               
-  <section class="tex2jax_ignore mathjax_ignore" id="importing-functions-and-packages">
-<h1>Importing functions and packages<a class="headerlink" href="#importing-functions-and-packages" title="Permalink to this heading">#</a></h1>
-<p>Very often, we need tools that are not directly provided by the default Python library. In that case we need to import the necessary functions from modules or packages into our notebooks or scripts. Some modules come directly with the Python distribution (like the math module seen in the <span class="xref myst">Basic math in python</span>), and some others like Numpy, scikit-image etc. are external packages installed with pip or conda. When it comes to import they work in the same way, and we have multiple ways of importing single functions or groups of them.</p>
-<section id="basic-import">
-<h2>Basic import<a class="headerlink" href="#basic-import" title="Permalink to this heading">#</a></h2>
-<p>The basic import statment uses the key-words <code class="docutils literal notranslate"><span class="pre">import</span></code> and the module name. For example with the basic Python module <code class="docutils literal notranslate"><span class="pre">pathlib</span></code> that deals with file paths and names:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="scaling-coordinate-lists">
+<h1>Scaling coordinate lists<a class="headerlink" href="#scaling-coordinate-lists" title="Permalink to this heading">#</a></h1>
+<p>Presume you have a list of coordinates derived from an image. In case the image has a specified pixel size, you can convert pixel coordinates in physical coordinates.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pathlib</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage.io</span> <span class="kn">import</span> <span class="n">imread</span>
+<span class="kn">import</span> <span class="nn">pyclesperanto_prototype</span> <span class="k">as</span> <span class="nn">cle</span>
+<span class="kn">import</span> <span class="nn">stackview</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>If we want to import an external package we need to make sure it is actually installed, otherwise we get an error message:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">absent_package</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">Input In [14],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">absent_package</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="s2">&quot;../../data/blobs.tif&quot;</span><span class="p">)[:</span><span class="mi">50</span><span class="p">,:</span><span class="mi">50</span><span class="p">]</span>
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;absent_package&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<p>If you have a missing package, you can install it directly from the notebook using pip or conda. For example if Numpy is not installed yet you could execute:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">numpy</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting package metadata (current_repodata.json): done
-Solving environment: done
+<span class="n">label_image</span> <span class="o">=</span> <span class="n">cle</span><span class="o">.</span><span class="n">voronoi_otsu_labeling</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">spot_sigma</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 
-# All requested packages already installed.
+<span class="n">label_image</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+<tr>
+<td>
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoAAAAHgCAYAAAA10dzkAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjcuMSwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy/bCgiHAAAACXBIWXMAAA9hAAAPYQGoP6dpAAAb6UlEQVR4nO3df2ydddn48Wuja4dsPWMgrctanWFh4MKMw42K8ceYLosakCUPJkQGLjFqtzBmojYRyDfRlB+J/NAxjC4jGud4ZpwEjCCZUKJuc5QsYSB7JKLUjHb6x9rRuG7Pen//IPahboy50XO353q9kpPY+z49XP2MLG8/p+fDpKIoigAAII3JZQ8AAEB1CUAAgGQEIABAMgIQACAZAQgAkIwABABIRgACACQjAAEAkhGAAADJCEAAgGQEIABAMgIQACAZAQgAkIwABABIRgACACQjAAEAkhGAAADJCEAAgGQEIABAMgIQACAZAQgAkIwABABIRgACACQjAAEAkhGAAADJCEAAgGQEIABAMgIQACAZAQgAkIwABABIRgACACQjAAEAkhGAAADJCEAAgGQEIABAMgIQACAZAQgAkIwABABIRgACACQjAAEAkhGAAADJCEAAgGQEIABAMgIQACAZAQgAkIwABABIRgACACQjAAEAkhGAAADJCEAAgGQEIABAMgIQACAZAQgAkIwABABIRgACACQjAAEAkqkrewDKtX79+rjrrruit7c3FixYEN/97ndj0aJFb/l9w8PDsX///pg+fXpMmjSpCpMC8HYqiiIOHToUs2bNismT7QdlM6koiqLsISjHQw89FNdff3088MADsXjx4rjnnnti69atsW/fvrjgggtO+r1/+9vfoqWlpUqTAjBWenp6Yvbs2WWPQZUJwMQWL14cH/zgB+N73/teRLy+q9fS0hJr1qyJb3zjGyf93v7+/pgxY0YVpmQi+cOFc8segXFm0Ut/KnsE3sLBgwejUqmUPQZV5i3gpI4cORLd3d3R0dExcm3y5MmxdOnS2LFjx3HPHxoaiqGhoZGvDx06VJU5mVimnXVW2SMA/yG/xpOTN/2T+sc//hHHjh2LpqamUdebmpqit7f3uOd3dnZGpVIZeXj7FwAmLgHIKeno6Ij+/v6RR09PT9kjAQCnyVvASZ1//vlx1llnRV9f36jrfX190dzcfNzzGxoaoqGh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u7qyB2Di+sc//hHHjh2LpqamUdebmprixRdfLGmq8a+3tzci4oTr9q972QwPD8fatWvjiiuuiPnz50fE6+tUX18fM2bMGPXcjOv03HPPRVtbWxw+fDimTZsW27Zti0suuST27Nljjd5gy5Yt8eyzz8bu3buPu+ffJxhNAAKla29vj71798Zvf/vbskcZly666KLYs2dP9Pf3x89+9rNYuXJldHV1lT3WuNLT0xM33XRTPPHEEzF16tSyx4Fxz1vAnLbzzz8/zjrrrOM+RdfX1xfNzc0lTTX+/WttrNvrVq9eHY8++mg8+eSTMXv27JHrzc3NceTIkTh48OCo52dcp/r6+rjwwgtj4cKF0dnZGQsWLIh7773XGr1Bd3d3HDhwID7wgQ9EXV1d1NXVRVdXV9x3331RV1cXTU1N1greQABy2urr62PhwoWxffv2kWvDw8Oxffv2aGtrK3Gy8W3OnDnR3Nw8at0GBgZi165dqdatKIpYvXp1bNu2LX7zm9/EnDlzRt1fuHBhTJkyZdQ67du3L1555ZVU63Qiw8PDMTQ0ZI3e4Morr4znnnsu9uzZM/K47LLL4rrrrhv539YK/o+3gDkj69ati5UrV8Zll10WixYtinvuuScGBwfjxhtvLHu0Ur322mvx0ksvjXz98ssvx549e2LmzJnR2toaa9eujW9961sxd+7cmDNnTtxyyy0xa9asuPrqq8sbusra29tj8+bN8fDDD8f06dNHfg+rUqnE2WefHZVKJVatWhXr1q2LmTNnRmNjY6xZsyba2tri8ssvL3n66uno6Ijly5dHa2trHDp0KDZv3hxPPfVUPP7449boDaZPnz7y+6P/cs4558R55503ct1awRuU/TFkJr7vfve7RWtra1FfX18sWrSo2LlzZ9kjle7JJ58sIuK4x8qVK4uieP0omFtuuaVoamoqGhoaiiuvvLLYt29fuUNX2YnWJyKKTZs2jTznn//8Z/GVr3ylOPfcc4t3vOMdxWc/+9ni1VdfLW/oEnzhC18o3v3udxf19fXFO9/5zuLKK68sfv3rX4/ct0Zv7o3HwBSFtYI3mlQURVFSewIAUAK/AwgAkIwABABIRgACACQjAAEAkhGAAADJCEAAgGQEIABAMgIQACAZAQgAkIwABABIRgACACQjAAEAkhGAAADJCEAAgGQEIABAMgIQACAZAQgAkIwABABIRgACACQjAAEAkhGAAADJCEAAgGQEIABAMgIQACAZAQgAkIwABABIRgACACQjAAEAkhGAAADJCEAAgGQEIABAMv8f9UWkXS3kGh8AAAAASUVORK5CYII="></img>
+</td>
+<td style="text-align: center; vertical-align: top;">
+<b><a href="https://github.com/clEsperanto/pyclesperanto_prototype" target="_blank">cle._</a> image</b><br/>
+<table>
+<tr><td>shape</td><td>(50,&nbsp;50)</td></tr>
+<tr><td>dtype</td><td>uint32</td></tr>
+<tr><td>size</td><td>9.8 kB</td></tr>
+<tr><td>min</td><td>0.0</td></tr><tr><td>max</td><td>6.0</td></tr>
+</table>
 
+</td>
+</tr>
+</table></div></div>
+</div>
+<p>From the objects in this label image, we can derive centroid coordinates.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">centroids</span> <span class="o">=</span> <span class="n">cle</span><span class="o">.</span><span class="n">centroids_of_labels</span><span class="p">(</span><span class="n">label_image</span><span class="p">)</span>
+<span class="n">centroids</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><pre>cle.array([[ 0.7586207  7.7894735 17.849672  24.59091   29.01266   43.57143  ]
+ [26.275862  44.63158   17.79085    4.071429  47.02532   26.266666 ]], dtype=float32)</pre></div></div>
+</div>
+<p>Such a point list has d times n numbers for d dimensions (commonly 2 or 3) and n points.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">centroids</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, 6)
+</pre></div>
+</div>
+</div>
+</div>
+<p>In case pixel size is known, we can compute the centroid coordinates in physical units.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pixel_size_in_microns</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">centroids_in_microns</span> <span class="o">=</span> <span class="n">centroids</span> <span class="o">*</span> <span class="n">cle</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">pixel_size_in_microns</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
 
-Note: you may need to restart the kernel to use updated packages.
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="alternative-import-formulation">
-<h2>Alternative import formulation<a class="headerlink" href="#alternative-import-formulation" title="Permalink to this heading">#</a></h2>
-<p>Using the simple formulation above, we get access to functions directly attached to the main package. Let’s import the Numpy package that we will use later to handle image. We can import it:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>and now we get e.g. access to the cosine function of Numpy by simply using the dot notation:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">3.14</span><span class="p">)</span>
+<span class="n">centroids_in_microns</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.9999987317275395
-</pre></div>
+<div class="output text_html"><pre>cle.array([[0.07586207 0.77894735 1.7849673  2.459091   2.9012659  4.357143  ]
+ [5.2551723  8.926316   3.55817    0.81428576 9.405064   5.2533336 ]], dtype=float32)</pre></div></div>
 </div>
-</div>
-</div>
-<p>To find all functions available in a package or a module, you typically have to go to its documentation and look for the <em>Application Programming Interface</em> or <em>API</em>. For example here we find a description of all mathematical functions (including the cosine) of Numpy: <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.math.html">https://numpy.org/doc/stable/reference/routines.math.html</a></p>
-<section id="name-shortening">
-<h3>Name shortening<a class="headerlink" href="#name-shortening" title="Permalink to this heading">#</a></h3>
-<p>If we use a package regularly, we might not want to write the full package name every time we need a function from it. To avoid that we can abbreviate it at the time of import using the <code class="docutils literal notranslate"><span class="pre">as</span></code> statement:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">3.14</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.9999987317275395
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="specific-functions">
-<h3>Specific functions<a class="headerlink" href="#specific-functions" title="Permalink to this heading">#</a></h3>
-<p>If we only need a specific function from a package, we can also just import it using the <code class="docutils literal notranslate"><span class="pre">from</span></code> statement. For examample if we want to only import the <code class="docutils literal notranslate"><span class="pre">np.cos</span></code> function above:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">cos</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cos</span><span class="p">(</span><span class="mf">3.14</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.9999987317275395
-</pre></div>
-</div>
-</div>
-</div>
-<p>Of course in this case, unless we find the specfiic line where the function is imported, we don’t know that <code class="docutils literal notranslate"><span class="pre">cos</span></code> necessarily belongs to Numpy as we could also have defined such a function in the notebook. If we want to import <strong>all</strong> functions from a package we can also use the <code class="docutils literal notranslate"><span class="pre">*</span></code> sign:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Here we have for example access to the sine function withouth having explicitly imported it:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sin</span><span class="p">(</span><span class="mf">3.14</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0015926529164868282
-</pre></div>
-</div>
-</div>
-</div>
-<p>As you can see, with this solution we have <em>no idea</em> what we actually imported in our notebook, which can lead to unwanted effects like re-using a function name. <strong>If you don’t have a specific reason to use this import variant, we strongly discourage its use.</strong></p>
-</section>
-</section>
-<section id="sub-modules">
-<h2>Sub-modules<a class="headerlink" href="#sub-modules" title="Permalink to this heading">#</a></h2>
-<p>In larger packages like Numpy, some functions are directly accessible from the main package (like <code class="docutils literal notranslate"><span class="pre">np.cos</span></code>) and others with more specialized tasks are grouped together by topic or domain into submodules. For example Numpy has a submodule dedicated to distributions called <code class="docutils literal notranslate"><span class="pre">random</span></code>. All the points seen above are still valide here.</p>
-<p>We use the dot notation to access functions, but now need to also specify the submodule name. For example the <code class="docutils literal notranslate"><span class="pre">normal</span></code> function that generates numbers drawn from a normal distribution:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.8077301364791438
-</pre></div>
-</div>
-</div>
-</div>
-<p>We can shorten the function call by importing only the sub-module:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">random</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0909924357071552
-</pre></div>
-</div>
-</div>
-</div>
-<p>and we can further shorten by importing just the function:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">normal</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">normal</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0038794083334154307
-</pre></div>
-</div>
-</div>
-</div>
-<p>Finally we can rename using the <code class="docutils literal notranslate"><span class="pre">as</span></code> statement:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">random</span> <span class="k">as</span> <span class="n">rd</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rd</span><span class="o">.</span><span class="n">normal</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.6781586087709578
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="exercise">
-<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this heading">#</a></h2>
-<p>The Numpy package has a linear algebra submodule called <code class="docutils literal notranslate"><span class="pre">linalg</span></code>. The following code computes the norm of a vector: <code class="docutils literal notranslate"><span class="pre">np.linalg.norm([1,2])</span></code>. Try to:</p>
-<ul class="simple">
-<li><p>import just the sub-module and call the same function</p></li>
-<li><p>import just the <code class="docutils literal notranslate"><span class="pre">norm</span></code> function and call it</p></li>
-</ul>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1687,7 +1498,7 @@ Note: you may need to restart the kernel to use updated packages.
         },
         kernelOptions: {
             name: "python3",
-            path: "./02_python_basics"
+            path: "./19_spatial_transforms"
         },
         predefinedOutput: true
     }
@@ -1702,17 +1513,17 @@ Note: you may need to restart the kernel to use updated packages.
             <footer class="bd-footer-article">
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-  <a class='left-prev' id="prev-link" href="09_custom_functions.html" title="previous page">
+  <a class='left-prev' id="prev-link" href="affine_transforms_clesperanto.html" title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
           <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title">Functions</p>
+          <p class="prev-next-title">Affine transforms using clesperanto</p>
       </div>
   </a>
-  <a class='right-next' id="next-link" href="../04_sustainable_code/readme.html" title="next page">
+  <a class='right-next' id="next-link" href="../20_image_segmentation/readme.html" title="next page">
   <div class="prev-next-info">
       <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">Writing substainable code</p>
+      <p class="prev-next-title">Image segmentation</p>
   </div>
   <i class="fa-solid fa-angle-right"></i>
   </a>
@@ -1722,54 +1533,6 @@ Note: you may need to restart the kernel to use updated packages.
           </div>
           
           
-          
-            <div class="bd-sidebar-secondary bd-toc">
-              
-<div class="toc-item">
-  
-<div class="tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-</div>
-<nav id="bd-toc-nav" class="page-toc">
-    <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#basic-import">
-   Basic import
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#alternative-import-formulation">
-   Alternative import formulation
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#name-shortening">
-     Name shortening
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#specific-functions">
-     Specific functions
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sub-modules">
-   Sub-modules
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise">
-   Exercise
-  </a>
- </li>
-</ul>
-
-</nav>
-</div>
-
-            </div>
           
           
         </div>
