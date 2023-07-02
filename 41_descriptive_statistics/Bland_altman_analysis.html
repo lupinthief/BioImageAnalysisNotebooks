@@ -1226,7 +1226,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../51_plotting/plotting_seaborn.html">Introduction to Seaborn</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../51_plotting/plotting_distributions.html">Plotting Distributions with Seaborn</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../51_plotting/multivariate_views.html">Multivariate views</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../51_plotting/bland_altman_analysis.html">Bland-Altman plots</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../60_data_visualization/readme.html">Data visualization</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-35"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -1438,23 +1437,6 @@ title="Print to PDF"
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#some-simulated-situations">
-     Some simulated situations
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#additive-bias">
-       Additive bias
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#multiplicative-bias">
-       Multiplicative bias
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#exercise">
      Exercise
     </a>
@@ -1613,7 +1595,7 @@ Mean(B) = 5.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/fe5ce7d6ce4c68d2c4c481682c07c452efc1c497e29344c93406b2704d44b51b.png" src="../_images/fe5ce7d6ce4c68d2c4c481682c07c452efc1c497e29344c93406b2704d44b51b.png" />
+<img alt="../_images/829a13efa4386b6a91bec841eadaa6e053c35e9cec22971050bcf779cb139464.png" src="../_images/829a13efa4386b6a91bec841eadaa6e053c35e9cec22971050bcf779cb139464.png" />
 </div>
 </div>
 <p>Obviously A and B lead to quite different results. If the blue points would lie on the orange line, we would conclude that the measurements are related.</p>
@@ -1635,8 +1617,8 @@ Mean(B) = 5.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/937314ebb93ce00d4840c3211a72b22ba4a7bf84e1e7abc343fd632f2ca16adb.png" src="../_images/937314ebb93ce00d4840c3211a72b22ba4a7bf84e1e7abc343fd632f2ca16adb.png" />
-<img alt="../_images/225cbcaf87ec5f1520158a0b9ae45628eae6d76c08f6e5b1da23cc8f02544323.png" src="../_images/225cbcaf87ec5f1520158a0b9ae45628eae6d76c08f6e5b1da23cc8f02544323.png" />
+<img alt="../_images/70ba04c3abfdb1e4387e448eecfbb88c15845aa35862511c71904c2d615521ef.png" src="../_images/70ba04c3abfdb1e4387e448eecfbb88c15845aa35862511c71904c2d615521ef.png" />
+<img alt="../_images/439b3e51271e38a47126cab263d479a165ee06dcfc366d2dcaa4a39b454ca144.png" src="../_images/439b3e51271e38a47126cab263d479a165ee06dcfc366d2dcaa4a39b454ca144.png" />
 </div>
 </div>
 </section>
@@ -1660,7 +1642,7 @@ Mean(B) = 5.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8740b8f51bb53f9c2595c2d8fdebcbd772973eb9171df396007c15c1c05e6f79.png" src="../_images/8740b8f51bb53f9c2595c2d8fdebcbd772973eb9171df396007c15c1c05e6f79.png" />
+<img alt="../_images/b175f09d5c868c8c0c99c4b61bb0c60b2bdef06462742e76e65ec4ee53f1bc04.png" src="../_images/b175f09d5c868c8c0c99c4b61bb0c60b2bdef06462742e76e65ec4ee53f1bc04.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1706,7 +1688,7 @@ Mean(B) = 5.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9435300113035255
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9435300113035257
 </pre></div>
 </div>
 </div>
@@ -1749,149 +1731,9 @@ Mean(B) = 5.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f9c24442f838d5b8a5d75ce773b583b2156c77268ab86d3c795f8b6db546d9c5.png" src="../_images/f9c24442f838d5b8a5d75ce773b583b2156c77268ab86d3c795f8b6db546d9c5.png" />
+<img alt="../_images/49cdfe02599a3451be6eb7d7779689948f4e1bc5f3717deed11aaf51fe025e81.png" src="../_images/49cdfe02599a3451be6eb7d7779689948f4e1bc5f3717deed11aaf51fe025e81.png" />
 </div>
 </div>
-<p>Alternatively, one can use more advanced visualizations using statsmodels (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">statsmodels</span></code>). It needs numpy-arrays to work with and doesn’t work with lists.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.graphics.agreement</span> <span class="kn">import</span> <span class="n">mean_diff_plot</span>
-
-<span class="n">m1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">measurement_1</span><span class="p">)</span>
-<span class="n">m2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">measurement_2</span><span class="p">)</span>
-
-<span class="n">plot</span> <span class="o">=</span> <span class="n">mean_diff_plot</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span> <span class="n">m2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_12108</span><span class="o">/</span><span class="mf">1151555838.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">statsmodels.graphics.agreement</span> <span class="kn">import</span> <span class="n">mean_diff_plot</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> 
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">m1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">measurement_1</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">m2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">measurement_2</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> 
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;statsmodels&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<p>… or <a class="reference external" href="https://github.com/jaketmp/pyCompare">pyCompare</a> (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pycompare</span></code>)</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyCompare</span> <span class="kn">import</span> <span class="n">blandAltman</span>
-
-<span class="n">blandAltman</span><span class="p">(</span><span class="n">measurement_1</span><span class="p">,</span> <span class="n">measurement_2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<section id="some-simulated-situations">
-<h2>Some simulated situations<a class="headerlink" href="#some-simulated-situations" title="Permalink to this heading">#</a></h2>
-<p>For simulating some characteristic bland altman plots, we start by setting a ground truth set of numbers, e.g. radii in mm of 100 cherries.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">radii</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
-
-<span class="c1"># for demo purposes: print the first 5</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">radii</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>We assume these radii are the perfect ground truth. We will now measure the size of these cherries twice. Our measurement device is not perfect and thus, has a little error.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">measurement_r1</span> <span class="o">=</span> <span class="n">radii</span> <span class="o">+</span>  <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
-<span class="n">measurement_r2</span> <span class="o">=</span> <span class="n">radii</span> <span class="o">+</span>  <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">measurement_r1</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">measurement_r2</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Plotting these two measurements against each other in a Bland-Altman plot visualizes the agreement between the methods. Note the symmetry of the plot and that the data points are arranged around difference = 0.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bland_altman_plot</span><span class="p">(</span><span class="n">measurement_r1</span><span class="p">,</span> <span class="n">measurement_r2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<section id="additive-bias">
-<h3>Additive bias<a class="headerlink" href="#additive-bias" title="Permalink to this heading">#</a></h3>
-<p>If one method tends to measure more than the other method by a fixed offset, we call that an additive bias:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">offset</span> <span class="o">=</span> <span class="mi">1</span>
-
-<span class="n">measurement_r1</span> <span class="o">=</span> <span class="n">radii</span> <span class="o">+</span>  <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
-<span class="n">measurement_r2</span> <span class="o">=</span> <span class="n">radii</span> <span class="o">+</span>  <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span> <span class="o">+</span> <span class="n">offset</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">measurement_r1</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">measurement_r2</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>You can observe the offset in the Bland-Altman plot because the measurements are arranged around difference = offset:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bland_altman_plot</span><span class="p">(</span><span class="n">measurement_r1</span><span class="p">,</span> <span class="n">measurement_r2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="multiplicative-bias">
-<h3>Multiplicative bias<a class="headerlink" href="#multiplicative-bias" title="Permalink to this heading">#</a></h3>
-<p>If one method always measures more than the other linearily depending on the measurement itself, we call that a multiplicative bias.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">factor</span> <span class="o">=</span> <span class="mf">1.1</span>
-
-<span class="n">measurement_r1</span> <span class="o">=</span> <span class="n">radii</span> <span class="o">+</span>  <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
-<span class="n">measurement_r2</span> <span class="o">=</span> <span class="n">radii</span> <span class="o">+</span>  <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span> <span class="o">*</span> <span class="n">factor</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">measurement_r1</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">measurement_r2</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bland_altman_plot</span><span class="p">(</span><span class="n">measurement_r1</span><span class="p">,</span> <span class="n">measurement_r2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>As the effect is harder to see, we use a higher factor.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">factor</span> <span class="o">=</span> <span class="mi">5</span>
-
-<span class="n">measurement_r1</span> <span class="o">=</span> <span class="n">radii</span> <span class="o">+</span>  <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
-<span class="n">measurement_r2</span> <span class="o">=</span> <span class="n">radii</span> <span class="o">+</span>  <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span> <span class="o">*</span> <span class="n">factor</span> <span class="o">+</span> <span class="mi">5</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">measurement_r1</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">measurement_r2</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
-
-<span class="n">bland_altman_plot</span><span class="p">(</span><span class="n">measurement_r1</span><span class="p">,</span> <span class="n">measurement_r2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
 <section id="exercise">
 <h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this heading">#</a></h2>
 <p>Process the banana dataset again, e.g. using a for-loop that goes through the folder <code class="docutils literal notranslate"><span class="pre">../data/banana/</span></code>, and processes all the images. Measure the size of the banana slices using the <a class="reference external" href="https://scikit-image.org/docs/dev/search.html?q=threshold_&amp;check_keywords=yes&amp;area=default#">scikit-image thresholding methods</a> <code class="docutils literal notranslate"><span class="pre">threshold_otsu</span></code> and <code class="docutils literal notranslate"><span class="pre">threshold_yen</span></code>. Compare both methods using the techniques you learned above.</p>
@@ -1988,23 +1830,6 @@ Mean(B) = 5.0
    Bland-Altman plots
   </a>
   <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#some-simulated-situations">
-     Some simulated situations
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#additive-bias">
-       Additive bias
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#multiplicative-bias">
-       Multiplicative bias
-      </a>
-     </li>
-    </ul>
-   </li>
    <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#exercise">
      Exercise

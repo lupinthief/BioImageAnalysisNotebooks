@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Bland-Altman plots &#8212; Bio-image Analysis Notebooks</title>
+    <title>Bland-Altman plots in practice &#8212; Bio-image Analysis Notebooks</title>
   
   
   
@@ -58,11 +58,9 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '51_plotting/bland_altman_analysis';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '41_descriptive_statistics/bland_altman_simulated_data';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Data visualization" href="../60_data_visualization/readme.html" />
-    <link rel="prev" title="Multivariate views" href="multivariate_views.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en">
   </head>
@@ -373,7 +371,7 @@ const thebe_selector_output = ".output, .cell_output"
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../41_descriptive_statistics/readme.html">
+                      <a class="nav-link nav-internal" href="readme.html">
                         Descriptive statistics
                       </a>
                     </li>
@@ -386,8 +384,8 @@ const thebe_selector_output = ".output, .cell_output"
                     </li>
                 
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="readme.html">
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../51_plotting/readme.html">
                         Plotting
                       </a>
                     </li>
@@ -458,10 +456,6 @@ const thebe_selector_output = ".output, .cell_output"
     </div>
   
 
-  
-  <label class="sidebar-toggle secondary-toggle" for="__secondary">
-      <span class="fa-solid fa-outdent"></span>
-  </label>
   
 
 </div>
@@ -723,7 +717,7 @@ const thebe_selector_output = ".output, .cell_output"
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../41_descriptive_statistics/readme.html">
+                      <a class="nav-link nav-internal" href="readme.html">
                         Descriptive statistics
                       </a>
                     </li>
@@ -736,8 +730,8 @@ const thebe_selector_output = ".output, .cell_output"
                     </li>
                 
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="readme.html">
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../51_plotting/readme.html">
                         Plotting
                       </a>
                     </li>
@@ -1168,7 +1162,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tabular data, plots and statistics</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../40_tabular_data_wrangling/readme.html">Tabular data wrangling</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-30"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../40_tabular_data_wrangling/introduction_dataframes.html">Introduction to working with DataFrames</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../40_tabular_data_wrangling/explore_dataset.html">Exploring tabular data</a></li>
@@ -1193,13 +1187,13 @@ const thebe_selector_output = ".output, .cell_output"
 
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../41_descriptive_statistics/readme.html">Descriptive statistics</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../41_descriptive_statistics/basic_descriptive_statistics.html">Descriptive statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../41_descriptive_statistics/descriptive_statistics_label_images.html">Descriptive statistics of labeled images</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../41_descriptive_statistics/Bland_altman_analysis.html">Method comparison</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="readme.html">Descriptive statistics</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="basic_descriptive_statistics.html">Descriptive statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="descriptive_statistics_label_images.html">Descriptive statistics of labeled images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Bland_altman_analysis.html">Method comparison</a></li>
 
 
-<li class="toctree-l2"><a class="reference internal" href="../41_descriptive_statistics/bland_altman_on_folders_of_images.html">Bland-Altman analysis to compare segmentation algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bland_altman_on_folders_of_images.html">Bland-Altman analysis to compare segmentation algorithms</a></li>
 
 </ul>
 </li>
@@ -1220,13 +1214,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../47_clustering/interactive_dimensionality_reduction_and_clustering/readme.html">Interactive dimensionality reduction and clustering</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="readme.html">Plotting</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-34"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="plotting_matplotlib.html">Plotting with Matplotlib</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../51_plotting/readme.html">Plotting</a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-34"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../51_plotting/plotting_matplotlib.html">Plotting with Matplotlib</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="plotting_seaborn.html">Introduction to Seaborn</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plotting_distributions.html">Plotting Distributions with Seaborn</a></li>
-<li class="toctree-l2"><a class="reference internal" href="multivariate_views.html">Multivariate views</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Bland-Altman plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../51_plotting/plotting_seaborn.html">Introduction to Seaborn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../51_plotting/plotting_distributions.html">Plotting Distributions with Seaborn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../51_plotting/multivariate_views.html">Multivariate views</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../60_data_visualization/readme.html">Data visualization</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-35"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -1327,7 +1320,7 @@ title="Source repository"
 </a>
 </a>
       
-      <li><a href="https://github.com/haesleinhuepf/BioImageAnalysisNotebooks/issues/new?title=Issue%20on%20page%20%2F51_plotting/bland_altman_analysis.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/haesleinhuepf/BioImageAnalysisNotebooks/issues/new?title=Issue%20on%20page%20%2F41_descriptive_statistics/bland_altman_simulated_data.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
@@ -1352,7 +1345,7 @@ title="Open an issue"
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
-      <li><a href="../_sources/51_plotting/bland_altman_analysis.ipynb" target="_blank"
+      <li><a href="../_sources/41_descriptive_statistics/bland_altman_simulated_data.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
@@ -1385,9 +1378,7 @@ title="Print to PDF"
       
   </ul>
 </div>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary" data-toggle="tooltip" data-placement="left" title="Toggle secondary sidebar">
-            <span class="fa-solid fa-list"></span>
-        </label>
+
     </div>
 </div>
             </div>
@@ -1395,335 +1386,108 @@ title="Print to PDF"
             
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Bland-Altman plots</h1>
+    <h1>Bland-Altman plots in practice</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#comparison-of-means">
-   Comparison of means
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#correlation">
-   Correlation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   Bland-Altman plots
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
 
             <article class="bd-article" role="main">
               
-  <section class="tex2jax_ignore mathjax_ignore" id="bland-altman-plots">
-<h1>Bland-Altman plots<a class="headerlink" href="#bland-altman-plots" title="Permalink to this heading">#</a></h1>
-<p>Comparing measurement methods can be tricky. In this notebook, we loosely follow the arguing of Martin Bland and Douglas Altman, the developers of the <a class="reference external" href="https://en.wikipedia.org/wiki/Bland%E2%80%93Altman_plot">Balnd-Altman plot</a> ([Bland and Altman 1983](<a class="reference external" href="https://www">https://www</a> <a class="reference external" href="http://users.york.ac.uk/~mb55/meas/ab83.pdf">users.york.ac.uk/~mb55/meas/ab83.pdf</a>)).</p>
-<p>See also</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://youtu.be/PbSrSupnZFQ">Method comparison with Bland-Altman analysis (video)</a></p></li>
-</ul>
+  <section class="tex2jax_ignore mathjax_ignore" id="bland-altman-plots-in-practice">
+<h1>Bland-Altman plots in practice<a class="headerlink" href="#bland-altman-plots-in-practice" title="Permalink to this heading">#</a></h1>
+<p>In this notebook we demonstrate some simulated scenarios introducing certain errors and how you can see them in Bland-Altman plots.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">bland_altman_plot</span>
 </pre></div>
 </div>
 </div>
 </div>
-<section id="comparison-of-means">
-<h2>Comparison of means<a class="headerlink" href="#comparison-of-means" title="Permalink to this heading">#</a></h2>
-<p>When comparing measurement methods, a first step might be to calculate the mean value for two lists of measurement determined by different methods.</p>
+<p>For determining variability of extracted features between different segmentation algorithms and potential systematic bias, we use <a class="reference external" href="https://en.wikipedia.org/wiki/Bland%E2%80%93Altman_plot">Bland-Altman Plots</a>. For demonstration purposes, we use synthetic nuclei volume measurements from 100 images.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># make up some data</span>
-<span class="n">measurement_A</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
-<span class="n">measurement_B</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean</span> <span class="o">=</span> <span class="mi">250</span>
+<span class="n">std</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">number_of_samples</span> <span class="o">=</span> <span class="mi">100</span>
 
-<span class="c1"># show measurements as table</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">measurement_A</span><span class="p">,</span> <span class="n">measurement_B</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="n">volume_ground_truth</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">number_of_samples</span><span class="p">)</span>
+<span class="n">volume_ground_truth</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>A</th>
-      <th>B</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>9</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>7</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>1</td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>8</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>9</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>2</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>1</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>7</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>8</td>
-      <td>4</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([204.09881421, 262.64320502, 247.56230711, 256.07006239,
+       282.41305845])
+</pre></div>
 </div>
-<p>The mean of these two measurements lists is a necessary but not sufficient to proof that the two measurement methods are replaceable.</p>
+</div>
+</div>
+<p>We now introduce a function <code class="docutils literal notranslate"><span class="pre">vary</span></code> that turns ground truth into a measurement including some random variation and systematic bias.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean(A) = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">measurement_A</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean(B) = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">measurement_B</span><span class="p">)))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">vary</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">relative_error</span><span class="p">,</span> <span class="n">absolute_error</span><span class="p">,</span> <span class="n">std</span><span class="p">):</span>
+    <span class="n">new_value</span> <span class="o">=</span> <span class="n">values</span> <span class="o">*</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">relative_error</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">absolute_error</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">std</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">values</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">new_value</span>
+
+<span class="n">volume_test</span> <span class="o">=</span> <span class="n">vary</span><span class="p">(</span><span class="n">volume_ground_truth</span><span class="p">,</span> <span class="n">relative_error</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">absolute_error</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">volume_test</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean(A) = 5.0
-Mean(B) = 5.0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([209.85951204, 267.53394119, 260.76895678, 273.23663888,
+       295.41294457])
 </pre></div>
 </div>
 </div>
 </div>
-<p>However, when we look in more detail into the data, e.g. using a scatter plot, we will see that the methods are not producing similar values. For two methods that produce similar measurements, we would expect that the blue data points are on, or close by the orange line:</p>
+<p>From a Bland-Altman plot, you can read the average difference between two methods, e.g. in the following plot, you can see that the mean difference is zero. Thus, both methods deliver similar results on average.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">measurement_A</span><span class="p">,</span> <span class="n">measurement_B</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">volume1</span> <span class="o">=</span> <span class="n">vary</span><span class="p">(</span><span class="n">volume_ground_truth</span><span class="p">,</span> <span class="n">relative_error</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">absolute_error</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">volume2</span> <span class="o">=</span> <span class="n">vary</span><span class="p">(</span><span class="n">volume_ground_truth</span><span class="p">,</span> <span class="n">relative_error</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">absolute_error</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">bland_altman_plot</span><span class="p">(</span><span class="n">volume1</span><span class="p">,</span> <span class="n">volume2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/caf9bd312f98d8afdc78d61508bded2e5ccd4e37375fcb241fb94c521e57fb12.png" src="../_images/caf9bd312f98d8afdc78d61508bded2e5ccd4e37375fcb241fb94c521e57fb12.png" />
+<img alt="../_images/90de2e0f6fa477c29ca79753c5e909c23c8ff3d10a2bf8a44a386b27ac5682ff.png" src="../_images/90de2e0f6fa477c29ca79753c5e909c23c8ff3d10a2bf8a44a386b27ac5682ff.png" />
 </div>
 </div>
-<p>For comparing data from two different source, it may also make sense to visualise the histograms of both:</p>
+<p>In the next plot you see that the difference center line is at about 10, as specified as absolute error when generating the synthetic data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">draw_histogram</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-    <span class="n">counts</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">bins</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">counts</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-    
-<span class="n">draw_histogram</span><span class="p">(</span><span class="n">measurement_A</span><span class="p">)</span>
-<span class="n">draw_histogram</span><span class="p">(</span><span class="n">measurement_B</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">volume1</span> <span class="o">=</span> <span class="n">vary</span><span class="p">(</span><span class="n">volume_ground_truth</span><span class="p">,</span> <span class="n">relative_error</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">absolute_error</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">volume2</span> <span class="o">=</span> <span class="n">vary</span><span class="p">(</span><span class="n">volume_ground_truth</span><span class="p">,</span> <span class="n">relative_error</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">absolute_error</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">bland_altman_plot</span><span class="p">(</span><span class="n">volume1</span><span class="p">,</span> <span class="n">volume2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7df63169fdc7478e1dccce13948af1b428aa1a91636cd8e0e00ecc1c8652366f.png" src="../_images/7df63169fdc7478e1dccce13948af1b428aa1a91636cd8e0e00ecc1c8652366f.png" />
-<img alt="../_images/76cd065f64ffb3f32bb1ffdea935ea343e6273682e0ad2cbb4d7d1262e57ac48.png" src="../_images/76cd065f64ffb3f32bb1ffdea935ea343e6273682e0ad2cbb4d7d1262e57ac48.png" />
+<img alt="../_images/b1995a591eafc98b27ca0cf4699b0481caf17513bbbdbff048d9328a93d4ba9b.png" src="../_images/b1995a591eafc98b27ca0cf4699b0481caf17513bbbdbff048d9328a93d4ba9b.png" />
 </div>
 </div>
-</section>
-<section id="correlation">
-<h2>Correlation<a class="headerlink" href="#correlation" title="Permalink to this heading">#</a></h2>
-<p>In order to measure relationships between datasets, deatermining <a class="reference external" href="https://en.wikipedia.org/wiki/Correlation_coefficient">correlation coefficients</a> might be useful.</p>
-<p>The data for the following experiment is taken from 1 Altman &amp; Bland, The Statistician 32, 1983, Fig. 1.</p>
+<p>You can also see if there is a relative bias, e.g. the one method overestimates volume of objects depending on the volume of the objects. Such a relative error is expressed as a tilt in the measurments in a Bland-Altman plot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">measurement_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">130</span><span class="p">,</span> <span class="mi">132</span><span class="p">,</span> <span class="mi">138</span><span class="p">,</span> <span class="mi">145</span><span class="p">,</span> <span class="mi">148</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">155</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">161</span><span class="p">,</span> <span class="mi">170</span><span class="p">,</span> <span class="mi">175</span><span class="p">,</span> <span class="mi">178</span><span class="p">,</span> <span class="mi">182</span><span class="p">,</span> <span class="mi">182</span><span class="p">,</span> <span class="mi">188</span><span class="p">,</span> <span class="mi">195</span><span class="p">,</span> <span class="mi">195</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">204</span><span class="p">,</span> <span class="mi">210</span><span class="p">,</span> <span class="mi">210</span><span class="p">,</span> <span class="mi">215</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">200</span><span class="p">]</span>
-<span class="n">measurement_2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">122</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">135</span><span class="p">,</span> <span class="mi">132</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="mi">151</span><span class="p">,</span> <span class="mi">145</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">179</span><span class="p">,</span> <span class="mi">168</span><span class="p">,</span> <span class="mi">175</span><span class="p">,</span> <span class="mi">187</span><span class="p">,</span> <span class="mi">170</span><span class="p">,</span> <span class="mi">182</span><span class="p">,</span> <span class="mi">179</span><span class="p">,</span> <span class="mi">195</span><span class="p">,</span> <span class="mi">190</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">195</span><span class="p">,</span> <span class="mi">210</span><span class="p">,</span> <span class="mi">190</span><span class="p">,</span> <span class="mi">200</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">volume1</span> <span class="o">=</span> <span class="n">vary</span><span class="p">(</span><span class="n">volume_ground_truth</span><span class="p">,</span> <span class="n">relative_error</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">absolute_error</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">volume2</span> <span class="o">=</span> <span class="n">vary</span><span class="p">(</span><span class="n">volume_ground_truth</span><span class="p">,</span> <span class="n">relative_error</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">absolute_error</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">measurement_1</span><span class="p">,</span> <span class="n">measurement_2</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">120</span><span class="p">,</span> <span class="mi">220</span><span class="p">],</span> <span class="p">[</span><span class="mi">120</span><span class="p">,</span> <span class="mi">220</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">120</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">220</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">bland_altman_plot</span><span class="p">(</span><span class="n">volume1</span><span class="p">,</span> <span class="n">volume2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1d424a9a8a426d3e10a06f4163bce2a010b33f5759cde855b658cee0bf812333.png" src="../_images/1d424a9a8a426d3e10a06f4163bce2a010b33f5759cde855b658cee0bf812333.png" />
+<img alt="../_images/5add2dda3267d01609716d9f9411ae4136b7d6c83af5c110dc427553f4416be0.png" src="../_images/5add2dda3267d01609716d9f9411ae4136b7d6c83af5c110dc427553f4416be0.png" />
 </div>
 </div>
-<p>To practice a bit python programming and for loops, we will calculate <a class="reference external" href="https://en.wikipedia.org/wiki/Pearson_correlation_coefficient">Pearson’s correlation coefficient</a>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the mean of the measurements</span>
-<span class="n">mean_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">measurement_1</span><span class="p">)</span>
-<span class="n">mean_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">measurement_2</span><span class="p">)</span>
-
-<span class="c1"># get the number of measurements</span>
-<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">measurement_1</span><span class="p">)</span>
-
-<span class="c1"># get the standard deviation of the measurements</span>
-<span class="n">std_dev_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">measurement_1</span><span class="p">)</span>
-<span class="n">std_dev_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">measurement_2</span><span class="p">)</span>
-
-<span class="c1"># sum the expectation of </span>
-<span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">m_1</span><span class="p">,</span> <span class="n">m_2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">measurement_1</span><span class="p">,</span> <span class="n">measurement_2</span><span class="p">):</span>
-    <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="p">(</span><span class="n">m_1</span> <span class="o">-</span> <span class="n">mean_1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">m_2</span> <span class="o">-</span> <span class="n">mean_2</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
-
-<span class="n">r</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">/</span> <span class="p">(</span><span class="n">std_dev_1</span> <span class="o">*</span> <span class="n">std_dev_2</span><span class="p">)</span>
-
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;r = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">r</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>r = 0.9435300113035253
-</pre></div>
-</div>
-</div>
-</div>
-<p>Of course, Python libraries exist which offer that functionality, for example <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html"><code class="docutils literal notranslate"><span class="pre">scipy.stats.pearsonr()</span></code></a>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">measurement_1</span><span class="p">,</span> <span class="n">measurement_2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.9435300113035255, 1.6002440484659832e-12)
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="id1">
-<h2>Bland-Altman plots<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
-<p>In Bland-Altman plots, we visualize the averaged value of two measurements agains their difference. This is basically a titled and scaled version of the scatter plot with a focus on the region where the datapoint lies. In Blant-Altman plots, we typically find three horizontal lines:</p>
-<ul class="simple">
-<li><p>The upper and lower lines frame the confidence interval in which the datapoints lie.</p></li>
-<li><p>The center line visualizes the mean difference of both methods. If this line is close by zero, that means both methods on average produce the same value.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A function for drawing Bland-Altman plots</span>
-<span class="c1"># source https://stackoverflow.com/questions/16399279/bland-altman-plot-in-python</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="k">def</span> <span class="nf">bland_altman_plot</span><span class="p">(</span><span class="n">data1</span><span class="p">,</span> <span class="n">data2</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="n">data1</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">data1</span><span class="p">)</span>
-    <span class="n">data2</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">data2</span><span class="p">)</span>
-    <span class="n">mean</span>      <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">data1</span><span class="p">,</span> <span class="n">data2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">diff</span>      <span class="o">=</span> <span class="n">data1</span> <span class="o">-</span> <span class="n">data2</span>                   <span class="c1"># Difference between data1 and data2</span>
-    <span class="n">md</span>        <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span>                   <span class="c1"># Mean of the difference</span>
-    <span class="n">sd</span>        <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">diff</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>            <span class="c1"># Standard deviation of the difference</span>
-
-    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">diff</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">md</span><span class="p">,</span>           <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">md</span> <span class="o">+</span> <span class="mf">1.96</span><span class="o">*</span><span class="n">sd</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">md</span> <span class="o">-</span> <span class="mf">1.96</span><span class="o">*</span><span class="n">sd</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># draw a Bland-Altman plot</span>
-<span class="n">bland_altman_plot</span><span class="p">(</span><span class="n">measurement_1</span><span class="p">,</span> <span class="n">measurement_2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/19d83ea3d54a40db485da452d10ba77af7d6043de259c7ad1822b201f502ba48.png" src="../_images/19d83ea3d54a40db485da452d10ba77af7d6043de259c7ad1822b201f502ba48.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># draw a modified Bland-Altman plot with an extended axis</span>
-
-<span class="k">def</span> <span class="nf">bland_altman_plot_mod</span><span class="p">(</span><span class="n">data1</span><span class="p">,</span> <span class="n">data2</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="n">data1</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">data1</span><span class="p">)</span>
-    <span class="n">data2</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">data2</span><span class="p">)</span>
-    <span class="n">mean</span>      <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">data1</span><span class="p">,</span> <span class="n">data2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">diff</span>      <span class="o">=</span> <span class="n">data1</span> <span class="o">-</span> <span class="n">data2</span>                   <span class="c1"># Difference between data1 and data2</span>
-    <span class="n">md</span>        <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span>                   <span class="c1"># Mean of the difference</span>
-    <span class="n">sd</span>        <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">diff</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>            <span class="c1"># Standard deviation of the difference</span>
-
-    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">diff</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-    
-<span class="n">bland_altman_plot_mod</span><span class="p">(</span><span class="n">measurement_1</span><span class="p">,</span> <span class="n">measurement_2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/167f72d5cca715d0d05011a70c9fd89e8bf66dd4a7fbeaf055b34753cc7dbba1.png" src="../_images/167f72d5cca715d0d05011a70c9fd89e8bf66dd4a7fbeaf055b34753cc7dbba1.png" />
-</div>
-</div>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1739,7 +1503,7 @@ Mean(B) = 5.0
         },
         kernelOptions: {
             name: "python3",
-            path: "./51_plotting"
+            path: "./41_descriptive_statistics"
         },
         predefinedOutput: true
     }
@@ -1754,57 +1518,12 @@ Mean(B) = 5.0
             <footer class="bd-footer-article">
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-  <a class='left-prev' id="prev-link" href="multivariate_views.html" title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-          <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title">Multivariate views</p>
-      </div>
-  </a>
-  <a class='right-next' id="next-link" href="../60_data_visualization/readme.html" title="next page">
-  <div class="prev-next-info">
-      <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">Data visualization</p>
-  </div>
-  <i class="fa-solid fa-angle-right"></i>
-  </a>
 </div>
             </footer>
             
           </div>
           
           
-          
-            <div class="bd-sidebar-secondary bd-toc">
-              
-<div class="toc-item">
-  
-<div class="tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-</div>
-<nav id="bd-toc-nav" class="page-toc">
-    <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#comparison-of-means">
-   Comparison of means
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#correlation">
-   Correlation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   Bland-Altman plots
-  </a>
- </li>
-</ul>
-
-</nav>
-</div>
-
-            </div>
           
           
         </div>
