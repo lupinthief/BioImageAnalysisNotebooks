@@ -1523,12 +1523,13 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_objects</span><span class="p">(</span><span class="n">image_name</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;counting labels in &quot;</span><span class="p">,</span> <span class="n">image_name</span><span class="p">)</span>
     
     <span class="n">label_image</span> <span class="o">=</span> <span class="n">image_storage</span><span class="p">[</span><span class="n">image_name</span><span class="p">]</span>
     
     <span class="n">num_labels</span> <span class="o">=</span> <span class="n">label_image</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
-    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;The labe image </span><span class="si">{</span><span class="n">image_name</span><span class="si">}</span><span class="s2"> contains </span><span class="si">{</span><span class="n">num_labels</span><span class="si">}</span><span class="s2"> labels.&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;counting labels in &quot;</span><span class="p">,</span> <span class="n">image_name</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">num_labels</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;The label image </span><span class="si">{</span><span class="n">image_name</span><span class="si">}</span><span class="s2"> contains </span><span class="si">{</span><span class="n">num_labels</span><span class="si">}</span><span class="s2"> labels.&quot;</span>
 
 <span class="n">tools</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Tool</span><span class="p">(</span>
         <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Count objects&quot;</span><span class="p">,</span>
@@ -1647,10 +1648,10 @@ showing ../../data/blobs.tif
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>counting labels in  segmented_../../data/blobs.tif
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>counting labels in  segmented_../../data/blobs.tif : 64
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The segmented image ../../data/blobs.tif contains 64 objects.&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The segmented ../../data/blobs.tif image contains 64 objects.&#39;
 </pre></div>
 </div>
 </div>
@@ -1681,7 +1682,7 @@ showing ../../data/blobs.tif
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>loading ../../data/blobs.tif
 segmenting ../../data/blobs.tif
-counting labels in  segmented_../../data/blobs.tif
+counting labels in  segmented_../../data/blobs.tif : 64
 showing segmented_../../data/blobs.tif
 </pre></div>
 </div>
@@ -1701,7 +1702,7 @@ showing segmented_../../data/blobs.tif
 
 </td>
 </tr>
-</table></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The segmented image contains 64 objects.&#39;
+</table></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The segmented image of ../../data/blobs.tif contains 64 objects.&#39;
 </pre></div>
 </div>
 </div>
