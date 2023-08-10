@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Workflows in napari &#8212; Bio-image Analysis Notebooks</title>
+    <title>The Napari Assistant &#8212; Bio-image Analysis Notebooks</title>
   
   
   
@@ -58,11 +58,9 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '03_advanced_python/napari_workflows';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '70_workflows/napari-assistant';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Parallelization" href="parallelization.html" />
-    <link rel="prev" title="Partial functions" href="partial.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en">
   </head>
@@ -302,8 +300,8 @@ const thebe_selector_output = ".output, .cell_output"
                     </li>
                 
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="readme.html">
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../03_advanced_python/readme.html">
                         Advanced python programming
                       </a>
                     </li>
@@ -354,6 +352,13 @@ const thebe_selector_output = ".output, .cell_output"
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../07_prompt_engineering/readme.html">
                         Prompt engineering
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="readme.html">
+                        Workflow automation
                       </a>
                     </li>
                 
@@ -458,10 +463,6 @@ const thebe_selector_output = ".output, .cell_output"
     </div>
   
 
-  
-  <label class="sidebar-toggle secondary-toggle" for="__secondary">
-      <span class="fa-solid fa-outdent"></span>
-  </label>
   
 
 </div>
@@ -652,8 +653,8 @@ const thebe_selector_output = ".output, .cell_output"
                     </li>
                 
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="readme.html">
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../03_advanced_python/readme.html">
                         Advanced python programming
                       </a>
                     </li>
@@ -704,6 +705,13 @@ const thebe_selector_output = ".output, .cell_output"
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../07_prompt_engineering/readme.html">
                         Prompt engineering
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="readme.html">
+                        Workflow automation
                       </a>
                     </li>
                 
@@ -1099,15 +1107,14 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced techniques</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="readme.html">Advanced python programming</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="custom_libraries.html">Custom libraries</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03_advanced_python/readme.html">Advanced python programming</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03_advanced_python/custom_libraries.html">Custom libraries</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="functional_parameters.html">Functional parameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="partial.html">Partial functions</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Workflows in napari</a></li>
-<li class="toctree-l2"><a class="reference internal" href="parallelization.html">Parallelization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="owncloud.html">Accessing image files in the owncloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_advanced_python/functional_parameters.html">Functional parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_advanced_python/partial.html">Partial functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_advanced_python/parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_advanced_python/owncloud.html">Accessing image files in the owncloud</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../15_gpu_acceleration/readme.html">GPU accelerated image processing</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -1172,9 +1179,17 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Workflow automation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="readme.html">Workflow automation</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-30"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebook_export.html">Generating Jupyter Notebooks from the Napari Assistant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="napari_workflows.html">Workflows in napari</a></li>
+</ul>
+</li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tabular data, plots and statistics</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../40_tabular_data_wrangling/readme.html">Tabular data wrangling</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-30"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../40_tabular_data_wrangling/readme.html">Tabular data wrangling</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-31"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../40_tabular_data_wrangling/introduction_dataframes.html">Introduction to working with DataFrames</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../40_tabular_data_wrangling/explore_dataset.html">Exploring tabular data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../40_tabular_data_wrangling/append_tables.html">Appending tables</a></li>
@@ -1187,7 +1202,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../40_tabular_data_wrangling/tidy_data.html">Tidy-Data</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../40a_sql/readme.html">Querying databases</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-31"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../40a_sql/readme.html">Querying databases</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../40a_sql/select.html">Querying databases using SQL</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../40a_sql/join.html">Combining tables</a></li>
@@ -1198,7 +1213,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../41_descriptive_statistics/readme.html">Descriptive statistics</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../41_descriptive_statistics/readme.html">Descriptive statistics</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-33"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../41_descriptive_statistics/basic_descriptive_statistics.html">Descriptive statistics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../41_descriptive_statistics/descriptive_statistics_label_images.html">Descriptive statistics of labeled images</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../41_descriptive_statistics/Bland_altman_analysis.html">Method comparison</a></li>
@@ -1208,7 +1223,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../47_clustering/readme.html">Clustering</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-33"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../47_clustering/readme.html">Clustering</a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-34"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../47_clustering/trailer.html">Clustering - a quick walkthrough</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../47_clustering/umap.html">Clustering with UMAPs</a></li>
 
@@ -1225,7 +1240,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../47_clustering/interactive_dimensionality_reduction_and_clustering/readme.html">Interactive dimensionality reduction and clustering</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../51_plotting/readme.html">Plotting</a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-34"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../51_plotting/readme.html">Plotting</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-35"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../51_plotting/plotting_matplotlib.html">Plotting with Matplotlib</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../51_plotting/plotting_seaborn.html">Introduction to Seaborn</a></li>
@@ -1233,7 +1248,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../51_plotting/multivariate_views.html">Multivariate views</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../60_data_visualization/readme.html">Data visualization</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-35"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../60_data_visualization/readme.html">Data visualization</a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-36"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../60_data_visualization/overlay_text_on_image.html">Overlay texts on images</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../60_data_visualization/parametric_maps.html">Parametric maps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../60_data_visualization/quantitative_neighbor_maps.html">Quantitative maps from neighbor statistics</a></li>
@@ -1285,16 +1300,6 @@ const thebe_selector_output = ".output, .cell_output"
         </label>
     </div>
     <div class="header-article__right">
-
-
-<div class="dropdown dropdown-launch-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
-    <i class="fas fa-rocket"></i>
-  </button>
-  <ul class="dropdown-menu">
-  </ul>
-</div>
-
 <button onclick="toggleFullScreen()"
   class="btn btn-sm"
   data-toggle="tooltip"
@@ -1331,7 +1336,7 @@ title="Source repository"
 </a>
 </a>
       
-      <li><a href="https://github.com/haesleinhuepf/BioImageAnalysisNotebooks/issues/new?title=Issue%20on%20page%20%2F03_advanced_python/napari_workflows.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/haesleinhuepf/BioImageAnalysisNotebooks/issues/new?title=Issue%20on%20page%20%2F70_workflows/napari-assistant.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
@@ -1356,7 +1361,7 @@ title="Open an issue"
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
-      <li><a href="../_sources/03_advanced_python/napari_workflows.ipynb" target="_blank"
+      <li><a href="../_sources/70_workflows/napari-assistant.md" target="_blank"
    class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
@@ -1367,7 +1372,7 @@ title="Download source file"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.ipynb</span>
+<span class="btn__text-container">.md</span>
 </a>
 </a>
       
@@ -1389,9 +1394,7 @@ title="Print to PDF"
       
   </ul>
 </div>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary" data-toggle="tooltip" data-placement="left" title="Toggle secondary sidebar">
-            <span class="fa-solid fa-list"></span>
-        </label>
+
     </div>
 </div>
             </div>
@@ -1399,127 +1402,58 @@ title="Print to PDF"
             
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Workflows in napari</h1>
+    <h1>The Napari Assistant</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#executing-workflows">
-   Executing workflows
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
 
             <article class="bd-article" role="main">
               
-  <section class="tex2jax_ignore mathjax_ignore" id="workflows-in-napari">
-<h1>Workflows in napari<a class="headerlink" href="#workflows-in-napari" title="Permalink to this heading">#</a></h1>
-<p>For using <a class="reference external" href="https://github.com/napari/napari">napari</a> and <a class="reference external" href="https://dask.dev">dask</a> together to define and design workflows, we made a small library to make these things more convenient: <a class="reference external" href="https://github.com/haesleinhuepf/napari-workflows">napari-workflows</a>. Goal was to allow the user to setup a workflows by clicking in napari. These workflows are then accessible as object, similar to a dictionary, that can be asked for results of given workflow steps. For example, in the workflow shown below, an input image is blurred using a Gaussian kernel and then thresholded using <a class="reference external" href="https://ieeexplore.ieee.org/document/4310076">Otsu’s method</a> and <a class="reference external" href="https://scikit-image.org">scikit-image</a>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">napari_workflows</span> <span class="kn">import</span> <span class="n">Workflow</span>
+  <section class="tex2jax_ignore mathjax_ignore" id="the-napari-assistant">
+<h1>The Napari Assistant<a class="headerlink" href="#the-napari-assistant" title="Permalink to this heading">#</a></h1>
+<p>The Napari Assistant is a plugin for napari that allows you setting up an image processing workflow.</p>
+<p>This tutorial is also available as video <a class="reference download internal" download="" href="../_downloads/93c1c5c340a6768e3349826e2d2c3a56/napari-assistant.mp4"><span class="xref download myst">napari-assistant.mp4</span></a>.</p>
+<p>Start napari from the command line like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>my_first_env
 
-<span class="kn">from</span> <span class="nn">skimage.io</span> <span class="kn">import</span> <span class="n">imread</span>
-<span class="kn">from</span> <span class="nn">skimage.filters</span> <span class="kn">import</span> <span class="n">threshold_otsu</span><span class="p">,</span> <span class="n">gaussian</span>
-<span class="kn">from</span> <span class="nn">skimage.measure</span> <span class="kn">import</span> <span class="n">label</span>
-<span class="kn">from</span> <span class="nn">pyclesperanto_prototype</span> <span class="kn">import</span> <span class="n">imshow</span>
+napari
 </pre></div>
 </div>
-</div>
-</div>
-<p>First, we define a workflow and add operations to it. E.g. an operation that takes an image named <code class="docutils literal notranslate"><span class="pre">&quot;input&quot;</span></code> and produces a <code class="docutils literal notranslate"><span class="pre">&quot;denoised&quot;</span></code> image out of it using the <code class="docutils literal notranslate"><span class="pre">gaussian()</span></code> function and <code class="docutils literal notranslate"><span class="pre">sigma=2</span></code> as parameter.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">workflow</span> <span class="o">=</span> <span class="n">Workflow</span><span class="p">()</span>
-
-<span class="c1"># define denoising</span>
-<span class="n">workflow</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;denoised&quot;</span><span class="p">,</span> <span class="n">gaussian</span><span class="p">,</span> <span class="s2">&quot;input&quot;</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>We can also add custom function, which is for exmaple necessary to produce a binary image out of an intensity image directly with a single function call.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define segmentation</span>
-<span class="k">def</span> <span class="nf">threshold</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">image</span> <span class="o">&gt;</span> <span class="n">threshold_otsu</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
-<span class="n">workflow</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;binarized&quot;</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="s2">&quot;denoised&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>We also apply connected component labeling to the binary image.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">workflow</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;labeled&quot;</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="s2">&quot;binarized&quot;</span><span class="p">)</span>
-
-<span class="c1"># Let&#39;s print out the whole workflow</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">workflow</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Workflow:
-denoised &lt;- (&lt;function gaussian at 0x19b297940&gt;, &#39;input&#39;, 2, None, &#39;nearest&#39;, 0, None, False, 4.0)
-binarized &lt;- (&lt;function threshold at 0x19dbd8430&gt;, &#39;denoised&#39;)
-labeled &lt;- (&lt;function label at 0x19ba7c820&gt;, &#39;binarized&#39;, None, False)
-</pre></div>
-</div>
-</div>
-</div>
-<section id="executing-workflows">
-<h2>Executing workflows<a class="headerlink" href="#executing-workflows" title="Permalink to this heading">#</a></h2>
-<p>Until here, there were no images involved. We now load an image and store it in the workflow as <code class="docutils literal notranslate"><span class="pre">&quot;input&quot;</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">workflow</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;input&quot;</span><span class="p">,</span> <span class="n">imread</span><span class="p">(</span><span class="s2">&quot;https://samples.fiji.sc/blobs.png&quot;</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">workflow</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Workflow:
-denoised &lt;- (&lt;function gaussian at 0x19b297940&gt;, &#39;input&#39;, 2, None, &#39;nearest&#39;, 0, None, False, 4.0)
-binarized &lt;- (&lt;function threshold at 0x19dbd8430&gt;, &#39;denoised&#39;)
-labeled &lt;- (&lt;function label at 0x19ba7c820&gt;, &#39;binarized&#39;, None, False)
-input &lt;- [[ 40  32  24 ... 216 200 200]
- [ 56  40  24 ... 232 216 216]
- [ 64  48  24 ... 240 232 232]
- ...
- [ 72  80  80 ...  48  48  48]
- [ 80  80  80 ...  48  48  48]
- [ 96  88  80 ...  48  48  48]]
-</pre></div>
-</div>
-</div>
-</div>
-<p>To actually execute computation, we call the <code class="docutils literal notranslate"><span class="pre">workflow.get()</span></code> function that produces a single specified output. Under the hood, it will also execute all intermediate operations that are necessary to come to the final output.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">workflow</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;labeled&quot;</span><span class="p">)</span>
-
-<span class="n">imshow</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/b46f00c2a30b6b117eb2e39466aeb14acc0b44b46a27ed2c5f2e130939bad9ac.png" src="../_images/b46f00c2a30b6b117eb2e39466aeb14acc0b44b46a27ed2c5f2e130939bad9ac.png" />
-</div>
-</div>
-</section>
+<p><img alt="" src="../_images/napari-assistant01.jpg" /></p>
+<p>The napari window will open. Click on the menu <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">&gt;</span> <span class="pre">Open</span> <span class="pre">Samples</span> <span class="pre">Cells(3D+2Ch)</span></code> to open an example image.</p>
+<p><img alt="" src="../_images/napari-assistant02.jpg" /></p>
+<p><img alt="" src="../_images/napari-assistant03.jpg" /></p>
+<p>You can explore this dataset by clicking on the <code class="docutils literal notranslate"><span class="pre">2D/3D</span></code> view button.</p>
+<p><img alt="" src="../_images/napari-assistant04.jpg" /></p>
+<p>Start the Napari Assistant from the <code class="docutils literal notranslate"><span class="pre">Tools</span> <span class="pre">&gt;</span> <span class="pre">Utilities</span> <span class="pre">&gt;</span> <span class="pre">Assistant</span> <span class="pre">(na)</span></code> menu.</p>
+<p><img alt="" src="../_images/napari-assistant05.jpg" /></p>
+<p>Within the <code class="docutils literal notranslate"><span class="pre">Assistant</span></code> panel, click on the <code class="docutils literal notranslate"><span class="pre">Remove</span> <span class="pre">noise</span></code> button.</p>
+<p><img alt="" src="../_images/napari-assistant06.jpg" /></p>
+<p>Click on the <code class="docutils literal notranslate"><span class="pre">Eye</span></code> buttons in the layer list to hide the original image and show the result of the <code class="docutils literal notranslate"><span class="pre">Remove</span> <span class="pre">noise</span></code> step only.</p>
+<p><img alt="" src="../_images/napari-assistant07.jpg" /></p>
+<p>Click on the <code class="docutils literal notranslate"><span class="pre">Binarize</span></code> button in the Assistant panel to add a new step to the workflow that generates a binary image from the current layer.</p>
+<p><img alt="" src="../_images/napari-assistant08.jpg" /></p>
+<p>Toggle 2D/3D view and layer visibility to explore the result of the <code class="docutils literal notranslate"><span class="pre">Binarize</span></code> step.</p>
+<p><img alt="" src="../_images/napari-assistant09.jpg" /></p>
+<p>After switching back to 2D view, click the <code class="docutils literal notranslate"><span class="pre">Label</span></code> button in the Assistant and choose the operation <code class="docutils literal notranslate"><span class="pre">Connected</span> <span class="pre">component</span> <span class="pre">labeling</span> <span class="pre">(clEsperanto)</span></code>.</p>
+<p><img alt="" src="../_images/napari-assistant11.jpg" /></p>
+<p>Select the <code class="docutils literal notranslate"><span class="pre">Result</span> <span class="pre">of</span> <span class="pre">gaussian_blur</span></code> layer in the layer list and modify its <code class="docutils literal notranslate"><span class="pre">sigma</span></code> parameters. You will note that the subsequent steps (Threshold Otsu and Connected Component Labeling) are also updated.</p>
+<p><img alt="" src="../_images/napari-assistant12.jpg" /></p>
+<p>Switch to grid view, show all layers using their <code class="docutils literal notranslate"><span class="pre">Eye</span></code> buttons and continue modifying the parameters.</p>
+<p><img alt="" src="../_images/napari-assistant13.jpg" /></p>
+<p><img alt="" src="../_images/napari-assistant14.jpg" /></p>
+<p>Close all layers except <code class="docutils literal notranslate"><span class="pre">nuclei</span></code> and <code class="docutils literal notranslate"><span class="pre">membrane</span></code>.</p>
+<p><img alt="" src="../_images/napari-assistant15.jpg" /></p>
+<p>Turn of Gridview and click again on the <code class="docutils literal notranslate"><span class="pre">Label</span></code> button in the Assistant.</p>
+<p><img alt="" src="../_images/napari-assistant16.jpg" /></p>
+<p>This time, do not change the operation but the <code class="docutils literal notranslate"><span class="pre">spot_sigma</span></code> parameter instead.</p>
+<p><img alt="" src="../_images/napari-assistant17.jpg" /></p>
+<p>Toggle again to 3D view and inspect the result of this single step.</p>
+<p><img alt="" src="../_images/napari-assistant18.jpg" /></p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1535,7 +1469,7 @@ input &lt;- [[ 40  32  24 ... 216 200 200]
         },
         kernelOptions: {
             name: "python3",
-            path: "./03_advanced_python"
+            path: "./70_workflows"
         },
         predefinedOutput: true
     }
@@ -1550,47 +1484,12 @@ input &lt;- [[ 40  32  24 ... 216 200 200]
             <footer class="bd-footer-article">
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-  <a class='left-prev' id="prev-link" href="partial.html" title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-          <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title">Partial functions</p>
-      </div>
-  </a>
-  <a class='right-next' id="next-link" href="parallelization.html" title="next page">
-  <div class="prev-next-info">
-      <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">Parallelization</p>
-  </div>
-  <i class="fa-solid fa-angle-right"></i>
-  </a>
 </div>
             </footer>
             
           </div>
           
           
-          
-            <div class="bd-sidebar-secondary bd-toc">
-              
-<div class="toc-item">
-  
-<div class="tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-</div>
-<nav id="bd-toc-nav" class="page-toc">
-    <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#executing-workflows">
-   Executing workflows
-  </a>
- </li>
-</ul>
-
-</nav>
-</div>
-
-            </div>
           
           
         </div>
