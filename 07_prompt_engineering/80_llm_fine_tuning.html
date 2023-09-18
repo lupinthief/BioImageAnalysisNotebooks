@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Affine transforms using cupy &#8212; Bio-image Analysis Notebooks</title>
+    <title>Large language model fine tuning &#8212; Bio-image Analysis Notebooks</title>
   
   
   
@@ -58,11 +58,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '19_spatial_transforms/affine_transforms_cupy';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '07_prompt_engineering/80_llm_fine_tuning';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Affine transforms using clesperanto" href="affine_transforms_clesperanto.html" />
-    <link rel="prev" title="Affine transforms using Scipy" href="affine_transforms_scipy.html" />
+    <link rel="next" title="Workflow automation" href="../70_workflows/readme.html" />
+    <link rel="prev" title="Allowing language models to choose the right algorithm" href="30_langchain_bia_choosing_algorithms.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en">
   </head>
@@ -211,8 +211,8 @@ const thebe_selector_output = ".output, .cell_output"
                     </li>
                 
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="readme.html">
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../19_spatial_transforms/readme.html">
                         Spatial transforms
                       </a>
                     </li>
@@ -351,8 +351,8 @@ const thebe_selector_output = ".output, .cell_output"
                     </li>
                 
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../07_prompt_engineering/readme.html">
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="readme.html">
                         Prompt engineering
                       </a>
                     </li>
@@ -466,6 +466,10 @@ const thebe_selector_output = ".output, .cell_output"
   
 
   
+  <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+  </label>
+  
 
 </div>
   </nav>
@@ -564,8 +568,8 @@ const thebe_selector_output = ".output, .cell_output"
                     </li>
                 
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="readme.html">
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../19_spatial_transforms/readme.html">
                         Spatial transforms
                       </a>
                     </li>
@@ -704,8 +708,8 @@ const thebe_selector_output = ".output, .cell_output"
                     </li>
                 
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../07_prompt_engineering/readme.html">
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="readme.html">
                         Prompt engineering
                       </a>
                     </li>
@@ -845,7 +849,7 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basics</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../01_introduction/trailer.html">Trailer: Bio-image Analysis with Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../01_introduction/readme.html">Setting up your computer</a></li>
 
@@ -935,18 +939,18 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../18a_deconvolution/richardson_lucy_deconvolution.html">Richardson-Lucy-Deconvolution on OpenCL-compatible GPUs</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="readme.html">Spatial transforms</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="coordinate_systems.html">Coordinate systems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cropping.html">Slicing and cropping</a></li>
-<li class="toctree-l2"><a class="reference internal" href="scaling.html">Scaling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="affine_transforms_scikit_image.html">Affine transforms using scikit-image</a></li>
-<li class="toctree-l2"><a class="reference internal" href="affine_transforms_scipy.html">Affine transforms using Scipy</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Affine transforms using cupy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="affine_transforms_clesperanto.html">Affine transforms using clesperanto</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../19_spatial_transforms/readme.html">Spatial transforms</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../19_spatial_transforms/coordinate_systems.html">Coordinate systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../19_spatial_transforms/cropping.html">Slicing and cropping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../19_spatial_transforms/scaling.html">Scaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../19_spatial_transforms/affine_transforms_scikit_image.html">Affine transforms using scikit-image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../19_spatial_transforms/affine_transforms_scipy.html">Affine transforms using Scipy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../19_spatial_transforms/affine_transforms_cupy.html">Affine transforms using cupy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../19_spatial_transforms/affine_transforms_clesperanto.html">Affine transforms using clesperanto</a></li>
 
 
-<li class="toctree-l2"><a class="reference internal" href="scaling_coordinate_lists.html">Scaling coordinate lists</a></li>
-<li class="toctree-l2"><a class="reference internal" href="downsampling_with_denoising.html">Down-scaling and denoising</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../19_spatial_transforms/scaling_coordinate_lists.html">Scaling coordinate lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../19_spatial_transforms/downsampling_with_denoising.html">Down-scaling and denoising</a></li>
 </ul>
 </li>
 </ul>
@@ -1109,7 +1113,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced techniques</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../03_advanced_python/readme.html">Advanced python programming</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../03_advanced_python/custom_libraries.html">Custom libraries</a></li>
 
@@ -1162,23 +1166,23 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../35_parameter_optimization/membrane_segmentation.html">Optimizing parameters for membrane-image based cell segmentation</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../07_prompt_engineering/readme.html">Prompt engineering</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../07_prompt_engineering/01_prompting.html">Prompting chatGPT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../07_prompt_engineering/02_generating_images.html">Generating images using DALL-E</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="readme.html">Prompt engineering</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_prompting.html">Prompting chatGPT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_generating_images.html">Generating images using DALL-E</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../07_prompt_engineering/02_generating_mri_images.html">Generating Magnetic Resonance images using DALL-E</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_generating_mri_images.html">Generating Magnetic Resonance images using DALL-E</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../07_prompt_engineering/03_generating_code.html">Generating code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../07_prompt_engineering/04_generating_code_for_processing_images.html">Generating code for processing images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_generating_code.html">Generating code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_generating_code_for_processing_images.html">Generating code for processing images</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../07_prompt_engineering/05_generating_advanced_image_processing_code.html">Generating advanced image analysis code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_generating_advanced_image_processing_code.html">Generating advanced image analysis code</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../07_prompt_engineering/20_langchain.html">Prompting tasks using LangChain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20_langchain.html">Prompting tasks using LangChain</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../07_prompt_engineering/30_langchain_bia.html">Prompting bio-image analysis tasks using LangChain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="30_langchain_bia.html">Prompting bio-image analysis tasks using LangChain</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../07_prompt_engineering/30_langchain_bia_choosing_algorithms.html">Allowing language models to choose the right algorithm</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../07_prompt_engineering/80_llm_fine_tuning.html">Large language model fine tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="30_langchain_bia_choosing_algorithms.html">Allowing language models to choose the right algorithm</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Large language model fine tuning</a></li>
 </ul>
 </li>
 </ul>
@@ -1350,7 +1354,7 @@ title="Source repository"
 </a>
 </a>
       
-      <li><a href="https://github.com/haesleinhuepf/BioImageAnalysisNotebooks/issues/new?title=Issue%20on%20page%20%2F19_spatial_transforms/affine_transforms_cupy.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/haesleinhuepf/BioImageAnalysisNotebooks/issues/new?title=Issue%20on%20page%20%2F07_prompt_engineering/80_llm_fine_tuning.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
@@ -1375,7 +1379,7 @@ title="Open an issue"
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
-      <li><a href="../_sources/19_spatial_transforms/affine_transforms_cupy.ipynb" target="_blank"
+      <li><a href="../_sources/07_prompt_engineering/80_llm_fine_tuning.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
@@ -1408,7 +1412,9 @@ title="Print to PDF"
       
   </ul>
 </div>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary" data-toggle="tooltip" data-placement="left" title="Toggle secondary sidebar">
+            <span class="fa-solid fa-list"></span>
+        </label>
     </div>
 </div>
             </div>
@@ -1416,126 +1422,485 @@ title="Print to PDF"
             
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Affine transforms using cupy</h1>
+    <h1>Large language model fine tuning</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preparing-training-data">
+   Preparing training data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uploading-training-data">
+   Uploading training data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-training">
+   Model training
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
 
             <article class="bd-article" role="main">
               
-  <section class="tex2jax_ignore mathjax_ignore" id="affine-transforms-using-cupy">
-<h1>Affine transforms using cupy<a class="headerlink" href="#affine-transforms-using-cupy" title="Permalink to this heading">#</a></h1>
-<p>Here we apply an affine transform using <a class="reference external" href="https://cupy.dev">cupy</a>.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="large-language-model-fine-tuning">
+<h1>Large language model fine tuning<a class="headerlink" href="#large-language-model-fine-tuning" title="Permalink to this heading">#</a></h1>
+<p>In this notebook we will fine-tune an openai chatGPT model to become a bio-image analysis expert which responds with recent Python code for processing images.</p>
+<p>See also:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://lazyprogrammer.me/how-to-fine-tune-chatgpt-gpt-3-5-turbo-using-the-openai-api-in-python/">lazyprogrammer tutorial</a></p></li>
+<li><p><a class="reference external" href="https://openai.com/blog/gpt-3-5-turbo-fine-tuning-and-api-updates">openai blog</a></p></li>
+<li><p><a class="reference external" href="https://platform.openai.com/docs/guides/fine-tuning/create-a-fine-tuned-model">openai tutorial</a></p></li>
+<li><p><a class="reference external" href="https://platform.openai.com/docs/api-reference/fine-tuning/create">openai documentation</a></p></li>
+<li><p><a class="reference external" href="https://www.datacamp.com/tutorial/fine-tuning-gpt-3-using-the-open-ai-api-and-python">datacamp tutorial</a></p></li>
+</ul>
+<p>Todo: We could submit training and validation data separately. This notebook does not cover this yet due to limited training data. As soon as we have a larger pool of training data, we can give this a try.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage.io</span> <span class="kn">import</span> <span class="n">imread</span><span class="p">,</span> <span class="n">imshow</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">openai</span>
+<span class="kn">import</span> <span class="nn">time</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We first set up training data, a list of chat examples. Most code examples used below are taken from the <a class="reference external" href="https://haesleinhuepf.github.io/BioImageAnalysisNotebooks/intro.html">BioImageAnalysisNotebooks</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">training_data</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_example</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">output</span><span class="p">):</span>
+    <span class="n">training_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span> <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;system&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">You are a chatbot with strong bio-image analysis expertise.</span>
+<span class="s2">You are an expert python programmer. </span>
+<span class="s2">The code you produce will be executed from a Jupyter notebook.</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">},</span>
+          <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="nb">input</span><span class="p">},</span>
+          <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;assistant&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">output</span><span class="p">}</span>
+      <span class="p">]</span>       
+    <span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">add_example</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Who can one open CZI or LIF files using Python?</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">To open CZI or LIF files, you can use the AICSImageIO package. </span>
+<span class="s2">In the following code the file `filename` will be loaded and </span>
+<span class="s2">the image data will be stored in `image`.</span>
 
-<span class="kn">import</span> <span class="nn">cupy</span>
-<span class="kn">from</span> <span class="nn">cupyx.scipy</span> <span class="kn">import</span> <span class="n">ndimage</span> <span class="k">as</span> <span class="n">ndi</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="s1">&#39;../../data/Haase_MRT_tfl3d1.tif&#39;</span><span class="p">)</span>
+<span class="s2">```python</span>
+<span class="s2">from aicsimageio import AICSImage</span>
+<span class="s2">aics_image = AICSImage(&quot;../../data/EM_C_6_c0.ome.tif&quot;)</span>
+<span class="s2">aics_image</span>
+<span class="s2">```</span>
 
-<span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">[</span><span class="mi">100</span><span class="p">])</span>
-<span class="n">image</span><span class="o">.</span><span class="n">shape</span>
+<span class="s2">np_image = aics_image.get_image_data(&quot;ZYX&quot;)</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(192, 256, 256)
-</pre></div>
 </div>
-<img alt="../_images/b9ec53895c9942461dd35e1b88b95a9557441ceb09c074bd865d8bb6ddfdb74b.png" src="../_images/b9ec53895c9942461dd35e1b88b95a9557441ceb09c074bd865d8bb6ddfdb74b.png" />
-</div>
-</div>
-<p>Analogously to transforms in scipy also cupy used transform matrices to describe the transformation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">add_example</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">How can one show an image, its histogram and some basic statistics in a Jupyter notebook?</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">You can show an image stored in the variable `image`, its histogram and some basic statistics using the `stackview` library:</span>
 
-<span class="c1"># scaling by factor 1 / s</span>
-<span class="n">s</span> <span class="o">=</span> <span class="mf">0.5</span>
-<span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span>
-    <span class="p">[</span><span class="n">s</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-<span class="p">])</span>
+<span class="s2">```python</span>
+<span class="s2">import stackview</span>
+
+<span class="s2">stackview.insight(image)</span>
+<span class="s2">```</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Before we can apply a cupy operation to an image, we need to send it to GPU memory. We receive a handle to an image on the GPU that cannot be shown using <code class="docutils literal notranslate"><span class="pre">imshow</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cuda_image</span> <span class="o">=</span> <span class="n">cupy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
-<span class="n">cuda_image</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">add_example</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">How can one show a label image with every label in a different colour in a Jupyter notebook?</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">You can show an image stored in the variable `image`, its histogram and some basic statistics using the `stackview` library:</span>
+
+<span class="s2">```python</span>
+<span class="s2">import stackview</span>
+
+<span class="s2">stackview.insight(image)</span>
+<span class="s2">```</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">add_example</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">How can I show an image in Napari?</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">Napari is a Python based image viewer and you can use it for showing images and label images like demonstrateed in the following:</span>
+<span class="s2">```python</span>
+<span class="s2">import napari</span>
+
+<span class="s2"># create a viewer</span>
+<span class="s2">viewer = napari.Viewer()</span>
+
+<span class="s2"># show an image in the viewer</span>
+<span class="s2">viewer.add_image(image)</span>
+
+<span class="s2"># show a label image in the viewer</span>
+<span class="s2">viewer.add_labels(label_image)</span>
+<span class="s2">```</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">add_example</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">How can I remove the background in an image?</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">You can remove the background in an image using scikit-image&#39;s `white_tophat` function. </span>
+<span class="s2">In the following example the `input_image` will be background-subtracted and </span>
+<span class="s2">the result is stored in `output_image`. </span>
+<span class="s2">The variable `radius` allows to specify how large objects should stay while removing the background.</span>
+
+<span class="s2">```python</span>
+<span class="s2">from skimage.morphology import disk</span>
+<span class="s2">from skimage.morphology import white_tophat</span>
+
+<span class="s2">radius = 25</span>
+
+<span class="s2">output_image = white_tophat(input_image, disk(radius))</span>
+<span class="s2">```</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">add_example</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">How can I remove noise in an image?</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">You can denoise an image using the median filter, e.g. using scikit-image:</span>
+<span class="s2">In the following example the noise from `input_image` will be removed and </span>
+<span class="s2">the result is stored in `output_image`</span>
+
+<span class="s2">```python</span>
+<span class="s2">output_image = filters.median(input_image, disk(1))</span>
+<span class="s2">```</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">add_example</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">How can I segment small roundish objects, such as nuclei or granules, in an image?</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">You can segment and label small roundish objects in an image using the Voronoi-Otsu-Labeling algorithm.</span>
+<span class="s2">In the following example the objects in `input_image` will be segmented and </span>
+<span class="s2">the resulting objects will be labeled and stored in the `label_image`.</span>
+<span class="s2">The algorithm has two parameters:</span>
+<span class="s2">* `spot_sigma` allows you to configure how large the objects are supposed to be.</span>
+<span class="s2">* `outline_sigme` allows you to tune how fine the outlines should be.</span>
+
+<span class="s2">In this code, the python library `napari-segment-blobs-and-things-with-membranes` will be used:</span>
+<span class="s2">```python</span>
+<span class="s2">import napari_segment_blobs_and_things_with_membranes as nsbatwm</span>
+
+<span class="s2">label_image = nsbatwm.voronoi_otsu_labeling(input_image, spot_sigma=2, outline_sigma=2)</span>
+<span class="s2">```</span>
+
+<span class="s2">In case you are using the python library `pyclesperanto-prototype`, you can also call the algorithm like this:</span>
+
+<span class="s2">```python</span>
+<span class="s2">import pyclesperanto_prototype as cle</span>
+
+<span class="s2">label_image = cle.voronoi_otsu_labeling(input_image, spot_sigma=2, outline_sigma=2)</span>
+<span class="s2">```</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">add_example</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">How can I segment small roundish objects, such as nuclei, in an image in case they are very densely packed?</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">You can segment densely packed nuclei in an image using the StarDist library.</span>
+<span class="s2">In the following example the nuclei in the `input_image` will be segmented and</span>
+<span class="s2">stored in the `label_image`:</span>
+
+<span class="s2">```python</span>
+<span class="s2">from stardist.models import StarDist2D</span>
+<span class="s2">from csbdeep.utils import normalize</span>
+
+<span class="s2"># creates a pretrained model</span>
+<span class="s2">model = StarDist2D.from_pretrained(&#39;2D_versatile_fluo&#39;)</span>
+
+<span class="s2"># normalize the image</span>
+<span class="s2">axis_norm = (0,1)</span>
+<span class="s2">image = normalize(image, 1,99.8, axis=axis_norm)</span>
+
+<span class="s2"># segment the image</span>
+<span class="s2">label_image, details = model.predict_instances(input_image)</span>
+<span class="s2">```</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">add_example</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">How can I segment cells in an image?</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">You can use the CellPose library for that.</span>
+<span class="s2">In the following example the cells in the `input_image` will be segmented and</span>
+<span class="s2">stored in the `label_image`:</span>
+
+<span class="s2">```python</span>
+<span class="s2">from cellpose import models, io</span>
+
+<span class="s2">model = models.Cellpose(gpu=False, model_type=&#39;cyto&#39;)</span>
+
+<span class="s2">channels = [0,0] # This means we are processing single-channel greyscale images.</span>
+
+<span class="s2">label_image, flows, styles, diams = model.eval(input_image, diameter=None, channels=channels)</span>
+<span class="s2">```</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">add_example</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">How can re-label labels sequentially in a label image?</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">You can expand labels in a label image using scikit-image&#39;s `relabel_sequential` function like this:</span>
+
+<span class="s2">```python</span>
+<span class="s2">from skimage.segmentation import relabel_sequential</span>
+
+<span class="s2">relabeled_image, _, _ = relabel_sequential(label_image)</span>
+<span class="s2">```</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="preparing-training-data">
+<h2>Preparing training data<a class="headerlink" href="#preparing-training-data" title="Permalink to this heading">#</a></h2>
+<p>We need to reformat the data in the <a class="reference external" href="https://jsonlines.org/">JSON-lines format</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">prepare_data</span><span class="p">(</span><span class="n">dictionary_data</span><span class="p">,</span> <span class="n">final_file_name</span><span class="p">):</span>
+    
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">final_file_name</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">entry</span> <span class="ow">in</span> <span class="n">dictionary_data</span><span class="p">:</span>
+            <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span> <span class="n">outfile</span><span class="p">)</span>
+            <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">prepare_data</span><span class="p">(</span><span class="n">training_data</span><span class="p">,</span> <span class="s2">&quot;training_data.jsonl&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="uploading-training-data">
+<h2>Uploading training data<a class="headerlink" href="#uploading-training-data" title="Permalink to this heading">#</a></h2>
+<p>We can upload the training data like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">training_file</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">File</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+  <span class="n">file</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;training_data.jsonl&#39;</span><span class="p">),</span>
+  <span class="n">purpose</span><span class="o">=</span><span class="s1">&#39;fine-tune&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">training_file</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(192, 256, 256)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;File file id=file-vUxgD6OKtzKzwKNmSNyuCzgo at 0x298c0cfcf40&gt; JSON: {
+  &quot;object&quot;: &quot;file&quot;,
+  &quot;id&quot;: &quot;file-vUxgD6OKtzKzwKNmSNyuCzgo&quot;,
+  &quot;purpose&quot;: &quot;fine-tune&quot;,
+  &quot;filename&quot;: &quot;file&quot;,
+  &quot;bytes&quot;: 7557,
+  &quot;created_at&quot;: 1694892415,
+  &quot;status&quot;: &quot;uploaded&quot;,
+  &quot;status_details&quot;: null
+}
 </pre></div>
 </div>
 </div>
 </div>
-<p>Analogously to the affine transform in scipy, we need to create the output image with a defined shape, twice as large as the original image, before we can write into it.</p>
+<p>Afterwards, we need to wait until the file is done processing.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output_shape</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">/</span> <span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">))</span>
-<span class="n">cuda_scaled</span> <span class="o">=</span> <span class="n">cupy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">(</span><span class="n">output_shape</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">cuda_scaled</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">openai</span><span class="o">.</span><span class="n">File</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">training_file</span><span class="o">.</span><span class="n">id</span><span class="p">)</span><span class="o">.</span><span class="n">status</span> <span class="o">!=</span> <span class="s2">&quot;processed&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Still processing&quot;</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(384, 512, 512)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Still processing
+Still processing
+Still processing
+Still processing
+Still processing
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="model-training">
+<h2>Model training<a class="headerlink" href="#model-training" title="Permalink to this heading">#</a></h2>
+<p>Once the training data is uploaded and processed, we can use it for training.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">ndi</span><span class="o">.</span><span class="n">affine_transform</span><span class="p">(</span><span class="n">cuda_image</span><span class="p">,</span> <span class="n">cupy</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">matrix</span><span class="p">),</span> <span class="n">output</span><span class="o">=</span><span class="n">cuda_scaled</span><span class="p">,</span> <span class="n">output_shape</span><span class="o">=</span><span class="n">output_shape</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Before we can view the result image, we need to transfer it from GPU memory to CPU memory</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">cupy</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">(</span><span class="n">cuda_scaled</span><span class="p">)</span>
-<span class="n">result</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">job</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">FineTuningJob</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">training_file</span><span class="o">=</span><span class="n">training_file</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-3.5-turbo&quot;</span><span class="p">)</span>
+<span class="n">job</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(384, 512, 512)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;FineTuningJob fine_tuning.job id=ftjob-Ac7fR7Me8HT3ri0BKhkUr8eu at 0x298c0d1cd60&gt; JSON: {
+  &quot;object&quot;: &quot;fine_tuning.job&quot;,
+  &quot;id&quot;: &quot;ftjob-Ac7fR7Me8HT3ri0BKhkUr8eu&quot;,
+  &quot;model&quot;: &quot;gpt-3.5-turbo-0613&quot;,
+  &quot;created_at&quot;: 1694892568,
+  &quot;finished_at&quot;: null,
+  &quot;fine_tuned_model&quot;: null,
+  &quot;organization_id&quot;: &quot;org-1cjvymf23JI7jxFOJCdnbsE2&quot;,
+  &quot;result_files&quot;: [],
+  &quot;status&quot;: &quot;created&quot;,
+  &quot;validation_file&quot;: null,
+  &quot;training_file&quot;: &quot;file-vUxgD6OKtzKzwKNmSNyuCzgo&quot;,
+  &quot;hyperparameters&quot;: {
+    &quot;n_epochs&quot;: 10
+  },
+  &quot;trained_tokens&quot;: null,
+  &quot;error&quot;: null
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Also training will take a while and we need to wait until it succeeded.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">openai</span><span class="o">.</span><span class="n">FineTuningJob</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">id</span><span class="p">)</span><span class="o">.</span><span class="n">status</span> <span class="o">!=</span>  <span class="s2">&quot;succeeded&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Still training&quot;</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Still training
+Still training
+Still training
+Still training
+Still training
+Still training
+Still training
+Still training
+Still training
+Still training
+Still training
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can then retrieve the model name and execute the model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">job_status</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">FineTuningJob</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+
+<span class="n">model_name</span> <span class="o">=</span> <span class="n">job_status</span><span class="o">.</span><span class="n">fine_tuned_model</span>
+<span class="n">model_name</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;ft:gpt-3.5-turbo-0613:personal::7zVLxA5b&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">imshow</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">200</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Greys_r&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">completion</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">ChatCompletion</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+  <span class="n">model</span><span class="o">=</span><span class="n">model_name</span><span class="p">,</span>
+  <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;system&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;You are a chatbot with strong bio-image analysis expertise.&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;How can I segment an image showing dense nuclei in Python?&quot;</span><span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">completion</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="p">[</span><span class="s2">&quot;content&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1d63076bdc0&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You can use the \texttt{star\_dist} package to segment such an image. In the following example, the variable \texttt{model} will contain a pretrained model for nuclei segmentation, and the variable \texttt{labels} will hold the segmented image:
+
+\begin{minted}{python}
+from stardist.models import StarDist2D
+from csbdeep.utils import normalize
+
+# create a pretrained model
+model = StarDist2D.from_pretrained(&#39;2D_versatile_fluo&#39;)
+
+# normalize the input image, assuming it is stored in a variable called &quot;image&quot;
+image = normalize(image, 1,99.8, axis=(0,1))
+
+# segment the image
+labels, details = model.predict(image)
+
+# details is a table with many properties of the detected objects
+details.head()
+\end{minted}
+\end{minted}
+
+Note: The example expects the input image to be stored in a variable called \texttt{image}. Also, make sure that the numpy package is installed. In case you also want to visualize the results, you need to have the following packages installed: \texttt{pip install numpy matplotlib scikit-image}.
 </pre></div>
 </div>
-<img alt="../_images/278376013e6ab625f623e6a2b01e4906416b1740025c14410368b67414979692.png" src="../_images/278376013e6ab625f623e6a2b01e4906416b1740025c14410368b67414979692.png" />
 </div>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1551,7 +1916,7 @@ title="Print to PDF"
         },
         kernelOptions: {
             name: "python3",
-            path: "./19_spatial_transforms"
+            path: "./07_prompt_engineering"
         },
         predefinedOutput: true
     }
@@ -1566,17 +1931,17 @@ title="Print to PDF"
             <footer class="bd-footer-article">
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-  <a class='left-prev' id="prev-link" href="affine_transforms_scipy.html" title="previous page">
+  <a class='left-prev' id="prev-link" href="30_langchain_bia_choosing_algorithms.html" title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
           <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title">Affine transforms using Scipy</p>
+          <p class="prev-next-title">Allowing language models to choose the right algorithm</p>
       </div>
   </a>
-  <a class='right-next' id="next-link" href="affine_transforms_clesperanto.html" title="next page">
+  <a class='right-next' id="next-link" href="../70_workflows/readme.html" title="next page">
   <div class="prev-next-info">
       <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">Affine transforms using clesperanto</p>
+      <p class="prev-next-title">Workflow automation</p>
   </div>
   <i class="fa-solid fa-angle-right"></i>
   </a>
@@ -1586,6 +1951,37 @@ title="Print to PDF"
           </div>
           
           
+          
+            <div class="bd-sidebar-secondary bd-toc">
+              
+<div class="toc-item">
+  
+<div class="tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+</div>
+<nav id="bd-toc-nav" class="page-toc">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preparing-training-data">
+   Preparing training data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#uploading-training-data">
+   Uploading training data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-training">
+   Model training
+  </a>
+ </li>
+</ul>
+
+</nav>
+</div>
+
+            </div>
           
           
         </div>
