@@ -1710,12 +1710,29 @@ title="Print to PDF"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">add_example</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">How can re-label labels sequentially in a label image?</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">You can expand labels in a label image using scikit-image&#39;s `relabel_sequential` function like this:</span>
+<span class="s2">You can re-label labels in a label image using scikit-image&#39;s `relabel_sequential` function like this:</span>
 
 <span class="s2">```python</span>
 <span class="s2">from skimage.segmentation import relabel_sequential</span>
 
 <span class="s2">relabeled_image, _, _ = relabel_sequential(label_image)</span>
+<span class="s2">```</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">add_example</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">How can expand labels e.g. with a radius of 10 pixels in a label image?</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">You can expand labels in a label image using scikit-image&#39;s `expand_labels` function like this:</span>
+
+<span class="s2">```python</span>
+<span class="s2">from skimage.segmentation import expand_labels</span>
+
+<span class="s2">expanded_labels = expand_labels(filtered_label_image, distance=10)</span>
 <span class="s2">```</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
 </pre></div>
@@ -1754,14 +1771,14 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;File file id=file-vUxgD6OKtzKzwKNmSNyuCzgo at 0x298c0cfcf40&gt; JSON: {
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;File file id=file-xiweY94J061YDcLr7gJZAiWz at 0x1b3f63d2810&gt; JSON: {
   &quot;object&quot;: &quot;file&quot;,
-  &quot;id&quot;: &quot;file-vUxgD6OKtzKzwKNmSNyuCzgo&quot;,
+  &quot;id&quot;: &quot;file-xiweY94J061YDcLr7gJZAiWz&quot;,
   &quot;purpose&quot;: &quot;fine-tune&quot;,
   &quot;filename&quot;: &quot;file&quot;,
-  &quot;bytes&quot;: 7557,
-  &quot;created_at&quot;: 1694892415,
-  &quot;status&quot;: &quot;uploaded&quot;,
+  &quot;bytes&quot;: 8156,
+  &quot;created_at&quot;: 1698937116,
+  &quot;status&quot;: &quot;processed&quot;,
   &quot;status_details&quot;: null
 }
 </pre></div>
@@ -1774,15 +1791,6 @@ title="Print to PDF"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">openai</span><span class="o">.</span><span class="n">File</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">training_file</span><span class="o">.</span><span class="n">id</span><span class="p">)</span><span class="o">.</span><span class="n">status</span> <span class="o">!=</span> <span class="s2">&quot;processed&quot;</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Still processing&quot;</span><span class="p">)</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Still processing
-Still processing
-Still processing
-Still processing
-Still processing
 </pre></div>
 </div>
 </div>
@@ -1799,20 +1807,20 @@ Still processing
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;FineTuningJob fine_tuning.job id=ftjob-Ac7fR7Me8HT3ri0BKhkUr8eu at 0x298c0d1cd60&gt; JSON: {
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;FineTuningJob fine_tuning.job id=ftjob-3ZhPTB0pT3yJENRfutRUQju5 at 0x1b3f4b501d0&gt; JSON: {
   &quot;object&quot;: &quot;fine_tuning.job&quot;,
-  &quot;id&quot;: &quot;ftjob-Ac7fR7Me8HT3ri0BKhkUr8eu&quot;,
+  &quot;id&quot;: &quot;ftjob-3ZhPTB0pT3yJENRfutRUQju5&quot;,
   &quot;model&quot;: &quot;gpt-3.5-turbo-0613&quot;,
-  &quot;created_at&quot;: 1694892568,
+  &quot;created_at&quot;: 1698937123,
   &quot;finished_at&quot;: null,
   &quot;fine_tuned_model&quot;: null,
   &quot;organization_id&quot;: &quot;org-1cjvymf23JI7jxFOJCdnbsE2&quot;,
   &quot;result_files&quot;: [],
-  &quot;status&quot;: &quot;created&quot;,
+  &quot;status&quot;: &quot;validating_files&quot;,
   &quot;validation_file&quot;: null,
-  &quot;training_file&quot;: &quot;file-vUxgD6OKtzKzwKNmSNyuCzgo&quot;,
+  &quot;training_file&quot;: &quot;file-xiweY94J061YDcLr7gJZAiWz&quot;,
   &quot;hyperparameters&quot;: {
-    &quot;n_epochs&quot;: 10
+    &quot;n_epochs&quot;: &quot;auto&quot;
   },
   &quot;trained_tokens&quot;: null,
   &quot;error&quot;: null
@@ -1842,6 +1850,15 @@ Still training
 Still training
 Still training
 Still training
+Still training
+Still training
+Still training
+Still training
+Still training
+Still training
+Still training
+Still training
+Still training
 </pre></div>
 </div>
 </div>
@@ -1857,7 +1874,7 @@ Still training
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;ft:gpt-3.5-turbo-0613:personal::7zVLxA5b&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;ft:gpt-3.5-turbo-0613:personal::8GTbD6B7&#39;
 </pre></div>
 </div>
 </div>
@@ -1876,27 +1893,38 @@ Still training
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You can use the \texttt{star\_dist} package to segment such an image. In the following example, the variable \texttt{model} will contain a pretrained model for nuclei segmentation, and the variable \texttt{labels} will hold the segmented image:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You can segment an image showing dense nuclei in Python using the scikit-image library. Here&#39;s an example using the Otsu thresholding method:
 
-\begin{minted}{python}
-from stardist.models import StarDist2D
-from csbdeep.utils import normalize
+```python
+from skimage.filters import threshold_otsu
+from skimage.segmentation import clear_border
+from skimage.measure import label
+from skimage.segmentation import watershed
 
-# create a pretrained model
-model = StarDist2D.from_pretrained(&#39;2D_versatile_fluo&#39;)
+# Assume your input image is stored in the `input_image` variable
 
-# normalize the input image, assuming it is stored in a variable called &quot;image&quot;
-image = normalize(image, 1,99.8, axis=(0,1))
+# Apply Otsu thresholding
+threshold = threshold_otsu(input_image)
+binary_image = input_image &gt; threshold
 
-# segment the image
-labels, details = model.predict(image)
+# Remove border artifacts
+cleared = clear_border(binary_image)
 
-# details is a table with many properties of the detected objects
-details.head()
-\end{minted}
-\end{minted}
+# Label the image
+label_image = label(cleared)
 
-Note: The example expects the input image to be stored in a variable called \texttt{image}. Also, make sure that the numpy package is installed. In case you also want to visualize the results, you need to have the following packages installed: \texttt{pip install numpy matplotlib scikit-image}.
+# Apply watershed
+image_label_overlay = watershed(-input_image, label_image)
+
+# The resulting segmented image is stored in the `image_label_overlay` variable
+```
+
+For more advanced segmentation algorithms, you can have a look at the Cellpose or StarDist libraries, which provide more accurate segmentation of cells and nuclei:
+
+- Cellpose: https://cellpose.readthedocs.io
+- StarDist: https://github.com/stardist/stardist
+
+Let me know if you need more help!
 </pre></div>
 </div>
 </div>
