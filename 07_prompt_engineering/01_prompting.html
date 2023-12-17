@@ -61,7 +61,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '07_prompt_engineering/01_prompting';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Generating images using DALL-E" href="02_generating_images.html" />
+    <link rel="next" title="Prompting for text" href="01_use_cases.html" />
     <link rel="prev" title="Prompt engineering" href="readme.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en">
@@ -1170,6 +1170,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="readme.html">Prompt engineering</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Prompting chatGPT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_use_cases.html">Prompting for text</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_generating_images.html">Generating images using DALL-E</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="02_generating_mri_images.html">Generating Magnetic Resonance images using DALL-E</a></li>
@@ -1470,7 +1471,8 @@ title="Print to PDF"
 <p>A basic prompt requires to define the model we will be using as well as the role we have and the content/message we would like to be responded to.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">ChatCompletion</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">OpenAI</span><span class="p">()</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
     <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-3.5-turbo&quot;</span><span class="p">,</span>
     <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s1">&#39;How old is Europe?&#39;</span><span class="p">}]</span>
 <span class="p">)</span>
@@ -1479,27 +1481,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;OpenAIObject chat.completion id=chatcmpl-7DdKaCE0JvcvRjlyhUGbAmEEKXoPg at 0x258aa0a1810&gt; JSON: {
-  &quot;choices&quot;: [
-    {
-      &quot;finish_reason&quot;: &quot;stop&quot;,
-      &quot;index&quot;: 0,
-      &quot;message&quot;: {
-        &quot;content&quot;: &quot;Europe has a long and complex history, with evidence of human presence dating back to around 45,000 BCE. The specific age of Europe as a distinct cultural and geographical entity is difficult to determine, as it has evolved over time through various empires, kingdoms, and political alliances. However, some historians place the beginning of modern Europe as the fall of the Roman Empire in 476 CE.&quot;,
-        &quot;role&quot;: &quot;assistant&quot;
-      }
-    }
-  ],
-  &quot;created&quot;: 1683483808,
-  &quot;id&quot;: &quot;chatcmpl-7DdKaCE0JvcvRjlyhUGbAmEEKXoPg&quot;,
-  &quot;model&quot;: &quot;gpt-3.5-turbo-0301&quot;,
-  &quot;object&quot;: &quot;chat.completion&quot;,
-  &quot;usage&quot;: {
-    &quot;completion_tokens&quot;: 79,
-    &quot;prompt_tokens&quot;: 13,
-    &quot;total_tokens&quot;: 92
-  }
-}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ChatCompletion(id=&#39;chatcmpl-8WjEPJ4InHoD9Tbmr2lnzUGc1CDhs&#39;, choices=[Choice(finish_reason=&#39;stop&#39;, index=0, logprobs=None, message=ChatCompletionMessage(content=&#39;Europe is not a living entity and therefore does not have an age. However, the continent of Europe has a long history that dates back thousands of years. The earliest human settlements in Europe date back to around 45,000 years ago, while the modern concept of Europe emerged during the Renaissance period in the 14th century.&#39;, role=&#39;assistant&#39;, function_call=None, tool_calls=None))], created=1702811057, model=&#39;gpt-3.5-turbo-0613&#39;, object=&#39;chat.completion&#39;, system_fingerprint=None, usage=CompletionUsage(completion_tokens=66, prompt_tokens=12, total_tokens=78))
 </pre></div>
 </div>
 </div>
@@ -1511,11 +1493,12 @@ title="Print to PDF"
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A prompt helper function that sends a message to openAI</span>
 <span class="sd">    and returns only the text response.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">ChatCompletion</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">OpenAI</span><span class="p">()</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
         <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
         <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">message</span><span class="p">}]</span>
     <span class="p">)</span>
-    <span class="k">return</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;choices&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;message&#39;</span><span class="p">][</span><span class="s1">&#39;content&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span>
 </pre></div>
 </div>
 </div>
@@ -1527,17 +1510,19 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The countries in central Europe are:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The countries typically considered part of Central Europe are:
 
 1. Austria
 2. Czech Republic
-3. Germany (some parts)
+3. Germany (parts of it, mainly eastern regions such as Saxony and Thuringia)
 4. Hungary
 5. Liechtenstein
-6. Poland (some parts)
+6. Poland (some debate exists over whether it belongs to Central or Eastern Europe)
 7. Slovakia
 8. Slovenia
-9. Switzerland (some parts)
+9. Switzerland (parts of it, mainly western regions such as Bern and Lucerne)
+
+Note: The specific definition of Central Europe may vary, and some sources may include additional or different countries in this region.
 </pre></div>
 </div>
 </div>
@@ -1549,7 +1534,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>As an AI language model, I can&#39;t make subjective judgment calls on which parts of Switzerland are or are not considered central Europe. However, geographically speaking, Switzerland is located in the heart of Europe and is often considered a central European country.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Switzerland is located in Central Europe, so all parts of Switzerland are considered to be in central Europe.
 </pre></div>
 </div>
 </div>
@@ -1564,7 +1549,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Switzerland is located entirely in central Europe. Therefore, there are no parts of Switzerland that are not in central Europe.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Switzerland is located in central Europe, so there are no parts of Switzerland that are not considered part of central Europe. The country is bordered by Germany to the north, France to the west, Italy to the south, and Austria and Liechtenstein to the east.
 </pre></div>
 </div>
 </div>
@@ -1607,10 +1592,10 @@ title="Print to PDF"
           <p class="prev-next-title">Prompt engineering</p>
       </div>
   </a>
-  <a class='right-next' id="next-link" href="02_generating_images.html" title="next page">
+  <a class='right-next' id="next-link" href="01_use_cases.html" title="next page">
   <div class="prev-next-info">
       <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">Generating images using DALL-E</p>
+      <p class="prev-next-title">Prompting for text</p>
   </div>
   <i class="fa-solid fa-angle-right"></i>
   </a>

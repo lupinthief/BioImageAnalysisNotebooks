@@ -62,7 +62,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Generating Magnetic Resonance images using DALL-E" href="02_generating_mri_images.html" />
-    <link rel="prev" title="Prompting chatGPT" href="01_prompting.html" />
+    <link rel="prev" title="Prompting for text" href="01_use_cases.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en">
   </head>
@@ -1170,6 +1170,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="readme.html">Prompt engineering</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01_prompting.html">Prompting chatGPT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_use_cases.html">Prompting for text</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Generating images using DALL-E</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="02_generating_mri_images.html">Generating Magnetic Resonance images using DALL-E</a></li>
@@ -1475,14 +1476,21 @@ title="Print to PDF"
 <span class="kn">from</span> <span class="nn">skimage.io</span> <span class="kn">import</span> <span class="n">imread</span><span class="p">,</span> <span class="n">imshow</span>
 <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">random</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-
-<span class="k">def</span> <span class="nf">prompt_image</span><span class="p">(</span><span class="n">message</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">512</span><span class="p">):</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">prompt_image</span><span class="p">(</span><span class="n">message</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;dall-e-3&#39;</span><span class="p">):</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">OpenAI</span><span class="p">()</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">images</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span>
       <span class="n">prompt</span><span class="o">=</span><span class="n">message</span><span class="p">,</span>
+      <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
       <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
       <span class="n">size</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">width</span><span class="si">}</span><span class="s2">x</span><span class="si">{</span><span class="n">height</span><span class="si">}</span><span class="s2">&quot;</span>
     <span class="p">)</span>
-    <span class="n">image_url</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;url&#39;</span><span class="p">]</span>
+    <span class="n">image_url</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">url</span>
     <span class="n">image</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="n">image_url</span><span class="p">)</span>
     
     <span class="k">return</span> <span class="n">image</span>
@@ -1499,10 +1507,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1fbf59d58b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x19eb0e335e0&gt;
 </pre></div>
 </div>
-<img alt="../_images/378cbc930a92b9a34270191d5a7d274b40925d361837e379338e1eed0dfd2eeb.png" src="../_images/378cbc930a92b9a34270191d5a7d274b40925d361837e379338e1eed0dfd2eeb.png" />
+<img alt="../_images/6f6c1d8c3e8669904e49a658c2741fa82192219c3f97a38b5d32938b42e3a42c.png" src="../_images/6f6c1d8c3e8669904e49a658c2741fa82192219c3f97a38b5d32938b42e3a42c.png" />
 </div>
 </div>
 <p>Maybe, generating images of histological slices is more promising.</p>
@@ -1514,23 +1522,32 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1fbf5a18940&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x19eb12ad930&gt;
 </pre></div>
 </div>
-<img alt="../_images/eb9775ae8d1f20fbb59d59338ced3350e40dd5548933c93ea22992f55a7c5a04.png" src="../_images/eb9775ae8d1f20fbb59d59338ced3350e40dd5548933c93ea22992f55a7c5a04.png" />
+<img alt="../_images/dd0b19d2a1c9ff86efc289a4866e9c92882c58b333a494d5190b02fbacdaa092.png" src="../_images/dd0b19d2a1c9ff86efc289a4866e9c92882c58b333a494d5190b02fbacdaa092.png" />
+</div>
+</div>
+<p>In some cases, Dall-E 2 produces more realistic output.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">histology</span> <span class="o">=</span> <span class="n">prompt_image</span><span class="p">(</span><span class="s1">&#39;a histology image of lung cancer cells and some healthy tissue&#39;</span><span class="p">,</span>
+                        <span class="n">model</span><span class="o">=</span><span class="s1">&#39;dall-e-2&#39;</span><span class="p">)</span>
+<span class="n">imshow</span><span class="p">(</span><span class="n">histology</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x19eb12f15a0&gt;
+</pre></div>
+</div>
+<img alt="../_images/75e431a539cf225a3d665851bc3ad1c3617aeb87a1d1408e33db1cb685dd79b7.png" src="../_images/75e431a539cf225a3d665851bc3ad1c3617aeb87a1d1408e33db1cb685dd79b7.png" />
 </div>
 </div>
 </section>
 <section id="exercise">
 <h1>Exercise<a class="headerlink" href="#exercise" title="Permalink to this heading">#</a></h1>
 <p>Evaluating generated images is an active research field. One approach is to present readers real images and generated images asking them to identify which are real. In the following list of four images of cats sitting next to microscopes, one cat is real. Which one? Why?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">images</span> <span class="o">=</span> <span class="p">[</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;../../data/real_cat.png&#39;</span><span class="p">)]</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat_microscope_prompt</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
@@ -1546,7 +1563,8 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">images</span> <span class="o">=</span> <span class="p">[</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;../../data/real_cat.png&#39;</span><span class="p">)]</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
     <span class="n">images</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prompt_image</span><span class="p">(</span><span class="n">cat_microscope_prompt</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -1568,9 +1586,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e67d358a8e773eecd2fb65ca585208361f020752dbe904ac1454d0037841350b.png" src="../_images/e67d358a8e773eecd2fb65ca585208361f020752dbe904ac1454d0037841350b.png" />
+<img alt="../_images/df76d1162bcfef52c2145dc7f0ea581bf435e9f480e3f05ac68920ba2467565b.png" src="../_images/df76d1162bcfef52c2145dc7f0ea581bf435e9f480e3f05ac68920ba2467565b.png" />
 </div>
 </div>
+<p>Run the same image generation using Dall-E 2 and compare the results visually.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1601,11 +1620,11 @@ title="Print to PDF"
             <footer class="bd-footer-article">
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-  <a class='left-prev' id="prev-link" href="01_prompting.html" title="previous page">
+  <a class='left-prev' id="prev-link" href="01_use_cases.html" title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
           <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title">Prompting chatGPT</p>
+          <p class="prev-next-title">Prompting for text</p>
       </div>
   </a>
   <a class='right-next' id="next-link" href="02_generating_mri_images.html" title="next page">

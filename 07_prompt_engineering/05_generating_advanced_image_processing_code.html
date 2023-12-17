@@ -1170,6 +1170,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="readme.html">Prompt engineering</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01_prompting.html">Prompting chatGPT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_use_cases.html">Prompting for text</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_generating_images.html">Generating images using DALL-E</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="02_generating_mri_images.html">Generating Magnetic Resonance images using DALL-E</a></li>
@@ -1476,11 +1477,12 @@ title="Print to PDF"
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A prompt helper function that sends a message to openAI</span>
 <span class="sd">    and returns only the text response.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">ChatCompletion</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">OpenAI</span><span class="p">()</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
         <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
         <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">message</span><span class="p">}]</span>
     <span class="p">)</span>
-    <span class="k">return</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;choices&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;message&#39;</span><span class="p">][</span><span class="s1">&#39;content&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span>
 </pre></div>
 </div>
 </div>
@@ -1511,26 +1513,30 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>```python
-import numpy as np
-import matplotlib.pyplot as plt
-from skimage import measure, io
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>import matplotlib.pyplot as plt
+from skimage import io, morphology, measure
 
 # Load the image
 image = io.imread(&#39;../../data/blobs.tif&#39;)
 
-# Label the objects in the image
-labels = measure.label(image)
+# Threshold the image
+thresh = image &gt; 150
 
-# Create a mesh between the labels with a maximum distance of 50 pixels
-mesh = measure.mesh_surface_area(labels, spacing=(1,1,1))
+# Label objects in the thresholded image
+labels = measure.label(thresh)
 
-# Plot the results in Jupyter
-plt.imshow(image, cmap=&#39;gray&#39;)
-plt.triplot(mesh.triangles[:,0], mesh.triangles[:,1], mesh.triangles[:,2], color=&#39;red&#39;)
-plt.axis(&#39;off&#39;)
+# Draw a mesh between labels with a maximum distance of 50 pixels
+mesh = morphology.dilation(labels) ^ labels
+
+# Show the results
+fig, axes = plt.subplots(ncols=2, figsize=(10, 5))
+axes[0].imshow(image, cmap=&#39;gray&#39;)
+axes[0].set_title(&#39;Original Image&#39;)
+axes[0].axis(&#39;off&#39;)
+axes[1].imshow(mesh, cmap=&#39;gray&#39;)
+axes[1].set_title(&#39;Mesh between labels&#39;)
+axes[1].axis(&#39;off&#39;)
 plt.show()
-```
 </pre></div>
 </div>
 </div>
@@ -1569,27 +1575,30 @@ plt.show()
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>import pyclesperanto_prototype as cle
-from skimage import io
+import matplotlib.pyplot as plt
 
-# load image
-image = io.imread(&#39;../../data/blobs.tif&#39;)
+# Load the image
+image = cle.imread(&#39;../../data/blobs.tif&#39;)
 
-# apply voronoi-otsu labeling
-labels = cle.voronoi_otsu_labeling(image)
+# Label the objects using voronoi-otsu-labeling
+label_image = cle.voronoi_otsu_labeling(image)
 
-# draw mesh between labels
-mesh = cle.draw_mesh_between_proximal_labels(labels, maximum_distance=50)
+# Draw a mesh between labels with a maximum distance of 50 pixels
+mesh = cle.draw_mesh_between_proximal_labels(label_image, maximum_distance=50)
 
-# visualize results
-from matplotlib import pyplot as plt
-fig, axes = plt.subplots(ncols=3, figsize=(10, 5))
-axes[0].imshow(image)
-axes[0].set_title(&#39;Original&#39;)
-axes[1].imshow(labels, cmap=&#39;nipy_spectral&#39;)
-axes[1].set_title(&#39;Labeled&#39;)
-axes[2].imshow(image)
-axes[2].imshow(mesh, cmap=&#39;gray&#39;, alpha=0.5)
-axes[2].set_title(&#39;Mesh&#39;)
+# Display the label image and mesh
+plt.figure(figsize=(10, 5))
+plt.subplot(1, 2, 1)
+plt.imshow(cle.imshow(image))
+plt.title(&#39;Original Image&#39;)
+plt.axis(&#39;off&#39;)
+
+plt.subplot(1, 2, 2)
+plt.imshow(cle.imshow(mesh))
+plt.title(&#39;Mesh Between Labels&#39;)
+plt.axis(&#39;off&#39;)
+
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -1642,18 +1651,18 @@ axes[2].set_title(&#39;Mesh&#39;)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempt 1
 Attempt 2
 Attempt 3
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;string&gt;:8: DeprecationWarning: Starting with ImageIO v3 the behavior of this function will switch to that of iio.v3.imread. To keep the current behavior (and make this warning disappear) use `import imageio.v2 as imageio` or call `imageio.v2.imread` directly.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempt 4
+Attempt 4
 Attempt 5
 Attempt 6
 Attempt 7
 Attempt 8
 Attempt 9
-Attempt 10
+</pre></div>
+</div>
+<img alt="../_images/981eddea9eac4ff597668c48920c7ab60527cfa8a8887809e94d0e909d1d8ca1.png" src="../_images/981eddea9eac4ff597668c48920c7ab60527cfa8a8887809e94d0e909d1d8ca1.png" />
+<img alt="../_images/efef03dcfae7846c5e484c7f5ac3c092e0dcfc5e33195259de282a8b04b11fcc.png" src="../_images/efef03dcfae7846c5e484c7f5ac3c092e0dcfc5e33195259de282a8b04b11fcc.png" />
+<img alt="../_images/52a9e038887a6089162f317e4647777fb6693c1aa10286a3fa761d68895ff5f9.png" src="../_images/52a9e038887a6089162f317e4647777fb6693c1aa10286a3fa761d68895ff5f9.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempt 10
 </pre></div>
 </div>
 </div>
@@ -1668,36 +1677,33 @@ Attempt 10
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempt 1
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;string&gt;:3: UserWarning: viewer requires Qt
-</pre></div>
-</div>
+<img alt="../_images/8eda7eb7b35e0cbad3880201a17e9b31038a59baa1e179bb96a6d8311c7aa344.png" src="../_images/8eda7eb7b35e0cbad3880201a17e9b31038a59baa1e179bb96a6d8311c7aa344.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempt 2
 </pre></div>
 </div>
-<img alt="../_images/f76bb456ed2f51b424b9ccb210bcde8a76ac9693d42c2417f87d759cbdf1ad1a.png" src="../_images/f76bb456ed2f51b424b9ccb210bcde8a76ac9693d42c2417f87d759cbdf1ad1a.png" />
+<img alt="../_images/7fe0ad4395e73ce71c24f85284efa592ee6c24ae58215ec12d570f88933df9ba.png" src="../_images/7fe0ad4395e73ce71c24f85284efa592ee6c24ae58215ec12d570f88933df9ba.png" />
+<img alt="../_images/e8f444b86287361792dacf2be97e867e9d2184c35136887ec9f375f7566e96b2.png" src="../_images/e8f444b86287361792dacf2be97e867e9d2184c35136887ec9f375f7566e96b2.png" />
+<img alt="../_images/0f457a2633a2c6a85898bec0e5083a399f599d6142832df8794652d68b9526c6.png" src="../_images/0f457a2633a2c6a85898bec0e5083a399f599d6142832df8794652d68b9526c6.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempt 3
+Attempt 4
 </pre></div>
 </div>
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "8b58d54dc5d34c099c0eaa88cd7b1d5e", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "090c03bcc1e844379f36641f186d8cf0", "version_major": 2, "version_minor": 0}</script><script type="application/vnd.jupyter.widget-view+json">{"model_id": "d89eb8cf9a7a48679bcd6a3cd1e9a7d3", "version_major": 2, "version_minor": 0}</script><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempt 4
-Attempt 5
+<img alt="../_images/2fd32a0e1cf1e14f446ff237741688840a3c1b5d9275b809c9642a4b7f1a7b0c.png" src="../_images/2fd32a0e1cf1e14f446ff237741688840a3c1b5d9275b809c9642a4b7f1a7b0c.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempt 5
 Attempt 6
-</pre></div>
-</div>
-<img alt="../_images/18dfe5787550176ea3a93d98c23ba46b63b5f42f3ad5402b80d0fd51ba0b619c.png" src="../_images/18dfe5787550176ea3a93d98c23ba46b63b5f42f3ad5402b80d0fd51ba0b619c.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempt 7
+Attempt 7
 Attempt 8
 </pre></div>
 </div>
-<img alt="../_images/77049ade373b576eaca240f085b668e544d4b5a8aacaccfad81e1860ca6f7d15.png" src="../_images/77049ade373b576eaca240f085b668e544d4b5a8aacaccfad81e1860ca6f7d15.png" />
-<img alt="../_images/e40d60c1961391b8ea51a5760799416ec7551b04ed2a99807fa98eb603623052.png" src="../_images/e40d60c1961391b8ea51a5760799416ec7551b04ed2a99807fa98eb603623052.png" />
+<img alt="../_images/57df3711a9762969261d8561a4d8ecc02d0539b3ba51249d32a60ee7957d1f7f.png" src="../_images/57df3711a9762969261d8561a4d8ecc02d0539b3ba51249d32a60ee7957d1f7f.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempt 9
 </pre></div>
 </div>
-<img alt="../_images/c4fa82e888a42cf749a8a357c1450a4f0df6b4be4bad9640bc4a495c23f556cf.png" src="../_images/c4fa82e888a42cf749a8a357c1450a4f0df6b4be4bad9640bc4a495c23f556cf.png" />
+<img alt="../_images/ebd173201c84dbca1cce21c2f7a4c1dd7750db9bea414c82ae8d2c47b1be43e6.png" src="../_images/ebd173201c84dbca1cce21c2f7a4c1dd7750db9bea414c82ae8d2c47b1be43e6.png" />
+<img alt="../_images/c2e781666f7b2b06559aa5be29f260789478e205e9fa316b5bd7481ad10d7d31.png" src="../_images/c2e781666f7b2b06559aa5be29f260789478e205e9fa316b5bd7481ad10d7d31.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Attempt 10
 </pre></div>
 </div>
-<img alt="../_images/0edccc481ffa498866ff16fb65d1d5784fa24ecf5a529d4472d36b500e8dd2f0.png" src="../_images/0edccc481ffa498866ff16fb65d1d5784fa24ecf5a529d4472d36b500e8dd2f0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1715,8 +1721,8 @@ Attempt 8
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There were  10 errors while executing code after asking the simple question for 10 times.
-There were  4 errors while executing code after asking the more sophisticated question for 10 times.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There were  9 errors while executing code after asking the simple question for 10 times.
+There were  5 errors while executing code after asking the more sophisticated question for 10 times.
 </pre></div>
 </div>
 </div>

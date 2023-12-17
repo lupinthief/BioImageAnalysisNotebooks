@@ -1166,6 +1166,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="readme.html">Prompt engineering</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01_prompting.html">Prompting chatGPT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_use_cases.html">Prompting for text</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_generating_images.html">Generating images using DALL-E</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="02_generating_mri_images.html">Generating Magnetic Resonance images using DALL-E</a></li>
@@ -1449,11 +1450,12 @@ title="Print to PDF"
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A prompt helper function that sends a message to openAI</span>
 <span class="sd">    and returns only the text response.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">ChatCompletion</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">OpenAI</span><span class="p">()</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
         <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
         <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">message</span><span class="p">}]</span>
     <span class="p">)</span>
-    <span class="k">return</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;choices&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;message&#39;</span><span class="p">][</span><span class="s1">&#39;content&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span>
 </pre></div>
 </div>
 </div>
@@ -1473,27 +1475,30 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>import numpy as np
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Here is an example code that opens the image file, applies Otsu&#39;s thresholding method, performs connected component labeling, and visualizes the label image using the Matplotlib library:
+
+```python
+import numpy as np
 import cv2
+from matplotlib import pyplot as plt
 
 # Open the image file
-img = cv2.imread(&#39;../../data/blobs.tif&#39;, cv2.IMREAD_GRAYSCALE)
+image_file = &#39;../../data/blobs.tif&#39;
+image = cv2.imread(image_file, cv2.IMREAD_GRAYSCALE)
 
-# Apply Otsu&#39;s method to threshold the image
-_, th = cv2.threshold(img, 0, 255, cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)
+# Apply Otsu&#39;s thresholding
+_, threshold = cv2.threshold(image, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
 
-# Apply connected component labeling to the thresholded image
-num_labels, labels = cv2.connectedComponents(th)
-
-# Create a colormap for the labels
-colormap = np.zeros((num_labels, 3))
-for i in range(1, num_labels):
-    colormap[i] = np.random.randint(0, 255, size=3)
+# Perform connected component labeling
+_, labels = cv2.connectedComponents(threshold)
 
 # Visualize the label image
-label_image = colormap[labels]
-cv2.imshow(&#39;Label Image&#39;, label_image)
-cv2.waitKey(0)
+plt.imshow(labels, cmap=&#39;nipy_spectral&#39;)
+plt.colorbar()
+plt.show()
+```
+
+Make sure you have the OpenCV and Matplotlib libraries installed in your Python environment before running this code.
 </pre></div>
 </div>
 </div>
@@ -1511,25 +1516,25 @@ cv2.waitKey(0)
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>```python
-import numpy as np
 import cv2
-from skimage.filters import threshold_otsu
-from skimage.measure import label, regionprops
-import matplotlib.pyplot as plt
+import numpy as np
 
-# Load the image
-img = cv2.imread(&#39;../../data/blobs.tif&#39;, 0)
+# Read the image
+image = cv2.imread(&#39;../../data/blobs.tif&#39;, cv2.IMREAD_GRAYSCALE)
 
-# Threshold using Otsu&#39;s method
-thresh = threshold_otsu(img)
-binary = img &gt; thresh
+# Apply Otsu&#39;s thresholding
+_, thresholded = cv2.threshold(image, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
 
-# Label connected components
-label_img = label(binary)
+# Apply connected component labeling
+num_labels, labels = cv2.connectedComponents(thresholded)
 
-# Visualize label image
-plt.imshow(label_img, cmap=&#39;jet&#39;)
-plt.show()
+# Convert label image to RGB for visualization
+label_image_color = cv2.cvtColor(labels.astype(np.uint8), cv2.COLOR_GRAY2BGR)
+
+# Visualize the label image
+cv2.imshow(&#39;Label Image&#39;, label_image_color)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 ```
 </pre></div>
 </div>
@@ -1542,7 +1547,6 @@ plt.show()
 
 <span class="s2">Do not use any of these Python libraries:</span>
 <span class="s2">* OpenCV</span>
-<span class="s2">* Matplotlib</span>
 <span class="s2">* PIL</span>
 <span class="s2">* Pillow</span>
 <span class="s2">&quot;&quot;&quot;</span>
@@ -1552,59 +1556,24 @@ plt.show()
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span># Import necessary libraries
-import numpy as np
-import skimage.io as io
-from skimage.filters import threshold_otsu
-from scipy.ndimage import label
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>import numpy as np
+from skimage import io, filters, measure
+import matplotlib.pyplot as plt
 
-# Load image 
-img = io.imread(&#39;../../data/blobs.tif&#39;)
+# Load the image
+image = io.imread(&#39;../../data/blobs.tif&#39;)
 
-# Thresholding using Otsu&#39;s method
-thresh_value = threshold_otsu(img)
-binary_img = img &gt; thresh_value
-
-# Connected component labeling
-label_img, num_labels = label(binary_img)
-
-# Visualization
-from IPython.display import display
-display(label_img)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query4</span> <span class="o">=</span> <span class="n">query3</span> <span class="o">+</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">Keep the code short and concise.</span>
-<span class="s2">&quot;&quot;&quot;</span>
-
-<span class="n">code</span> <span class="o">=</span> <span class="n">prompt</span><span class="p">(</span><span class="n">query4</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>```python
-import numpy as np
-from skimage import io, filters, morphology
-
-# Read the image
-img = io.imread(&#39;../../data/blobs.tif&#39;)
-
-# Apply Otsu&#39;s thresholding
-threshold_value = filters.threshold_otsu(img)
-binary_image = img &gt; threshold_value
+# Apply Otsu&#39;s method for thresholding
+thresh = filters.threshold_otsu(image)
+binary_image = image &gt; thresh
 
 # Apply connected component labeling
-label_image = morphology.label(binary_image)
+label_image = measure.label(binary_image)
 
-# Visualize label image
-io.imshow(label_image)
-io.show()
-```
+# Visualize the label image
+plt.imshow(label_image, cmap=&#39;jet&#39;)
+plt.colorbar()
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -1612,7 +1581,7 @@ io.show()
 <p>For completeness, we just print out the entiry query once again.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">query4</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">query3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1629,12 +1598,8 @@ Assume the code is executed in a Jupyter notebook.
 
 Do not use any of these Python libraries:
 * OpenCV
-* Matplotlib
 * PIL
 * Pillow
-
-Keep the code short and concise. 
-Return the code as code only without markdown.
 </pre></div>
 </div>
 </div>
@@ -1649,11 +1614,7 @@ Return the code as code only without markdown.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\haase\mambaforge\envs\bio39\lib\site-packages\skimage\io\_plugins\matplotlib_plugin.py:150: UserWarning: Low image data range; displaying image with stretched contrast.
-  lo, hi, cmap = _get_display_range(image)
-</pre></div>
-</div>
-<img alt="../_images/7af9d529a12c578faacd2b063a07627b2428b59424ff1cba07c8f80ee8d8d797.png" src="../_images/7af9d529a12c578faacd2b063a07627b2428b59424ff1cba07c8f80ee8d8d797.png" />
+<img alt="../_images/e6aa17f8aa21962bab6877ff1f43d198f3e8531da1f37dcf838311ee50d0d37b.png" src="../_images/e6aa17f8aa21962bab6877ff1f43d198f3e8531da1f37dcf838311ee50d0d37b.png" />
 </div>
 </div>
 </section>

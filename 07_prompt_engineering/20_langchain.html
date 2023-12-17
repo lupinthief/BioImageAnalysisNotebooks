@@ -1170,6 +1170,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="readme.html">Prompt engineering</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01_prompting.html">Prompting chatGPT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_use_cases.html">Prompting for text</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_generating_images.html">Generating images using DALL-E</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="02_generating_mri_images.html">Generating Magnetic Resonance images using DALL-E</a></li>
@@ -1465,10 +1466,9 @@ title="Print to PDF"
   <section id="prompting-tasks-using-langchain">
 <h1>Prompting tasks using LangChain<a class="headerlink" href="#prompting-tasks-using-langchain" title="Permalink to this heading">#</a></h1>
 <p>In this notebook we demonstrate how to prompt for executing tasks using chatGPT and <a class="reference external" href="https://github.com/hwchase17/langchain">LangChain</a>. Using English language, we ask for doing something with data, and LangChain will execute the task.</p>
-<p>This example is a modified example from the <a class="reference external" href="https://python.langchain.com/en/latest/modules/agents/agents/examples/chat_conversation_agent.html">LangChain documentation</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain.agents</span> <span class="kn">import</span> <span class="n">Tool</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain.tools</span> <span class="kn">import</span> <span class="n">tool</span>
 <span class="kn">from</span> <span class="nn">langchain.memory</span> <span class="kn">import</span> <span class="n">ConversationBufferMemory</span>
 <span class="kn">from</span> <span class="nn">langchain.chat_models</span> <span class="kn">import</span> <span class="n">ChatOpenAI</span>
 <span class="kn">from</span> <span class="nn">langchain.utilities</span> <span class="kn">import</span> <span class="n">SerpAPIWrapper</span>
@@ -1478,41 +1478,33 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>To demonstrate how this works, we define three functions that modify a string.</p>
+<p>To demonstrate how this works, we define three functions that modify a string and collect them in a list called <code class="docutils literal notranslate"><span class="pre">tools</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">upper_case</span><span class="p">(</span><span class="n">text</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">text</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
-
-<span class="k">def</span> <span class="nf">lower_case</span><span class="p">(</span><span class="n">text</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-
-<span class="k">def</span> <span class="nf">reverse</span><span class="p">(</span><span class="n">text</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">text</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tools</span> <span class="o">=</span> <span class="p">[]</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Furthermore, we define a list of <code class="docutils literal notranslate"><span class="pre">Tool</span></code>s where each of the above given functions have a description attached to. This description guides the language model later when it needs to select the right function for executing the task.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tools</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">Tool</span><span class="p">(</span>
-        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Upper case&quot;</span><span class="p">,</span>
-        <span class="n">func</span><span class="o">=</span><span class="n">upper_case</span><span class="p">,</span>
-        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Useful for making a text uppercase or capital letters.&quot;</span>
-    <span class="p">),</span>
-    <span class="n">Tool</span><span class="p">(</span>
-        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Lower case&quot;</span><span class="p">,</span>
-        <span class="n">func</span><span class="o">=</span><span class="n">lower_case</span><span class="p">,</span>
-        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Useful for making a text lowercase or small letters.&quot;</span>
-    <span class="p">),</span>
-    <span class="n">Tool</span><span class="p">(</span>
-        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Reverse&quot;</span><span class="p">,</span>
-        <span class="n">func</span><span class="o">=</span><span class="n">reverse</span><span class="p">,</span>
-        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Useful for making reversing order of a text.&quot;</span>
-    <span class="p">),</span>
-<span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@tools</span><span class="o">.</span><span class="n">append</span>
+<span class="nd">@tool</span>
+<span class="k">def</span> <span class="nf">upper_case</span><span class="p">(</span><span class="n">text</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Useful for making a text uppercase or capital letters.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">text</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+<span class="nd">@tools</span><span class="o">.</span><span class="n">append</span>
+<span class="nd">@tool</span>
+<span class="k">def</span> <span class="nf">lower_case</span><span class="p">(</span><span class="n">text</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Useful for making a text lowercase or small letters.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+<span class="nd">@tools</span><span class="o">.</span><span class="n">append</span>
+<span class="nd">@tool</span>
+<span class="k">def</span> <span class="nf">reverse</span><span class="p">(</span><span class="n">text</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Useful for making reversing order of a text.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">text</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1521,6 +1513,7 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">memory</span> <span class="o">=</span> <span class="n">ConversationBufferMemory</span><span class="p">(</span><span class="n">memory_key</span><span class="o">=</span><span class="s2">&quot;chat_history&quot;</span><span class="p">,</span> <span class="n">return_messages</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
 <span class="n">llm</span><span class="o">=</span><span class="n">ChatOpenAI</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1533,7 +1526,8 @@ title="Print to PDF"
     <span class="n">tools</span><span class="p">,</span> 
     <span class="n">llm</span><span class="p">,</span> 
     <span class="n">agent</span><span class="o">=</span><span class="n">AgentType</span><span class="o">.</span><span class="n">CHAT_CONVERSATIONAL_REACT_DESCRIPTION</span><span class="p">,</span> 
-    <span class="n">memory</span><span class="o">=</span><span class="n">memory</span>
+    <span class="n">memory</span><span class="o">=</span><span class="n">memory</span><span class="p">,</span>
+    <span class="n">handle_parsing_errors</span><span class="o">=</span><span class="kc">True</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -1542,12 +1536,12 @@ title="Print to PDF"
 <p>This agent can then respond to prompts.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="s2">&quot;Hi, I am Robert&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;Hi, I am Robert&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Nice to meet you, Robert!&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Nice to meet you, Robert! How can I assist you today?&#39;
 </pre></div>
 </div>
 </div>
@@ -1555,12 +1549,12 @@ title="Print to PDF"
 <p>As it has memory, it can remind information we gave it earlier.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="s2">&quot;What&#39;s my name?&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&quot;What&#39;s my name?&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Your name is Robert&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Your name is Robert.&#39;
 </pre></div>
 </div>
 </div>
@@ -1573,7 +1567,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;The response to your last comment was &#39;treboR&#39;, which is your name reversed.&quot;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;treboR&#39;
 </pre></div>
 </div>
 </div>

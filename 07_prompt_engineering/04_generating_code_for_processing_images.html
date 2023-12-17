@@ -1170,6 +1170,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="readme.html">Prompt engineering</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01_prompting.html">Prompting chatGPT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_use_cases.html">Prompting for text</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_generating_images.html">Generating images using DALL-E</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="02_generating_mri_images.html">Generating Magnetic Resonance images using DALL-E</a></li>
@@ -1475,11 +1476,12 @@ title="Print to PDF"
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A prompt helper function that sends a message to openAI</span>
 <span class="sd">    and returns only the text response.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">ChatCompletion</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">OpenAI</span><span class="p">()</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">chat</span><span class="o">.</span><span class="n">completions</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
         <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
         <span class="n">messages</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">message</span><span class="p">}]</span>
     <span class="p">)</span>
-    <span class="k">return</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;choices&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;message&#39;</span><span class="p">][</span><span class="s1">&#39;content&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span>
 </pre></div>
 </div>
 </div>
@@ -1512,21 +1514,31 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>```python
+import matplotlib.pyplot as plt
 from skimage.io import imread
+from skimage.feature import peak_local_max
 from skimage.filters import threshold_otsu
 from skimage.measure import label
-from skimage.color import label2rgb
-import matplotlib.pyplot as plt
+from skimage.segmentation import mark_boundaries
 
+# Load the image
 image = imread(&#39;../../data/blobs.tif&#39;)
+
+# Threshold the image
 thresh = threshold_otsu(image)
 binary = image &gt; thresh
-labels = label(binary)
-image_label_overlay = label2rgb(labels, image=image)
 
-fig, ax = plt.subplots(figsize=(10, 6))
-ax.imshow(image_label_overlay)
+# Label the objects
+labeled_image, num_labels = label(binary, connectivity=2, return_num=True)
 
+# Find object centroids
+centroids = peak_local_max(image, labels=labeled_image, min_distance=10)
+
+# Visualize results
+fig, ax = plt.subplots(figsize=(10, 10))
+ax.imshow(mark_boundaries(image, labeled_image, color=(1, 0, 0)))
+ax.plot(centroids[:, 1], centroids[:, 0], &#39;b+&#39;, markersize=10)
+ax.set_axis_off()
 plt.show()
 ```
 </pre></div>
@@ -1549,7 +1561,7 @@ plt.show()
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/cac8a0cdb4e38be53e02abda9f642a1844701a2e1ebda5d837328b852fe18057.png" src="../_images/cac8a0cdb4e38be53e02abda9f642a1844701a2e1ebda5d837328b852fe18057.png" />
+<img alt="../_images/7d375428594896b8e81628e9103dff35e09a3bbdbfdcc0ef26ad6c4853bc0a56.png" src="../_images/7d375428594896b8e81628e9103dff35e09a3bbdbfdcc0ef26ad6c4853bc0a56.png" />
 </div>
 </div>
 </section>

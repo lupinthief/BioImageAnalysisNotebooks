@@ -1170,6 +1170,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="readme.html">Prompt engineering</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01_prompting.html">Prompting chatGPT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="01_use_cases.html">Prompting for text</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_generating_images.html">Generating images using DALL-E</a></li>
 
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Generating Magnetic Resonance images using DALL-E</a></li>
@@ -1475,14 +1476,21 @@ title="Print to PDF"
 <span class="kn">from</span> <span class="nn">skimage.io</span> <span class="kn">import</span> <span class="n">imread</span><span class="p">,</span> <span class="n">imshow</span>
 <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">random</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-
-<span class="k">def</span> <span class="nf">prompt_image</span><span class="p">(</span><span class="n">message</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">512</span><span class="p">):</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">prompt_image</span><span class="p">(</span><span class="n">message</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;dall-e-3&#39;</span><span class="p">):</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">OpenAI</span><span class="p">()</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">images</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span>
       <span class="n">prompt</span><span class="o">=</span><span class="n">message</span><span class="p">,</span>
+      <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
       <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
       <span class="n">size</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">width</span><span class="si">}</span><span class="s2">x</span><span class="si">{</span><span class="n">height</span><span class="si">}</span><span class="s2">&quot;</span>
     <span class="p">)</span>
-    <span class="n">image_url</span> <span class="o">=</span> <span class="n">response</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;url&#39;</span><span class="p">]</span>
+    <span class="n">image_url</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">url</span>
     <span class="n">image</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="n">image_url</span><span class="p">)</span>
     
     <span class="k">return</span> <span class="n">image</span>
@@ -1493,7 +1501,7 @@ title="Print to PDF"
 <p>As a real example of an orange slice imaged with MR, we use the example dataset <a class="reference external" href="https://wellcomecollection.org/works/sxm89b3x">“Credit: Mandarin orange, axial view, MRI.”</a> is licensed  <a class="reference external" href="http://creativecommons.org/licenses/by/4.0/">(CC-BY 4.0)</a> by Alexandr Khrapichev, University of Oxford</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">images</span> <span class="o">=</span> <span class="p">[</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;../../data/mri_fruit_sxm89b3x.jpg&#39;</span><span class="p">)[</span><span class="mi">3063</span><span class="p">:</span><span class="mi">4087</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="mi">1024</span><span class="p">:</span><span class="mi">2048</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">images</span> <span class="o">=</span> <span class="p">[</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;../../data/mri_fruit_sxm89b3x.jpg&#39;</span><span class="p">)[</span><span class="mi">3063</span><span class="p">:</span><span class="mi">4087</span><span class="p">,</span><span class="mi">1024</span><span class="p">:</span><span class="mi">2048</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
@@ -1512,7 +1520,7 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-    <span class="n">images</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prompt_image</span><span class="p">(</span><span class="n">mri_prompt</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">256</span><span class="p">)[::</span><span class="mi">2</span><span class="p">,::</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">images</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prompt_image</span><span class="p">(</span><span class="n">mri_prompt</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1533,7 +1541,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ab884beeab15422ca62b425a8bc8bf42f2507c92a0cf3abf332496418c737b0d.png" src="../_images/ab884beeab15422ca62b425a8bc8bf42f2507c92a0cf3abf332496418c737b0d.png" />
+<img alt="../_images/fe2ca99ef91f5ba11806bd780256a40b392d9a2dd08cb4f26bb19539d60eabea.png" src="../_images/fe2ca99ef91f5ba11806bd780256a40b392d9a2dd08cb4f26bb19539d60eabea.png" />
 </div>
 </div>
 </section>
@@ -1549,10 +1557,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1e55334b070&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x10a35ff4ac0&gt;
 </pre></div>
 </div>
-<img alt="../_images/d2346d31badfaca825b8440358fb45a154dddf239dd0f698fe39a873db793024.png" src="../_images/d2346d31badfaca825b8440358fb45a154dddf239dd0f698fe39a873db793024.png" />
+<img alt="../_images/e8ba58e6d88b7a94e0ad3dd343402d4f12dd8d6642bb77c33cc14b0e02e218d3.png" src="../_images/e8ba58e6d88b7a94e0ad3dd343402d4f12dd8d6642bb77c33cc14b0e02e218d3.png" />
 </div>
 </div>
 </section>
