@@ -1581,14 +1581,14 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\haase\mambaforge\envs\bio39\lib\site-packages\skimage\io\_plugins\matplotlib_plugin.py:150: UserWarning: Low image data range; displaying image with stretched contrast.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/miniconda3/envs/devbio-napari-env/lib/python3.9/site-packages/skimage/io/_plugins/matplotlib_plugin.py:149: UserWarning: Low image data range; displaying image with stretched contrast.
   lo, hi, cmap = _get_display_range(image)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1c829c9ac70&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1378ab970&gt;
 </pre></div>
 </div>
-<img alt="../_images/749b783647e6af0571b369331acc6492be23853074fc51b3a4bb6345da04d96d.png" src="../_images/749b783647e6af0571b369331acc6492be23853074fc51b3a4bb6345da04d96d.png" />
+<img alt="../_images/ab37ca7586f86a75885f777809caa8739c896fa9783d806b7bbd61dea6380d1b.png" src="../_images/ab37ca7586f86a75885f777809caa8739c896fa9783d806b7bbd61dea6380d1b.png" />
 </div>
 </div>
 <p>To access all pixels in our 3D image, we should first have a look in the metadata of the file.</p>
@@ -1651,7 +1651,7 @@ title="Print to PDF"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">lif_to_numpy_stack</span><span class="p">(</span><span class="n">lif_image</span><span class="p">):</span>
     <span class="n">num_slices</span> <span class="o">=</span> <span class="n">lif_image</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;dims&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">z</span>
     
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">lif_image</span><span class="o">.</span><span class="n">get_frame</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span> <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_slices</span><span class="p">)])</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">lif_image</span><span class="o">.</span><span class="n">get_frame</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="n">z</span><span class="p">))</span> <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_slices</span><span class="p">)])</span>
 </pre></div>
 </div>
 </div>
@@ -1677,10 +1677,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1c829d70640&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x137a1c610&gt;
 </pre></div>
 </div>
-<img alt="../_images/749b783647e6af0571b369331acc6492be23853074fc51b3a4bb6345da04d96d.png" src="../_images/749b783647e6af0571b369331acc6492be23853074fc51b3a4bb6345da04d96d.png" />
+<img alt="../_images/bfb0e9bded30a8f74d350d0d5c781a3f8026ddfd97ac4ac93384fb99e3693681.png" src="../_images/bfb0e9bded30a8f74d350d0d5c781a3f8026ddfd97ac4ac93384fb99e3693681.png" />
 </div>
 </div>
 </section>
