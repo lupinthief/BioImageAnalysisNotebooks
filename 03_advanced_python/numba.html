@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>GPU-accelerated image processing using CUPY and CUCIM &#8212; Bio-image Analysis Notebooks</title>
+    <title>Parallelization using numba &#8212; Bio-image Analysis Notebooks</title>
   
   
   
@@ -58,11 +58,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '15_gpu_acceleration/cupy';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '03_advanced_python/numba';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Tracing memory consumption" href="memory_management.html" />
-    <link rel="prev" title="Why GPU-acceleration makes sense" href="why_GPU_acceleration.html" />
+    <link rel="next" title="GPU accelerated image processing" href="../15_gpu_acceleration/readme.html" />
+    <link rel="prev" title="Parallelization" href="parallelization.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en">
   </head>
@@ -316,15 +316,15 @@ const thebe_selector_output = ".output, .cell_output"
                     </li>
                 
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../03_advanced_python/readme.html">
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="readme.html">
                         Advanced python programming
                       </a>
                     </li>
                 
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="readme.html">
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../15_gpu_acceleration/readme.html">
                         GPU accelerated image processing
                       </a>
                     </li>
@@ -687,15 +687,15 @@ const thebe_selector_output = ".output, .cell_output"
                     </li>
                 
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../03_advanced_python/readme.html">
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="readme.html">
                         Advanced python programming
                       </a>
                     </li>
                 
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="readme.html">
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../15_gpu_acceleration/readme.html">
                         GPU accelerated image processing
                       </a>
                     </li>
@@ -1159,20 +1159,20 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced techniques</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../03_advanced_python/readme.html">Advanced python programming</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../03_advanced_python/custom_libraries.html">Custom libraries</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="readme.html">Advanced python programming</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="custom_libraries.html">Custom libraries</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../03_advanced_python/functional_parameters.html">Functional parameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03_advanced_python/partial.html">Partial functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03_advanced_python/parallelization.html">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functional_parameters.html">Functional parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partial.html">Partial functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parallelization.html">Parallelization</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Parallelization using numba</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="readme.html">GPU accelerated image processing</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="clesperanto.html">clEsperanto</a></li>
-<li class="toctree-l2"><a class="reference internal" href="why_GPU_acceleration.html">Why GPU-acceleration makes sense</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">GPU-accelerated image processing using CUPY and CUCIM</a></li>
-<li class="toctree-l2"><a class="reference internal" href="memory_management.html">Tracing memory consumption</a></li>
-<li class="toctree-l2"><a class="reference internal" href="further_reading.html">Further reading</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../15_gpu_acceleration/readme.html">GPU accelerated image processing</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../15_gpu_acceleration/clesperanto.html">clEsperanto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15_gpu_acceleration/why_GPU_acceleration.html">Why GPU-acceleration makes sense</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15_gpu_acceleration/memory_management.html">Tracing memory consumption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../15_gpu_acceleration/further_reading.html">Further reading</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../31_graphical_user_interfaces/readme.html">Graphical user interfaces</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-26"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -1411,7 +1411,7 @@ title="Source repository"
 </a>
 </a>
       
-      <li><a href="https://github.com/haesleinhuepf/BioImageAnalysisNotebooks/issues/new?title=Issue%20on%20page%20%2F15_gpu_acceleration/cupy.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/haesleinhuepf/BioImageAnalysisNotebooks/issues/new?title=Issue%20on%20page%20%2F03_advanced_python/numba.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
@@ -1436,7 +1436,7 @@ title="Open an issue"
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
-      <li><a href="../_sources/15_gpu_acceleration/cupy.ipynb" target="_blank"
+      <li><a href="../_sources/03_advanced_python/numba.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    data-toggle="tooltip"
 data-placement="left"
@@ -1479,7 +1479,7 @@ title="Print to PDF"
             
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>GPU-accelerated image processing using CUPY and CUCIM</h1>
+    <h1>Parallelization using numba</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -1490,13 +1490,13 @@ title="Print to PDF"
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#image-filtering-and-segmentation">
-   Image filtering and segmentation
+  <a class="reference internal nav-link" href="#benchmarking-execution-time">
+   Benchmarking execution time
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#quantitative-measurements">
-   Quantitative measurements
+  <a class="reference internal nav-link" href="#code-optimization-using-numba">
+   Code optimization using numba
   </a>
  </li>
 </ul>
@@ -1508,381 +1508,149 @@ title="Print to PDF"
 
             <article class="bd-article" role="main">
               
-  <section class="tex2jax_ignore mathjax_ignore" id="gpu-accelerated-image-processing-using-cupy-and-cucim">
-<h1>GPU-accelerated image processing using CUPY and CUCIM<a class="headerlink" href="#gpu-accelerated-image-processing-using-cupy-and-cucim" title="Permalink to this heading">#</a></h1>
-<p>Processing large images with python can take time. In order to accelerate processing, graphics processing units (GPUs) can be exploited, for example using <a class="reference external" href="https://en.wikipedia.org/wiki/CUDA">NVidia CUDA</a>. For processing images with CUDA, there are a couple of libraries available. We will take a closer look at <a class="reference external" href="https://cupy.dev/">cupy</a>, which brings more general computing capabilities for CUDA compatible GPUs, and <a class="reference external" href="https://github.com/rapidsai/cucim">cucim</a>, a library of image processing specific operations using CUDA. Both together can serve as GPU-surrogate for <a class="reference external" href="https://scikit-image.org/">scikit-image</a>.</p>
-<p>See also</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://stackoverflow.com/questions/49135065/is-it-possible-to-install-cupy-on-google-colab">StackOverflow: Is it possible to install cupy on google colab?</a></p></li>
-<li><p><a class="reference external" href="https://github.com/rapidsai/cucim/blob/branch-0.20/notebooks/Welcome.ipynb">Cucim example notebooks</a></p></li>
-</ul>
-<p>Before we start, we need to install CUDA and CUCIM it properly. The following commands make this notebook run in Google Colab.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="parallelization-using-numba">
+<h1>Parallelization using numba<a class="headerlink" href="#parallelization-using-numba" title="Permalink to this heading">#</a></h1>
+<p>In this notebook we will optimize execution time of an algorithm by using <a class="reference external" href="https://numba.pydata.org/">numba</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>curl<span class="w"> </span>https://colab.chainer.org/install<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh<span class="w"> </span>-
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="kn">import</span> <span class="nn">timeit</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">platform</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="benchmarking-execution-time">
+<h2>Benchmarking execution time<a class="headerlink" href="#benchmarking-execution-time" title="Permalink to this heading">#</a></h2>
+<p>In image processing, it is very common that execution time of algorithms shows different patterns depending on image size. We will now benchmark the algorithm above and see how it performs on differently sized images.
+To bind a function to benchmark to a given image without executing it, we are using the <a class="reference external" href="https://docs.python.org/3/library/functools.html#functools.partial">partial</a> pattern.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">benchmark</span><span class="p">(</span><span class="n">target_function</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Tests a function on a couple of image sizes and returns times taken for processing.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">sizes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span>
 
-<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>cucim
-<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>scipy<span class="w"> </span>scikit-image<span class="w"> </span>cupy-cuda100
+    <span class="n">benchmark_data</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">size</span> <span class="ow">in</span> <span class="n">sizes</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Size&quot;</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+
+        <span class="c1"># make new data</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">size</span><span class="p">,</span> <span class="n">size</span><span class="p">))</span>
+        
+        <span class="c1"># bind target function to given image</span>
+        <span class="n">partial_function</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">target_function</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span>
+
+        <span class="c1"># measure execution time</span>
+        <span class="n">time_in_s</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="n">partial_function</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">time_in_s</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span><span class="p">)</span>
+
+        <span class="c1"># store results</span>
+        <span class="n">benchmark_data</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">size</span><span class="p">,</span> <span class="n">time_in_s</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">benchmark_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is the algorithm we would like to optimize:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">silly_sum</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
+    <span class="c1"># Silly algorithm for wasting compute time</span>
+    <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+                <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+                    <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">image</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">k</span> <span class="o">+</span> <span class="n">l</span>
+        <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">i</span>
+        <span class="n">image</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">/</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">benchmark_data_silly_sum</span> <span class="o">=</span> <span class="n">benchmark</span><span class="p">(</span><span class="n">silly_sum</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100  1580  100  1580    0     0   5851      0 --:--:-- --:--:-- --:--:--  5851
-+ apt -y -q install cuda-libraries-dev-10-0
-Reading package lists...
-Building dependency tree...
-Reading state information...
-cuda-libraries-dev-10-0 is already the newest version (10.0.130-1).
-0 upgraded, 0 newly installed, 0 to remove and 39 not upgraded.
-+ pip install -q cupy-cuda100  chainer 
-+ set +ex
-Installation succeeded!
-Requirement already satisfied: cucim in /usr/local/lib/python3.7/dist-packages (0.19.0)
-Requirement already satisfied: click in /usr/local/lib/python3.7/dist-packages (from cucim) (7.1.2)
-Requirement already satisfied: numpy in /usr/local/lib/python3.7/dist-packages (from cucim) (1.19.5)
-Requirement already satisfied: scipy in /usr/local/lib/python3.7/dist-packages (1.4.1)
-Requirement already satisfied: scikit-image in /usr/local/lib/python3.7/dist-packages (0.16.2)
-Requirement already satisfied: cupy-cuda100 in /usr/local/lib/python3.7/dist-packages (9.1.0)
-Requirement already satisfied: numpy&gt;=1.13.3 in /usr/local/lib/python3.7/dist-packages (from scipy) (1.19.5)
-Requirement already satisfied: pillow&gt;=4.3.0 in /usr/local/lib/python3.7/dist-packages (from scikit-image) (7.1.2)
-Requirement already satisfied: PyWavelets&gt;=0.4.0 in /usr/local/lib/python3.7/dist-packages (from scikit-image) (1.1.1)
-Requirement already satisfied: networkx&gt;=2.0 in /usr/local/lib/python3.7/dist-packages (from scikit-image) (2.5.1)
-Requirement already satisfied: matplotlib!=3.0.0,&gt;=2.0.0 in /usr/local/lib/python3.7/dist-packages (from scikit-image) (3.2.2)
-Requirement already satisfied: imageio&gt;=2.3.0 in /usr/local/lib/python3.7/dist-packages (from scikit-image) (2.4.1)
-Requirement already satisfied: fastrlock&gt;=0.5 in /usr/local/lib/python3.7/dist-packages (from cupy-cuda100) (0.6)
-Requirement already satisfied: decorator&lt;5,&gt;=4.3 in /usr/local/lib/python3.7/dist-packages (from networkx&gt;=2.0-&gt;scikit-image) (4.4.2)
-Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,&gt;=2.0.1 in /usr/local/lib/python3.7/dist-packages (from matplotlib!=3.0.0,&gt;=2.0.0-&gt;scikit-image) (2.4.7)
-Requirement already satisfied: python-dateutil&gt;=2.1 in /usr/local/lib/python3.7/dist-packages (from matplotlib!=3.0.0,&gt;=2.0.0-&gt;scikit-image) (2.8.1)
-Requirement already satisfied: cycler&gt;=0.10 in /usr/local/lib/python3.7/dist-packages (from matplotlib!=3.0.0,&gt;=2.0.0-&gt;scikit-image) (0.10.0)
-Requirement already satisfied: kiwisolver&gt;=1.0.1 in /usr/local/lib/python3.7/dist-packages (from matplotlib!=3.0.0,&gt;=2.0.0-&gt;scikit-image) (1.3.1)
-Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.7/dist-packages (from python-dateutil&gt;=2.1-&gt;matplotlib!=3.0.0,&gt;=2.0.0-&gt;scikit-image) (1.15.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Size 10
+time 0.026225900000000024 s
+Size 20
+time 0.3880397999999996 s
+Size 30
+time 2.4635917000000003 s
+Size 40
+time 6.705509999999999 s
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">cupy</span> <span class="k">as</span> <span class="nn">cp</span>
-<span class="kn">import</span> <span class="nn">cucim</span>
-<span class="kn">from</span> <span class="nn">skimage.io</span> <span class="kn">import</span> <span class="n">imread</span><span class="p">,</span> <span class="n">imshow</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>In the following, we are using image data from Paci et al shared under  the <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> license. See also: <a class="reference external" href="https://doi.org/10.17867/10000140">https://doi.org/10.17867/10000140</a></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="s1">&#39;https://idr.openmicroscopy.org/webclient/render_image_download/9844418/?format=tif&#39;</span><span class="p">)</span>
-
-<span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">benchmark_data_silly_sum</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="n">benchmark_data_silly_sum</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;normal&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Image size in pixels&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Compute time in s&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f5901fd2d50&gt;
-</pre></div>
-</div>
-<img alt="../_images/fc365ecf718b90387e6474f4c449fadef90d85e9f69bdf33e2c0558882dbddb7.png" src="../_images/fc365ecf718b90387e6474f4c449fadef90d85e9f69bdf33e2c0558882dbddb7.png" />
+<img alt="../_images/313772c3acc0e75b5ee93c1b619ccd2c69fef0e894324f39bd1ebce7f8056f5d.png" src="../_images/313772c3acc0e75b5ee93c1b619ccd2c69fef0e894324f39bd1ebce7f8056f5d.png" />
 </div>
 </div>
-<p>In order to process an image using CUDA on the GPU, we need to convert it. Under the hood of this conversion, the image data is sent from computer random access memory (RAM) to the GPUs memory.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_gpu</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
-
-<span class="n">image_gpu</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(640, 640, 3)
-</pre></div>
-</div>
-</div>
-</div>
-<p>Extracting a single channel out of the three-channel image works like if we were working with numpy. Showing the image does not work, because the CUDA image is not available in memory. In order to get it back from GPU memory, we need to convert it to a numpy array.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">single_channel_gpu</span> <span class="o">=</span> <span class="n">image_gpu</span><span class="p">[:,:,</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="c1"># the following line would fail</span>
-<span class="c1"># imshow(single_channel_gpu)</span>
-
-<span class="c1"># get single channel image back from GPU memory and show it</span>
-<span class="n">single_channel</span> <span class="o">=</span> <span class="n">cp</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">(</span><span class="n">single_channel_gpu</span><span class="p">)</span>
-<span class="n">imshow</span><span class="p">(</span><span class="n">single_channel</span><span class="p">)</span>
-
-<span class="c1"># we can also do this with a convenience function</span>
-<span class="k">def</span> <span class="nf">gpu_imshow</span><span class="p">(</span><span class="n">image_gpu</span><span class="p">):</span>
-  <span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">image_gpu</span><span class="p">)</span>
-  <span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/80ace2c94a217658b23f98a7bb4be4ca6d19aa66fe053b6b2c06eafaf18aa627.png" src="../_images/80ace2c94a217658b23f98a7bb4be4ca6d19aa66fe053b6b2c06eafaf18aa627.png" />
-</div>
-</div>
-<section id="image-filtering-and-segmentation">
-<h2>Image filtering and segmentation<a class="headerlink" href="#image-filtering-and-segmentation" title="Permalink to this heading">#</a></h2>
-<p>The cucim developers have re-implemented many functions from sckit image, e.g. the <a class="reference external" href="https://docs.rapids.ai/api/cucim/stable/api.html#cucim.skimage.filters.gaussian">Gaussian blur filter</a>, <a class="reference external" href="https://docs.rapids.ai/api/cucim/stable/api.html#cucim.skimage.filters.threshold_otsu">Otsu Thresholding</a> after <a class="reference external" href="https://ieeexplore.ieee.org/document/4310076">Otsu et al. 1979</a>, <a class="reference external" href="https://docs.rapids.ai/api/cucim/stable/api.html#cucim.skimage.morphology.binary_erosion">binary erosion</a> and <a class="reference external" href="https://docs.rapids.ai/api/cucim/stable/api.html#cucim.skimage.measure.label">connected component labeling</a>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="kn">from</span> <span class="nn">cucim.skimage.filters</span> <span class="kn">import</span> <span class="n">gaussian</span>
-
- <span class="n">blurred_gpu</span> <span class="o">=</span> <span class="n">gaussian</span><span class="p">(</span><span class="n">single_channel_gpu</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-
- <span class="n">gpu_imshow</span><span class="p">(</span><span class="n">blurred_gpu</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/1ba7e4349064ed31600c4c08ed1469709e984d4b24bf38c21b1e976f364b8379.png" src="../_images/1ba7e4349064ed31600c4c08ed1469709e984d4b24bf38c21b1e976f364b8379.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cucim.skimage.filters</span> <span class="kn">import</span> <span class="n">threshold_otsu</span>
-
-<span class="c1"># determine threshold</span>
-<span class="n">threshold</span> <span class="o">=</span> <span class="n">threshold_otsu</span><span class="p">(</span><span class="n">blurred_gpu</span><span class="p">)</span>
-
-<span class="c1"># binarize image by apply the threshold</span>
-<span class="n">binary_gpu</span> <span class="o">=</span> <span class="n">blurred_gpu</span> <span class="o">&gt;</span> <span class="n">threshold</span>
-
-<span class="n">gpu_imshow</span><span class="p">(</span><span class="n">binary_gpu</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/27309930ccf21e0602eb7257fd04c23450257794119d6457f3432dc4e10a184f.png" src="../_images/27309930ccf21e0602eb7257fd04c23450257794119d6457f3432dc4e10a184f.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cucim.skimage.morphology</span> <span class="kn">import</span> <span class="n">binary_erosion</span><span class="p">,</span> <span class="n">disk</span>
-
-<span class="n">eroded_gpu</span> <span class="o">=</span> <span class="n">binary_erosion</span><span class="p">(</span><span class="n">binary_gpu</span><span class="p">,</span> <span class="n">selem</span><span class="o">=</span><span class="n">disk</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
-
-<span class="n">gpu_imshow</span><span class="p">(</span><span class="n">eroded_gpu</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/d418045ad805885d72122fd9d8b5b7f3837905c202107e3babbb656a6d909613.png" src="../_images/d418045ad805885d72122fd9d8b5b7f3837905c202107e3babbb656a6d909613.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cucim.skimage.measure</span> <span class="kn">import</span> <span class="n">label</span>
-
-<span class="n">labels_gpu</span> <span class="o">=</span> <span class="n">label</span><span class="p">(</span><span class="n">eroded_gpu</span><span class="p">)</span>
-
-<span class="n">gpu_imshow</span><span class="p">(</span><span class="n">labels_gpu</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/skimage/io/_plugins/matplotlib_plugin.py:150: UserWarning: Low image data range; displaying image with stretched contrast.
-  lo, hi, cmap = _get_display_range(image)
-</pre></div>
-</div>
-<img alt="../_images/379e5e748565dad865e73002aa5179d3a155381d449dfe87a5950cbb7d767d05.png" src="../_images/379e5e748565dad865e73002aa5179d3a155381d449dfe87a5950cbb7d767d05.png" />
-</div>
-</div>
-<p>For visualization purposes, it is recommended to turn the label image into an RGB image, especially if you want to save it to disk.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cucim.skimage.color</span> <span class="kn">import</span> <span class="n">label2rgb</span>
-
-<span class="n">labels_rgb_gpu</span> <span class="o">=</span> <span class="n">label2rgb</span><span class="p">(</span><span class="n">labels_gpu</span><span class="p">)</span>
-
-<span class="n">gpu_imshow</span><span class="p">(</span><span class="n">labels_rgb_gpu</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/ipykernel_launcher.py:3: FutureWarning: The new recommended value for bg_label is 0. Until version 0.19, the default bg_label value is -1. From version 0.19, the bg_label default value will be 0. To avoid this warning, please explicitly set bg_label value.
-  This is separate from the ipykernel package so we can avoid doing imports until
-</pre></div>
-</div>
-<img alt="../_images/7b7376dc35a8510cb5e9a9e81e322f425483770fe3686b8016a5c5fdcb42789d.png" src="../_images/7b7376dc35a8510cb5e9a9e81e322f425483770fe3686b8016a5c5fdcb42789d.png" />
-</div>
-</div>
+<p>This algorithm is stronger dependent on image size, the plot shows approximately <a class="reference external" href="https://en.wikipedia.org/wiki/Time_complexity#Table_of_common_time_complexities">quadratic</a> complexity. That means if the data size douples, the compute time multiplies by four. The algorithms O-notation is <code class="docutils literal notranslate"><span class="pre">O(n^2)</span></code>. We could presume that a similar algorithm applied in 3D has cubic complexity, <code class="docutils literal notranslate"><span class="pre">O(n^3)</span></code>. If such algorithms are bottlenecks in your science, parallelization and GPU-acceleration make a lot of sense.</p>
 </section>
-<section id="quantitative-measurements">
-<h2>Quantitative measurements<a class="headerlink" href="#quantitative-measurements" title="Permalink to this heading">#</a></h2>
-<p>Also quantitative measurments using <a class="reference external" href="https://docs.rapids.ai/api/cucim/stable/api.html#cucim.skimage.measure.regionprops_table">regionprops_table</a> have been implemented in cucim. A major difference is that you need to convert its result back to numpy if you want to continue processing on the CPU, e.g. using <a class="reference external" href="https://pandas.pydata.org/">pandas</a>.</p>
+<section id="code-optimization-using-numba">
+<h2>Code optimization using numba<a class="headerlink" href="#code-optimization-using-numba" title="Permalink to this heading">#</a></h2>
+<p>In case the code we perform is simple and just uses standard python, numpy etc. function, we can use a just-in-time (JIT) compiler, e.g. provided by <a class="reference external" href="https://numba.pydata.org/">numba</a> to speedup the code.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cucim.skimage.measure</span> <span class="kn">import</span> <span class="n">regionprops_table</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numba</span> <span class="kn">import</span> <span class="n">jit</span>
 
-<span class="n">table_gpu</span> <span class="o">=</span> <span class="n">regionprops_table</span><span class="p">(</span><span class="n">labels_gpu</span><span class="p">,</span> <span class="n">intensity_image</span><span class="o">=</span><span class="n">single_channel_gpu</span><span class="p">,</span> <span class="n">properties</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;mean_intensity&#39;</span><span class="p">,</span> <span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="s1">&#39;solidity&#39;</span><span class="p">))</span>
-
-<span class="n">table_gpu</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;area&#39;: array([ 238, 5833, 6006, 5679, 2534, 4200, 4655, 2662, 3846, 3350, 5005,
-        2200, 3952, 3837, 4298, 4111,  139]),
- &#39;mean_intensity&#39;: array([68.93277311, 54.14537974, 68.23676324, 59.95175207, 87.22178374,
-        71.32666667, 74.37529538, 64.63561232, 58.93213729, 66.88656716,
-        62.15684316, 50.51363636, 62.50177126, 92.24863174, 71.68776175,
-        51.80345415, 72.3381295 ]),
- &#39;solidity&#39;: array([0.97942387, 0.95842918, 0.97785738, 0.97964464, 0.98868513,
-        0.98522167, 0.98727466, 0.99143389, 0.87171351, 0.98355843,
-        0.96864718, 0.59945504, 0.98676654, 0.98510911, 0.98397436,
-        0.97997616, 0.97887324])}
+<span class="nd">@jit</span>
+<span class="k">def</span> <span class="nf">process_image_compiled</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="c1"># Silly algorithm for wasting compute time</span>
+            <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+                    <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">x</span>
+                <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">y</span>
+            <span class="n">image</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sum</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The following line would fail.</span>
-<span class="c1"># pd.DataFrame(table_gpu)</span>
-
-<span class="c1"># We need to convert that table to numpy before we can pass it to pandas.</span>
-<span class="n">table</span> <span class="o">=</span> <span class="p">{</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">:</span> <span class="n">cp</span><span class="o">.</span><span class="n">asnumpy</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">table_gpu</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> process_image_compiled(image)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>mean_intensity</th>
-      <th>area</th>
-      <th>solidity</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>68.932773</td>
-      <td>238</td>
-      <td>0.979424</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>54.145380</td>
-      <td>5833</td>
-      <td>0.958429</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>68.236763</td>
-      <td>6006</td>
-      <td>0.977857</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>59.951752</td>
-      <td>5679</td>
-      <td>0.979645</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>87.221784</td>
-      <td>2534</td>
-      <td>0.988685</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>71.326667</td>
-      <td>4200</td>
-      <td>0.985222</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>74.375295</td>
-      <td>4655</td>
-      <td>0.987275</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>64.635612</td>
-      <td>2662</td>
-      <td>0.991434</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>58.932137</td>
-      <td>3846</td>
-      <td>0.871714</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>66.886567</td>
-      <td>3350</td>
-      <td>0.983558</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>62.156843</td>
-      <td>5005</td>
-      <td>0.968647</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>50.513636</td>
-      <td>2200</td>
-      <td>0.599455</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>62.501771</td>
-      <td>3952</td>
-      <td>0.986767</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>92.248632</td>
-      <td>3837</td>
-      <td>0.985109</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>71.687762</td>
-      <td>4298</td>
-      <td>0.983974</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>51.803454</td>
-      <td>4111</td>
-      <td>0.979976</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>72.338129</td>
-      <td>139</td>
-      <td>0.978873</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slowest run took 56.00 times longer than the fastest. This could mean that an intermediate result is being cached.
+2.84 µs ± 5.7 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>
@@ -1900,7 +1668,7 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.7/dist-pack
         },
         kernelOptions: {
             name: "python3",
-            path: "./15_gpu_acceleration"
+            path: "./03_advanced_python"
         },
         predefinedOutput: true
     }
@@ -1915,17 +1683,17 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.7/dist-pack
             <footer class="bd-footer-article">
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-  <a class='left-prev' id="prev-link" href="why_GPU_acceleration.html" title="previous page">
+  <a class='left-prev' id="prev-link" href="parallelization.html" title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
           <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title">Why GPU-acceleration makes sense</p>
+          <p class="prev-next-title">Parallelization</p>
       </div>
   </a>
-  <a class='right-next' id="next-link" href="memory_management.html" title="next page">
+  <a class='right-next' id="next-link" href="../15_gpu_acceleration/readme.html" title="next page">
   <div class="prev-next-info">
       <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">Tracing memory consumption</p>
+      <p class="prev-next-title">GPU accelerated image processing</p>
   </div>
   <i class="fa-solid fa-angle-right"></i>
   </a>
@@ -1946,13 +1714,13 @@ Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.7/dist-pack
 <nav id="bd-toc-nav" class="page-toc">
     <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#image-filtering-and-segmentation">
-   Image filtering and segmentation
+  <a class="reference internal nav-link" href="#benchmarking-execution-time">
+   Benchmarking execution time
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#quantitative-measurements">
-   Quantitative measurements
+  <a class="reference internal nav-link" href="#code-optimization-using-numba">
+   Code optimization using numba
   </a>
  </li>
 </ul>

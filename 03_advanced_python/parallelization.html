@@ -61,7 +61,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '03_advanced_python/parallelization';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="GPU accelerated image processing" href="../15_gpu_acceleration/readme.html" />
+    <link rel="next" title="Parallelization using numba" href="numba.html" />
     <link rel="prev" title="Partial functions" href="partial.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en">
@@ -1165,12 +1165,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="functional_parameters.html">Functional parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="partial.html">Partial functions</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Parallelization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numba.html">Parallelization using numba</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../15_gpu_acceleration/readme.html">GPU accelerated image processing</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../15_gpu_acceleration/clesperanto.html">clEsperanto</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../15_gpu_acceleration/why_GPU_acceleration.html">Why GPU-acceleration makes sense</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../15_gpu_acceleration/cupy.html">GPU-accelerated image processing using CUPY and CUCIM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../15_gpu_acceleration/memory_management.html">Tracing memory consumption</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../15_gpu_acceleration/further_reading.html">Further reading</a></li>
 </ul>
@@ -1500,18 +1500,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#code-optimization-using-numba">
-   Code optimization using numba
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#quality-assurance">
    Quality assurance
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#excercise-parallelization">
-   Excercise: Parallelization
   </a>
  </li>
 </ul>
@@ -1553,13 +1543,8 @@ title="Print to PDF"
             <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">x</span>
         <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">y</span>
     <span class="n">image</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sum</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1572,12 +1557,12 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.67 ms ± 12.1 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.3 ms ± 395 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
 </pre></div>
 </div>
 </div>
 </div>
-<p>We now define the operation on the whole image</p>
+<p>We now define the operation on the whole image and measure the time of this function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">process_image</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
@@ -1588,7 +1573,6 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>We measure the time of this function as mentioned above</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> process_image(image)
@@ -1596,7 +1580,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>372 ms ± 1.21 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>353 ms ± 42.4 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -1630,7 +1614,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>59.1 ms ± 1.59 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>62.4 ms ± 218 µs per loop (mean ± std. dev. of 7 runs, 1 loop each)
 </pre></div>
 </div>
 </div>
@@ -1643,7 +1627,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16
 </pre></div>
 </div>
 </div>
@@ -1656,7 +1640,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;i386&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;AMD64 Family 25 Model 68 Stepping 1, AuthenticAMD&#39;
 </pre></div>
 </div>
 </div>
@@ -1709,22 +1693,22 @@ To bind a function to benchmark to a given image without executing it, we are us
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Benchmarking normal
 Size 10
-time 3.6755600420000007 s
+time 3.5427859 s
 Size 20
-time 14.606198167 s
+time 13.8465019 s
 Size 30
-time 32.68187025 s
+time 30.883478699999998 s
 Size 40
-time 58.304140666 s
+time 55.4255712 s
 Benchmarking parallel
 Size 10
-time 0.6165027079999987 s
+time 0.7873560999999967 s
 Size 20
-time 2.0231766670000013 s
+time 2.0985788000000127 s
 Size 30
-time 4.416658041999995 s
+time 4.9782009000000045 s
 Size 40
-time 7.917167458000009 s
+time 7.9171936000000045 s
 </pre></div>
 </div>
 </div>
@@ -1741,110 +1725,14 @@ time 7.917167458000009 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Compute time in s&#39;)
-</pre></div>
-</div>
-<img alt="../_images/5cc3e87c74b68118bc54b80ca9fa3268e673ac2e0cea43bf19143746ca9d67bc.png" src="../_images/5cc3e87c74b68118bc54b80ca9fa3268e673ac2e0cea43bf19143746ca9d67bc.png" />
+<img alt="../_images/913affe792684d464feaf95c918952441b8d02cfbd090ea569b6be843d1cffb6.png" src="../_images/913affe792684d464feaf95c918952441b8d02cfbd090ea569b6be843d1cffb6.png" />
 </div>
 </div>
 <p>If we see this pattern, we speak of <em>linear</em> relationship between data size and compute time. Computer scientists use the <a class="reference external" href="https://en.wikipedia.org/wiki/Big_O_notation">O notation</a> to describe the <a class="reference external" href="https://en.wikipedia.org/wiki/Computational_complexity">complexity</a> of algorithms. This algorithm has <code class="docutils literal notranslate"><span class="pre">O(n)</span></code> and <code class="docutils literal notranslate"><span class="pre">n</span></code> represents the number of pixels in this case.</p>
-<p>Let’s take a look at another algorithm.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">silly_sum</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
-    <span class="c1"># Silly algorithm for wasting compute time</span>
-    <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
-            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
-                <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
-                    <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">image</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">k</span> <span class="o">+</span> <span class="n">l</span>
-        <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">i</span>
-        <span class="n">image</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">/</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">benchmark_data_silly_sum</span> <span class="o">=</span> <span class="n">benchmark</span><span class="p">(</span><span class="n">silly_sum</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Size 10
-time 0.049324583000014854 s
-Size 20
-time 0.7592800000000182 s
-Size 30
-time 3.7161972079999828 s
-Size 40
-time 11.734440750000005 s
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">benchmark_data_silly_sum</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="n">benchmark_data_silly_sum</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s2">&quot;normal&quot;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Image size in pixels&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Compute time in s&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Compute time in s&#39;)
-</pre></div>
-</div>
-<img alt="../_images/947eccf4597f7980cbc6a77991fdbf906ffe970875f1ab837f3da33f1d109887.png" src="../_images/947eccf4597f7980cbc6a77991fdbf906ffe970875f1ab837f3da33f1d109887.png" />
-</div>
-</div>
-<p>This algorithm is stronger dependent on image size, the plot shows approximately <a class="reference external" href="https://en.wikipedia.org/wiki/Time_complexity#Table_of_common_time_complexities">quadratic</a> complexity. That means if the data size douples, the compute time multiplies by four. The algorithms O-notation is <code class="docutils literal notranslate"><span class="pre">O(n^2)</span></code>. We could presume that a similar algorithm applied in 3D has cubic complexity, <code class="docutils literal notranslate"><span class="pre">O(n^3)</span></code>. If such algorithms are bottlenecks in your science, parallelization and GPU-acceleration make a lot of sense.</p>
-</section>
-<section id="code-optimization-using-numba">
-<h2>Code optimization using numba<a class="headerlink" href="#code-optimization-using-numba" title="Permalink to this heading">#</a></h2>
-<p>In case the code we perform is simple and just uses standard python, numpy etc. function, we can use a just-in-time (JIT) compiler, e.g. provided by <a class="reference external" href="https://numba.pydata.org/">numba</a> to speedup the code.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numba</span> <span class="kn">import</span> <span class="n">jit</span>
-
-<span class="nd">@jit</span>
-<span class="k">def</span> <span class="nf">process_image_compiled</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
-        <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
-            <span class="c1"># Silly algorithm for wasting compute time</span>
-            <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
-            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
-                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
-                    <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">x</span>
-                <span class="nb">sum</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">+</span> <span class="n">y</span>
-            <span class="n">image</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sum</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> process_image_compiled(image)
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>310 ns ± 0.827 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 <section id="quality-assurance">
 <h2>Quality assurance<a class="headerlink" href="#quality-assurance" title="Permalink to this heading">#</a></h2>
 <p>Note that in this section we only measured compute time of algorithms. We did not determine if the differently optimized versions of the algorithms produce the same result. Quality assurance is good scientific practice. The same is relevant in the context of GPU-acceleration and for example described in detail <a class="reference external" href="https://arxiv.org/pdf/2008.11799">here</a>.</p>
-</section>
-<section id="excercise-parallelization">
-<h2>Excercise: Parallelization<a class="headerlink" href="#excercise-parallelization" title="Permalink to this heading">#</a></h2>
-<p>To practice parallelization, parallelize the function <code class="docutils literal notranslate"><span class="pre">silly_sum</span></code> shown above and plot its performance in comparison with the non-parallel version.</p>
 </section>
 </section>
 
@@ -1883,10 +1771,10 @@ time 11.734440750000005 s
           <p class="prev-next-title">Partial functions</p>
       </div>
   </a>
-  <a class='right-next' id="next-link" href="../15_gpu_acceleration/readme.html" title="next page">
+  <a class='right-next' id="next-link" href="numba.html" title="next page">
   <div class="prev-next-info">
       <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">GPU accelerated image processing</p>
+      <p class="prev-next-title">Parallelization using numba</p>
   </div>
   <i class="fa-solid fa-angle-right"></i>
   </a>
@@ -1917,18 +1805,8 @@ time 11.734440750000005 s
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#code-optimization-using-numba">
-   Code optimization using numba
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#quality-assurance">
    Quality assurance
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#excercise-parallelization">
-   Excercise: Parallelization
   </a>
  </li>
 </ul>
