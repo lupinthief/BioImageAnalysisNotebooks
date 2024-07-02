@@ -1650,28 +1650,7 @@ Note: you may need to restart the kernel to use updated packages.
 </div>
 </div>
 </div>
-<p>Of course in this case, unless we find the specfiic line where the function is imported, we don’t know that <code class="docutils literal notranslate"><span class="pre">cos</span></code> necessarily belongs to Numpy as we could also have defined such a function in the notebook. If we want to import <strong>all</strong> functions from a package we can also use the <code class="docutils literal notranslate"><span class="pre">*</span></code> sign:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="o">*</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Here we have for example access to the sine function withouth having explicitly imported it:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sin</span><span class="p">(</span><span class="mf">3.14</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0015926529164868282
-</pre></div>
-</div>
-</div>
-</div>
-<p>As you can see, with this solution we have <em>no idea</em> what we actually imported in our notebook, which can lead to unwanted effects like re-using a function name. <strong>If you don’t have a specific reason to use this import variant, we strongly discourage its use.</strong></p>
+<p>Of course in this case, unless we find the specfiic line where the function is imported, we don’t know that <code class="docutils literal notranslate"><span class="pre">cos</span></code> necessarily belongs to Numpy as we could also have defined such a function in the notebook.</p>
 </section>
 </section>
 <section id="sub-modules">
@@ -1726,26 +1705,6 @@ Note: you may need to restart the kernel to use updated packages.
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0038794083334154307
-</pre></div>
-</div>
-</div>
-</div>
-<p>Finally we can rename using the <code class="docutils literal notranslate"><span class="pre">as</span></code> statement:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">random</span> <span class="k">as</span> <span class="n">rd</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rd</span><span class="o">.</span><span class="n">normal</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.6781586087709578
 </pre></div>
 </div>
 </div>
