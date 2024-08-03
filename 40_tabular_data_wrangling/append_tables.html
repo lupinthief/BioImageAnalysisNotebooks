@@ -1784,7 +1784,7 @@ title="Print to PDF"
 </table>
 </div></div></div>
 </div>
-<p>You may note that in the above example, label 4 is missing. We can also get it by out table by performing an <code class="docutils literal notranslate"><span class="pre">outer</span> <span class="pre">join</span></code>.</p>
+<p>You may note that in the above example, label 4 is missing. We can also get it in the out table by performing an <code class="docutils literal notranslate"><span class="pre">outer</span> <span class="pre">join</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">correctly_combined_tables2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">table1</span><span class="p">,</span> <span class="n">table2</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;label&#39;</span><span class="p">)</span>
@@ -1925,7 +1925,7 @@ title="Print to PDF"
 </table>
 </div></div></div>
 </div>
-<p>Suppose there is a common measurement name from different tables. For example, table3 below also contain “elongation”.</p>
+<p>Suppose there is a common measurement name from different tables. For example, table3 below also contains “elongation”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
@@ -2438,7 +2438,7 @@ To calculate statistics for whole folders or to perform machine learning, we usu
 <p>111 rows × 5 columns</p>
 </div></div></div>
 </div>
-<p>The problem is that we lose their source identity. An easy fix for that is to add a new column with the file name before concatenating them. This will facilitating splitting them back and plotting later on.</p>
+<p>The problem is that we lose their source identity. An easy fix for that is to add a new column with the file name before concatenating them. This will facilitate splitting them back and plotting later on.</p>
 <p>When we give a single value to a new column, it is assigned to all rows.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2588,7 +2588,7 @@ To calculate statistics for whole folders or to perform machine learning, we usu
 <p>111 rows × 6 columns</p>
 </div></div></div>
 </div>
-<p>Now, when we can safely distinguish the source of each row.</p>
+<p>Now, we can safely distinguish the source of each row.</p>
 </section>
 </section>
 

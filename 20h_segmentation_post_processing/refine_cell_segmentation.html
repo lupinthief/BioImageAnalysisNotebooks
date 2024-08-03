@@ -1575,7 +1575,7 @@ title="Print to PDF"
 <img alt="../_images/f797cd7bceed28f2d5de2fa2497b6557062ae3310d2a6f390a9f218ca1c70a61.png" src="../_images/f797cd7bceed28f2d5de2fa2497b6557062ae3310d2a6f390a9f218ca1c70a61.png" />
 </div>
 </div>
-<p>Obviously, there are too many objects segmented and labeled after this step. Hence, we should explore which properties of those cells allow us to differentiate real cells and segmented background. For example, as the cells have membrane also in front and back, we perceive this signal as higher intensity in real cells. To visualize this quantitatively, we draw a mean-intensity map of the cells. In this map, every pixel that belongs to a given cell gets the mean average signal intensity of the whle cell.</p>
+<p>Obviously, there are too many objects segmented and labeled after this step. Hence, we should explore which properties of those cells allow us to differentiate real cells and segmented background. For example, as the cells have membrane also in front and back, we perceive this signal as higher intensity in real cells. To visualize this quantitatively, we draw a mean-intensity map of the cells. In this map, every pixel that belongs to a given cell gets the mean average signal intensity of the whole cell.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_intensity_map</span> <span class="o">=</span> <span class="n">cle</span><span class="o">.</span><span class="n">mean_intensity_map</span><span class="p">(</span><span class="n">membranes_single_slice</span><span class="p">,</span> <span class="n">cell_labels_pre</span><span class="p">)</span>

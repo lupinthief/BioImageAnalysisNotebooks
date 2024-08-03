@@ -1670,7 +1670,7 @@ title="Print to PDF"
 <section id="boxplots">
 <h2>Boxplots<a class="headerlink" href="#boxplots" title="Permalink to this heading">#</a></h2>
 <p>The axes function for plotting boxplots is <code class="docutils literal notranslate"><span class="pre">boxplot</span></code>.</p>
-<p>Seaborn already identified <code class="docutils literal notranslate"><span class="pre">file_name</span></code> as a categorical value and <code class="docutils literal notranslate"><span class="pre">ìntensity_mean</span></code> as a numerical value. Thus, it plots boxplots for the intensity variable. If we invert x and y, we still get the same graph, but as vertical bosplots.</p>
+<p>Seaborn already identified <code class="docutils literal notranslate"><span class="pre">file_name</span></code> as a categorical value and <code class="docutils literal notranslate"><span class="pre">ìntensity_mean</span></code> as a numerical value. Thus, it plots boxplots for the intensity variable. If we invert x and y, we still get the same graph, but as vertical boxplots.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;intensity_mean&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;file_name&quot;</span><span class="p">)</span>

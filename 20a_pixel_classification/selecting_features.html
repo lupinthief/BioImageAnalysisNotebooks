@@ -1511,7 +1511,7 @@ title="Print to PDF"
               
   <section class="tex2jax_ignore mathjax_ignore" id="selecting-features">
 <h1>Selecting features<a class="headerlink" href="#selecting-features" title="Permalink to this heading">#</a></h1>
-<p>When selecting the right features, there are some rules of thumb one can take into account. For example if one wants to segment objects very precisely, small radius / sigma values should be used. If a rough outline is enough, or if single individual pixels on borders of objects should be eliminated, it make sense to use larger radius and sigma values. However, this topic can also be approached using statistics.</p>
+<p>When selecting the right features, there are some rules of thumb one can take into account. For example if one wants to segment objects very precisely, small radius / sigma values should be used. If a rough outline is enough, or if single individual pixels on borders of objects should be eliminated, it makes sense to use larger radius and sigma values. However, this topic can also be approached using statistics.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">skimage.io</span> <span class="kn">import</span> <span class="n">imread</span><span class="p">,</span> <span class="n">imsave</span>
@@ -1872,7 +1872,7 @@ Afterwards, we take a look at the result for a quick sanity check.</p>
 <img alt="../_images/8fdbda78354f283b74387c3b1f6520063c3dc9b212210925736d563365713eaa.png" src="../_images/8fdbda78354f283b74387c3b1f6520063c3dc9b212210925736d563365713eaa.png" />
 </div>
 </div>
-<p>The new classifier still produces a very similar result. It takes less features into account, which makes it faster, but potentially also less robust again differences between images and imaging conditions. We just take another look at the classifier statistics:</p>
+<p>The new classifier still produces a very similar result. It takes less features into account, which makes it faster, but potentially also less robust against differences between images and imaging conditions. We just take another look at the classifier statistics:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shares</span><span class="p">,</span> <span class="n">counts</span> <span class="o">=</span> <span class="n">classifier</span><span class="o">.</span><span class="n">statistics</span><span class="p">()</span>

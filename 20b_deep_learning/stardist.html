@@ -1597,7 +1597,7 @@ Using default values: prob_thresh=0.479071, nms_thresh=0.3.
 </section>
 <section id="normalizing-the-input-image">
 <h2>Normalizing the input image<a class="headerlink" href="#normalizing-the-input-image" title="Permalink to this heading">#</a></h2>
-<p>Many algorithms using neural networks need normalized input data to work on. For example, you can determine the 1% and the 99.8% percentile (that’s very commond) and normalize your image so that the intensities spread between these percentiles are afterwards in the range between 0 and 1. We need to do this because the model was trained on an image in this range and might not be able to segment images with different intensity ranges.</p>
+<p>Many algorithms using neural networks need normalized input data to work on. For example, you can determine the 1% and the 99.8% percentile (that’s very common) and normalize your image so that the intensities spread between these percentiles are afterwards in the range between 0 and 1. We need to do this because the model was trained on an image in this range and might not be able to segment images with different intensity ranges.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">axis_norm</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
@@ -1673,7 +1673,7 @@ Using default values: prob_thresh=0.479071, nms_thresh=0.3.
 <img alt="../_images/f39ea03af19a1ee75cbefb87b9241abb773b6cbd2868ab14af5522ca56ad5682.png" src="../_images/f39ea03af19a1ee75cbefb87b9241abb773b6cbd2868ab14af5522ca56ad5682.png" />
 </div>
 </div>
-<p>Note: The model we applied here to blobs.gif was not trained on it. The result doesn’t look so bad though.</p>
+<p>Note: The model we applied here to human_mitosis was not trained on it. The result doesn’t look so bad though.</p>
 </section>
 <section id="more-available-pretrained-models">
 <h2>More available pretrained models<a class="headerlink" href="#more-available-pretrained-models" title="Permalink to this heading">#</a></h2>
@@ -1700,7 +1700,7 @@ Name                  Alias(es)
 </section>
 <section id="exercise">
 <h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this heading">#</a></h2>
-<p>Load <code class="docutils literal notranslate"><span class="pre">../../data/blobs.tif</span></code> and apply Cellpose to it.</p>
+<p>Load <code class="docutils literal notranslate"><span class="pre">../../data/blobs.tif</span></code> and apply StarDist to it.</p>
 </section>
 </section>
 

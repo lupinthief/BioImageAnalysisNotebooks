@@ -1519,7 +1519,7 @@ title="Print to PDF"
 <p>A common procedure for local maxima detection on processed images is called Blob detection. It is typically applied to Difference-of-Gaussian (DoG), Laplacian-of-Gaussian (LoG) and Determinant-of-Hessian (DoH) images. We will use <a class="reference external" href="https://scikit-image.org">scikit-image</a> functions for that. The advantage of these methods is that no pre-processing is necessary, it is built-in.</p>
 <p>See also</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://scikit-image.org/docs/stable/auto_examples/features_detection/plot_blob.html">Blog detection (scikit-image tutorial)</a></p></li>
+<li><p><a class="reference external" href="https://scikit-image.org/docs/stable/auto_examples/features_detection/plot_blob.html">Blob detection (scikit-image tutorial)</a></p></li>
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=q6-NsNvu81w">Spot detection and tracking (video)</a></p></li>
 </ul>
 <div class="cell docutils container">
@@ -1557,7 +1557,7 @@ title="Print to PDF"
 </div>
 <section id="difference-of-gaussian-dog">
 <h2>Difference-of-Gaussian (DoG)<a class="headerlink" href="#difference-of-gaussian-dog" title="Permalink to this heading">#</a></h2>
-<p>The DoG technique consists of two Gaussian-blur operations applied to an image. The resulting images are subtracted from each other resulting in an image where objects smaller and large than a define size or <code class="docutils literal notranslate"><span class="pre">sigma</span></code> range are removed. In this image, local maxima are detected. Read more in the documentation of <a class="reference external" href="https://scikit-image.org/docs/stable/api/skimage.feature.html#skimage.feature.blob_dog"><code class="docutils literal notranslate"><span class="pre">blob_dog</span></code></a>.</p>
+<p>The DoG technique consists of two Gaussian-blur operations applied to an image. The resulting images are subtracted from each other resulting in an image where objects smaller and larger than a defined size or <code class="docutils literal notranslate"><span class="pre">sigma</span></code> range are removed. In this image, local maxima are detected. Read more in the documentation of <a class="reference external" href="https://scikit-image.org/docs/stable/api/skimage.feature.html#skimage.feature.blob_dog"><code class="docutils literal notranslate"><span class="pre">blob_dog</span></code></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coordinates_dog</span> <span class="o">=</span> <span class="n">blob_dog</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">min_sigma</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_sigma</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -1682,7 +1682,7 @@ title="Print to PDF"
 </section>
 <section id="determinant-of-hessian-doh">
 <h2>Determinant-of-Hessian (DoH)<a class="headerlink" href="#determinant-of-hessian-doh" title="Permalink to this heading">#</a></h2>
-<p>This approach works by determining maxima in the Hessian determinant image of a Gaussian blurred image of the origina (<a class="reference external" href="https://scikit-image.org/docs/stable/api/skimage.feature.html#skimage.feature.blob_doh">read more</a>).</p>
+<p>This approach works by determining maxima in the Hessian determinant image of a Gaussian blurred image of the original (<a class="reference external" href="https://scikit-image.org/docs/stable/api/skimage.feature.html#skimage.feature.blob_doh">read more</a>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coordinates_doh</span> <span class="o">=</span> <span class="n">blob_doh</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">min_sigma</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_sigma</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">num_sigma</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>

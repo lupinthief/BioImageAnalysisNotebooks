@@ -1753,7 +1753,7 @@ title="Print to PDF"
 <li><p>The touching neighbor count appears to sense more neighbors touching, even though the number of cells per area tissue remains constant.</p></li>
 <li><p>The proximal neighbor count has local fluctuations in the neighbor count which on average might cancel out.</p></li>
 </ul>
-<p>We can further investiate these statements by quantitatively measuring the neighbor count and the standard deviation. We again write a helper function similar to the one above but this time it measures the average neighbor count. Additionally, we will count the total number of cells as additional quality check. The helper function will return our measurements as dictionary so that we can conveniently collect them in a pandas DataFrame.</p>
+<p>We can further investigate these statements by quantitatively measuring the neighbor count and the standard deviation. We again write a helper function similar to the one above but this time it measures the average neighbor count. Additionally, we will count the total number of cells as additional quality check. The helper function will return our measurements as dictionary so that we can conveniently collect them in a pandas DataFrame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">measure_neighbor_count</span><span class="p">(</span><span class="n">labels</span><span class="p">):</span>

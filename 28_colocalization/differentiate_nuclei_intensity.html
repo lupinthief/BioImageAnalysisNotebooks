@@ -1633,7 +1633,7 @@ title="Print to PDF"
    80.69057  147.49736   28.112642  25.167627  28.448263  25.31705
    38.072815 108.81613 ]], dtype=float32)</pre></div></div>
 </div>
-<p>There is by the way also an alternative way to come to the mean intensities directly, by measuring all properties of the nuclei including position and shape. It the statistics can be further processed as <a class="reference external" href="https://pandas.pydata.org/">pandas</a> DataFrame.</p>
+<p>There is by the way also an alternative way to come to the mean intensities directly, by measuring all properties of the nuclei including position and shape. The statistics can be further processed as <a class="reference external" href="https://pandas.pydata.org/">pandas</a> DataFrame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">statistics</span> <span class="o">=</span> <span class="n">cle</span><span class="o">.</span><span class="n">statistics_of_background_and_labelled_pixels</span><span class="p">(</span><span class="n">channel_egfp</span><span class="p">,</span> <span class="n">nuclei_cy3</span><span class="p">)</span>
@@ -1831,7 +1831,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>To get an averview about the mean intensity measurement, we can use <a class="reference external" href="https://matplotlib.org/">matplotlib</a> to plot a histogram. We ignore the first element, because it corresponds to the background intensity.</p>
+<p>To get an overview about the mean intensity measurement, we can use <a class="reference external" href="https://matplotlib.org/">matplotlib</a> to plot a histogram. We ignore the first element, because it corresponds to the background intensity.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">intensity_vector2</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>

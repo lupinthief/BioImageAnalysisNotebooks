@@ -1563,7 +1563,7 @@ title="Print to PDF"
 </section>
 <section id="peak-local-max">
 <h2>peak_local_max<a class="headerlink" href="#peak-local-max" title="Permalink to this heading">#</a></h2>
-<p>The <a class="reference external" href="https://scikit-image.org/docs/stable/api/skimage.feature.html?highlight=peak_local_max#skimage.feature.peak_local_max"><code class="docutils literal notranslate"><span class="pre">peak_local_max</span></code> function</a> allows to detect maxima which have higher intensity than surrounding pixels and other maxima according to a define threshold.</p>
+<p>The <a class="reference external" href="https://scikit-image.org/docs/stable/api/skimage.feature.html?highlight=peak_local_max#skimage.feature.peak_local_max"><code class="docutils literal notranslate"><span class="pre">peak_local_max</span></code> function</a> allows detecting maxima which have higher intensity than surrounding pixels and other maxima according to a defined threshold.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coordinates</span> <span class="o">=</span> <span class="n">peak_local_max</span><span class="p">(</span><span class="n">preprocessed</span><span class="p">,</span> <span class="n">threshold_abs</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
@@ -1702,7 +1702,7 @@ title="Print to PDF"
 </tr>
 </table></div></div>
 </div>
-<p>We can now exclude labels from the spots image where the intensity in the binary image is not within range <code class="docutils literal notranslate"><span class="pre">[0..1]</span></code>.</p>
+<p>We can now exclude labels from the spots image where the intensity in the binary image is not within range <code class="docutils literal notranslate"><span class="pre">[1..1]</span></code> (i.e. exactly 1).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final_spots</span> <span class="o">=</span> <span class="n">cle</span><span class="o">.</span><span class="n">exclude_labels_with_map_values_out_of_range</span><span class="p">(</span>

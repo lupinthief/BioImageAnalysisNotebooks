@@ -1516,7 +1516,7 @@ title="Print to PDF"
               
   <section class="tex2jax_ignore mathjax_ignore" id="parallelization">
 <h1>Parallelization<a class="headerlink" href="#parallelization" title="Permalink to this heading">#</a></h1>
-<p>When programming custom algorithms in python, it can happen that our code becomes slow because we run a couple of nested for-loops. If the inner loops do not depend on each other, code can be parallelized and sped up. Note, we are parallelizing code on a central processing unit (CPU) not not mix it up with GPU-acceleration that uses graphics processing units (GPUs).</p>
+<p>When programming custom algorithms in python, it can happen that our code becomes slow because we run a couple of nested for-loops. If the inner loops do not depend on each other, code can be parallelized and sped up. Note, we are parallelizing code on a central processing unit (CPU) don’t mix it up with GPU-acceleration that uses graphics processing units (GPUs).</p>
 <p>See also</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://scikit-image.org/docs/stable/user_guide/tutorial_parallelization.html">Scikit-image parallelization tutorial</a></p></li>
@@ -1597,7 +1597,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>Note the reverse writing of the for loops in the following block. The term <code class="docutils literal notranslate"><span class="pre">delayed(slow_thing)(image,</span> <span class="pre">x,</span> <span class="pre">y)</span></code> is technially a function call, that is not executed. Later, when the return value of this call is actually needed, then the actualy execution will happen. See <a class="reference external" href="https://docs.dask.org/en/stable/delayed.html">dask delayed</a> for details.</p>
+<p>Note the reverse writing of the for loops in the following block. The term <code class="docutils literal notranslate"><span class="pre">delayed(slow_thing)(image,</span> <span class="pre">x,</span> <span class="pre">y)</span></code> is technically a function call, that is not executed. Later, when the return value of this call is actually needed, then the actually execution will happen. See <a class="reference external" href="https://docs.dask.org/en/stable/delayed.html">dask delayed</a> for details.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">process_image_parallel</span><span class="p">(</span><span class="n">image</span><span class="p">):</span>
