@@ -845,6 +845,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="quantitative-maps-from-neighbor-statistics">
 <h1>Quantitative maps from neighbor statistics<a class="headerlink" href="#quantitative-maps-from-neighbor-statistics" title="Link to this heading">#</a></h1>
+<p>This notebook illustrates how to generate quantitative maps based on neighbor statistics using image processing libraries.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyclesperanto_prototype</span> <span class="k">as</span> <span class="nn">cle</span>
@@ -856,7 +857,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>The example imge “maize_clsm.tif” was taken from the repository <a class="reference external" href="https://github.com/dlegland/mathematical_morphology_with_MorphoLibJ">mathematical_morphology_with_MorphoLibJ</a> and is licensed by David Legland under <a class="reference external" href="https://github.com/dlegland/mathematical_morphology_with_MorphoLibJ/blob/master/LICENSE">CC-BY 4.0 license</a></p>
+<p>The example image “maize_clsm.tif” was taken from the repository <a class="reference external" href="https://github.com/dlegland/mathematical_morphology_with_MorphoLibJ">mathematical_morphology_with_MorphoLibJ</a> and is licensed by David Legland under <a class="reference external" href="https://github.com/dlegland/mathematical_morphology_with_MorphoLibJ/blob/master/LICENSE">CC-BY 4.0 license</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">intensity_image</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="s1">&#39;../../data/maize_clsm.tif&#39;</span><span class="p">)</span>
@@ -871,6 +872,7 @@ document.write(`
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="starting-point-label-map">
 <h1>Starting point: Label map<a class="headerlink" href="#starting-point-label-map" title="Link to this heading">#</a></h1>
+<p>First, we perform a segmentation process to obtain a labeled map of the cells using thresholding and Voronoi labeling.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">binary</span> <span class="o">=</span> <span class="n">cle</span><span class="o">.</span><span class="n">binary_not</span><span class="p">(</span><span class="n">cle</span><span class="o">.</span><span class="n">threshold_otsu</span><span class="p">(</span><span class="n">intensity_image</span><span class="p">))</span>
@@ -886,6 +888,7 @@ document.write(`
 </div>
 <section id="nearest-neighbor-distance-maps">
 <h2>Nearest neighbor distance maps<a class="headerlink" href="#nearest-neighbor-distance-maps" title="Link to this heading">#</a></h2>
+<p>We then compute maps of the average distance to the nearest neighbors for each labeled cell.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">average_distance_of_n_closest_neighbors_map</span> <span class="o">=</span> <span class="n">cle</span><span class="o">.</span><span class="n">average_distance_of_n_closest_neighbors_map</span><span class="p">(</span><span class="n">cells</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -911,6 +914,7 @@ document.write(`
 </section>
 <section id="touching-neighbor-distance-map">
 <h2>Touching neighbor distance map<a class="headerlink" href="#touching-neighbor-distance-map" title="Link to this heading">#</a></h2>
+<p>Finally, we create a map that shows the average distance to touching neighbors for each cell.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">average_neighbor_distance_map</span> <span class="o">=</span> <span class="n">cle</span><span class="o">.</span><span class="n">average_neighbor_distance_map</span><span class="p">(</span><span class="n">cells</span><span class="p">)</span>
