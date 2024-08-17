@@ -828,7 +828,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Setting up your computer</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-python-and-conda-environments">Setting up Python and Conda environments</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-mambaforge">Step 1: Install Mambaforge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-mini-conda">Step 1: Install Mini-conda</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-install-devbio-napari">Step 2: Install devbio-napari</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-testing-the-installation">Step 3: Testing the installation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting-graphics-cards-drivers">Troubleshooting: Graphics cards drivers</a></li>
@@ -864,9 +864,9 @@ If a Conda environment breaks, e.g. incompatible software was installed, you can
 <li><p><a class="reference external" href="https://focalplane.biologists.com/2022/12/08/managing-scientific-python-environments-using-conda-mamba-and-friends/">Managing Scientific Python environments using Conda, Mamba and friends</a></p></li>
 <li><p><a class="reference external" href="https://youtu.be/MOEPe9TGBK0">Scientific Data Analysis with Python</a></p></li>
 </ul>
-<section id="step-1-install-mambaforge">
-<h2>Step 1: Install Mambaforge<a class="headerlink" href="#step-1-install-mambaforge" title="Link to this heading">#</a></h2>
-<p>Download and install Conda. We recommend the Conda distribution <a class="reference external" href="https://github.com/conda-forge/miniforge#mambaforge">Mambaforge</a>.</p>
+<section id="step-1-install-mini-conda">
+<h2>Step 1: Install Mini-conda<a class="headerlink" href="#step-1-install-mini-conda" title="Link to this heading">#</a></h2>
+<p>Download and install Conda. We recommend the Conda distribution <a class="reference external" href="https://docs.anaconda.com/miniconda/">mini-conda</a>.</p>
 <p>For ease-of-use, it is recommended to install it for your use only and to add Conda to the PATH variable during installation.</p>
 <p><img alt="img.png" src="../_images/install_mambaforge.png" /></p>
 <p><img alt="img.png" src="../_images/install_mambaforge2.png" /></p>
@@ -875,7 +875,7 @@ If a Conda environment breaks, e.g. incompatible software was installed, you can
 <h2>Step 2: Install devbio-napari<a class="headerlink" href="#step-2-install-devbio-napari" title="Link to this heading">#</a></h2>
 <p>We recommend installing <a class="reference external" href="https://github.com/haesleinhuepf/devbio-napari">devbio-napari</a>, a distribution of napari with a set of plugins for bioimage analysis.</p>
 <p>Use this command from the terminal:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mamba</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="n">devbio</span><span class="o">-</span><span class="n">napari</span><span class="o">-</span><span class="n">env</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.9</span> <span class="n">devbio</span><span class="o">-</span><span class="n">napari</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="n">devbio</span><span class="o">-</span><span class="n">napari</span><span class="o">-</span><span class="n">env</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.9</span> <span class="n">devbio</span><span class="o">-</span><span class="n">napari</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
 </pre></div>
 </div>
 <p><strong>Tip</strong>: It is recommended to create one environment for every project you are executing.
@@ -885,7 +885,7 @@ In that way installed software libraries and tools cannot harm each other.</p>
 <h2>Step 3: Testing the installation<a class="headerlink" href="#step-3-testing-the-installation" title="Link to this heading">#</a></h2>
 <p>Afterwards you can enter the environment to work with it.
 Whenever you want to work on the same project again, you should start a command line and enter this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mamba</span> <span class="n">activate</span> <span class="n">devbio</span><span class="o">-</span><span class="n">napari</span><span class="o">-</span><span class="n">env</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">devbio</span><span class="o">-</span><span class="n">napari</span><span class="o">-</span><span class="n">env</span>
 </pre></div>
 </div>
 <p>Start <a class="reference external" href="https://jupyter.org/">Jupyter lab</a> from the terminal like this</p>
@@ -917,11 +917,11 @@ If everything is installed properly, it should look like this:</p>
 <li><p><a class="reference external" href="https://www.microsoft.com/en-us/p/opencl-and-opengl-compatibility-pack/9nqpsl29bfff">Microsoft Windows OpenCL support</a></p></li>
 </ul>
 <p>Sometimes, mac-users need to install this:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mamba install -c conda-forge ocl_icd_wrapper_apple
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda install -c conda-forge ocl_icd_wrapper_apple
 </pre></div>
 </div>
 <p>Sometimes, linux users need to install this:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mamba install -c conda-forge ocl-icd-system
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda install -c conda-forge ocl-icd-system
 </pre></div>
 </div>
 </section>
@@ -1009,7 +1009,7 @@ If everything is installed properly, it should look like this:</p>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Setting up your computer</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-python-and-conda-environments">Setting up Python and Conda environments</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-mambaforge">Step 1: Install Mambaforge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-mini-conda">Step 1: Install Mini-conda</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-install-devbio-napari">Step 2: Install devbio-napari</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-testing-the-installation">Step 3: Testing the installation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting-graphics-cards-drivers">Troubleshooting: Graphics cards drivers</a></li>
