@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Plotting with Matplotlib &#8212; Bio-image Analysis Notebooks</title>
+    <title>Feature correlation &#8212; Bio-image Analysis Notebooks</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '51_plotting/plotting_matplotlib';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '51_plotting/feature_correlation';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Introduction to Seaborn" href="plotting_seaborn.html" />
-    <link rel="prev" title="Plotting" href="readme.html" />
+    <link rel="next" title="Visualizing relationships between feature spaces" href="interpolating_between_feature_spaces.html" />
+    <link rel="prev" title="Multivariate views" href="multivariate_views.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -612,12 +612,12 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="readme.html">Plotting</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Plotting with Matplotlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotting_matplotlib.html">Plotting with Matplotlib</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="plotting_seaborn.html">Introduction to Seaborn</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plotting_distributions.html">Plotting Distributions with Seaborn</a></li>
 <li class="toctree-l2"><a class="reference internal" href="multivariate_views.html">Multivariate views</a></li>
-<li class="toctree-l2"><a class="reference internal" href="feature_correlation.html">Feature correlation</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Feature correlation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="interpolating_between_feature_spaces.html">Visualizing relationships between feature spaces</a></li>
 </ul>
 </details></li>
@@ -705,7 +705,7 @@
       
       
       
-      <li><a href="https://github.com/haesleinhuepf/BioImageAnalysisNotebooks/issues/new?title=Issue%20on%20page%20%2F51_plotting/plotting_matplotlib.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/haesleinhuepf/BioImageAnalysisNotebooks/issues/new?title=Issue%20on%20page%20%2F51_plotting/feature_correlation.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -735,7 +735,7 @@
       
       
       
-      <li><a href="../_sources/51_plotting/plotting_matplotlib.ipynb" target="_blank"
+      <li><a href="../_sources/51_plotting/feature_correlation.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -819,7 +819,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Plotting with Matplotlib</h1>
+    <h1>Feature correlation</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -829,13 +829,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Plotting with Matplotlib</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sub-plots">Sub-plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data">Load data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-matrix">Correlation matrix</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -846,140 +842,726 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="plotting-with-matplotlib">
-<h1>Plotting with Matplotlib<a class="headerlink" href="#plotting-with-matplotlib" title="Link to this heading">#</a></h1>
-<p>A straigh forward and simple library for plotting data is <a class="reference external" href="https://matplotlib.org/">matplotlib</a>.</p>
-<p>See also:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://matplotlib.org/stable/tutorials/introductory/sample_plots.html">Matplotlib sample plots</a></p></li>
-<li><p><a class="reference external" href="https://matplotlib.org/2.1.1/api/_as_gen/matplotlib.pyplot.plot.html">Matplotlib plotting</a></p></li>
-</ul>
+  <section class="tex2jax_ignore mathjax_ignore" id="feature-correlation">
+<h1>Feature correlation<a class="headerlink" href="#feature-correlation" title="Link to this heading">#</a></h1>
+<p>When inspecting feature extraction results, it is often important to take releationships between features into account. Therefore, a feature correlation matrix is a useful tool. Visualizing it in color is recommended.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">napari_simpleitk_image_processing</span> <span class="kn">import</span> <span class="n">label_statistics</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span>
+<span class="kn">import</span> <span class="nn">pyclesperanto_prototype</span> <span class="k">as</span> <span class="nn">cle</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>For plotting, we need values to plot. Let’s start with a list of x-values:</p>
+<section id="load-data">
+<h2>Load data<a class="headerlink" href="#load-data" title="Link to this heading">#</a></h2>
+<p>We first load the image data that will be used for feature extraction.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_values</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">360</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>To compute the corresponding y-values, we use a for loop, that creates a new list of values equal to the <code class="docutils literal notranslate"><span class="pre">x_values</span></code> list and computes a new number for each entry:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x_values</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Then, let’s draw a simple plot</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">y_values</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x12aa15610&gt;]
-</pre></div>
-</div>
-<img alt="../_images/e620deb89cbd86f3fa569913c33be9a662f355a9cb1f19b1f010b89ca3e02773.png" src="../_images/e620deb89cbd86f3fa569913c33be9a662f355a9cb1f19b1f010b89ca3e02773.png" />
-</div>
-</div>
-<p>Plots can be modified in various ways.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">y_values</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x12ab6c3d0&gt;]
-</pre></div>
-</div>
-<img alt="../_images/0a8dc69416fee0a0dee663e5ea57d64e73b7add7f64c73002e9ad42a15ec904d.png" src="../_images/0a8dc69416fee0a0dee663e5ea57d64e73b7add7f64c73002e9ad42a15ec904d.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">y_values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x12abddc10&gt;]
-</pre></div>
-</div>
-<img alt="../_images/223e0f53524726bdd7a51920c7e3366c9b83969d7fd6f624a6d40c5a0f473c3a.png" src="../_images/223e0f53524726bdd7a51920c7e3366c9b83969d7fd6f624a6d40c5a0f473c3a.png" />
-</div>
-</div>
-<p>If you want to combine multiple plots in one figure, you can do this:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">y_values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load data</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">cle</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;../../data/Lund-25MB.tif&quot;</span><span class="p">)</span>
 
-<span class="n">neg_y_values</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span> <span class="n">y</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">y_values</span><span class="p">]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">neg_y_values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;magenta&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x12ac5d130&gt;]
-</pre></div>
-</div>
-<img alt="../_images/21c6eb19fb9e7e94958e202524cdd399ca30e4f0e9f8c1efdb5240fbc941e6ff.png" src="../_images/21c6eb19fb9e7e94958e202524cdd399ca30e4f0e9f8c1efdb5240fbc941e6ff.png" />
-</div>
-</div>
-<section id="sub-plots">
-<h2>Sub-plots<a class="headerlink" href="#sub-plots" title="Link to this heading">#</a></h2>
-<p>The <a class="reference external" href="https://matplotlib.org/3.1.0/gallery/subplots_axes_and_figures/subplots_demo.html">subplots</a> command allows you to have multiple plots in one block.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="c1"># Segment nuclei</span>
+<span class="n">background_subtracted</span> <span class="o">=</span> <span class="n">cle</span><span class="o">.</span><span class="n">top_hat_box</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">radius_x</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">radius_y</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">cle</span><span class="o">.</span><span class="n">voronoi_otsu_labeling</span><span class="p">(</span><span class="n">background_subtracted</span><span class="p">,</span> <span class="n">spot_sigma</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">y_values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">neg_y_values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;magenta&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x12acffc10&gt;]
-</pre></div>
-</div>
-<img alt="../_images/e4918ad866cee2a895f19a0566ef5427879e3ed0cd8956fd945edb2fc09da501.png" src="../_images/e4918ad866cee2a895f19a0566ef5427879e3ed0cd8956fd945edb2fc09da501.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">])</span>
+<span class="c1"># Feature extraction</span>
+<span class="n">nuclei_statistics</span> <span class="o">=</span> <span class="n">label_statistics</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> 
+                                     <span class="n">intensity</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                                     <span class="n">size</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                                     <span class="n">shape</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                                     <span class="n">perimeter</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                     <span class="n">moments</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">y_values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">neg_y_values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;magenta&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">neg_y_values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">neg_y_values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;cyan&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">neg_y_values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">neg_y_values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">)</span>
+<span class="c1"># Feature selection</span>
+<span class="n">selected_table</span> <span class="o">=</span> <span class="n">nuclei_statistics</span><span class="p">[</span>
+    <span class="p">[</span>
+       <span class="c1"># likely unrelated features</span>
+       <span class="s1">&#39;label&#39;</span><span class="p">,</span> 
+        
+       <span class="c1"># intensity releated features</span>
+       <span class="s1">&#39;maximum&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;minimum&#39;</span><span class="p">,</span> <span class="s1">&#39;variance&#39;</span><span class="p">,</span>
+        
+       <span class="c1"># shape related features </span>
+       <span class="s1">&#39;elongation&#39;</span><span class="p">,</span> <span class="s1">&#39;feret_diameter&#39;</span><span class="p">,</span> <span class="s1">&#39;flatness&#39;</span><span class="p">,</span> <span class="s1">&#39;roundness&#39;</span><span class="p">,</span>
+
+       <span class="c1"># size related features</span>
+       <span class="s1">&#39;equivalent_spherical_radius&#39;</span><span class="p">,</span> <span class="s1">&#39;number_of_pixels&#39;</span><span class="p">,</span> <span class="s1">&#39;perimeter&#39;</span>
+    <span class="p">]</span>
+<span class="p">]</span>
+<span class="n">selected_table</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x12aec7190&gt;]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\haase\miniconda3\envs\bio311\Lib\site-packages\pyclesperanto_prototype\_tier9\_imread.py:5: UserWarning: cle.imread is deprecated, use skimage.io.imread instead.
+  warnings.warn(&quot;cle.imread is deprecated, use skimage.io.imread instead.&quot;)
 </pre></div>
 </div>
-<img alt="../_images/2e7519c2ff22eb883482bc2389850013237ae38d70b7b76b4c5955f5884f84f8.png" src="../_images/2e7519c2ff22eb883482bc2389850013237ae38d70b7b76b4c5955f5884f84f8.png" />
-</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>label</th>
+      <th>maximum</th>
+      <th>mean</th>
+      <th>minimum</th>
+      <th>variance</th>
+      <th>elongation</th>
+      <th>feret_diameter</th>
+      <th>flatness</th>
+      <th>roundness</th>
+      <th>equivalent_spherical_radius</th>
+      <th>number_of_pixels</th>
+      <th>perimeter</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>143.0</td>
+      <td>117.489451</td>
+      <td>93.0</td>
+      <td>90.056032</td>
+      <td>1.228690</td>
+      <td>8.774964</td>
+      <td>1.153618</td>
+      <td>0.965657</td>
+      <td>3.839016</td>
+      <td>237</td>
+      <td>191.790349</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>113.0</td>
+      <td>83.052219</td>
+      <td>65.0</td>
+      <td>94.086271</td>
+      <td>1.325096</td>
+      <td>13.152946</td>
+      <td>1.215572</td>
+      <td>0.818905</td>
+      <td>4.505089</td>
+      <td>383</td>
+      <td>311.446414</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>130.0</td>
+      <td>108.930403</td>
+      <td>92.0</td>
+      <td>57.109109</td>
+      <td>1.565911</td>
+      <td>12.884099</td>
+      <td>1.434476</td>
+      <td>0.807173</td>
+      <td>4.024309</td>
+      <td>273</td>
+      <td>252.130963</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>129.0</td>
+      <td>94.576991</td>
+      <td>70.0</td>
+      <td>130.716136</td>
+      <td>1.227027</td>
+      <td>14.352700</td>
+      <td>1.397276</td>
+      <td>0.833006</td>
+      <td>5.128456</td>
+      <td>565</td>
+      <td>396.766310</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>149.0</td>
+      <td>119.454545</td>
+      <td>89.0</td>
+      <td>144.431321</td>
+      <td>1.429829</td>
+      <td>10.723805</td>
+      <td>1.269121</td>
+      <td>0.871680</td>
+      <td>4.034113</td>
+      <td>275</td>
+      <td>234.611278</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1195</th>
+      <td>1196</td>
+      <td>60.0</td>
+      <td>42.118257</td>
+      <td>29.0</td>
+      <td>50.270809</td>
+      <td>1.107046</td>
+      <td>11.090537</td>
+      <td>1.307962</td>
+      <td>0.976306</td>
+      <td>4.863917</td>
+      <td>482</td>
+      <td>304.506355</td>
+    </tr>
+    <tr>
+      <th>1196</th>
+      <td>1197</td>
+      <td>83.0</td>
+      <td>47.673267</td>
+      <td>29.0</td>
+      <td>159.330772</td>
+      <td>1.046951</td>
+      <td>12.409674</td>
+      <td>1.236147</td>
+      <td>0.962602</td>
+      <td>5.526416</td>
+      <td>707</td>
+      <td>398.703613</td>
+    </tr>
+    <tr>
+      <th>1197</th>
+      <td>1198</td>
+      <td>53.0</td>
+      <td>41.502890</td>
+      <td>30.0</td>
+      <td>28.123180</td>
+      <td>1.042599</td>
+      <td>9.643651</td>
+      <td>1.330995</td>
+      <td>0.965376</td>
+      <td>4.355077</td>
+      <td>346</td>
+      <td>246.890816</td>
+    </tr>
+    <tr>
+      <th>1198</th>
+      <td>1199</td>
+      <td>72.0</td>
+      <td>45.091570</td>
+      <td>29.0</td>
+      <td>106.316202</td>
+      <td>1.114285</td>
+      <td>12.961481</td>
+      <td>1.269182</td>
+      <td>0.962037</td>
+      <td>5.476460</td>
+      <td>688</td>
+      <td>391.758021</td>
+    </tr>
+    <tr>
+      <th>1199</th>
+      <td>1200</td>
+      <td>66.0</td>
+      <td>44.232682</td>
+      <td>29.0</td>
+      <td>67.484909</td>
+      <td>1.203239</td>
+      <td>12.206556</td>
+      <td>1.381601</td>
+      <td>0.961668</td>
+      <td>5.122397</td>
+      <td>563</td>
+      <td>342.871234</td>
+    </tr>
+  </tbody>
+</table>
+<p>1200 rows × 12 columns</p>
+</div></div></div>
 </div>
 </section>
+<section id="correlation-matrix">
+<h2>Correlation matrix<a class="headerlink" href="#correlation-matrix" title="Link to this heading">#</a></h2>
+<p>We examine the correlation between the selected features to understand their relationships.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">selected_table</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">colorize</span><span class="p">(</span><span class="n">styler</span><span class="p">):</span>
+    <span class="n">styler</span><span class="o">.</span><span class="n">background_gradient</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;coolwarm&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">styler</span>
+<span class="n">df</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">colorize</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+#T_36ff2_row0_col0, #T_36ff2_row1_col1, #T_36ff2_row2_col2, #T_36ff2_row3_col3, #T_36ff2_row4_col4, #T_36ff2_row5_col5, #T_36ff2_row6_col6, #T_36ff2_row7_col7, #T_36ff2_row8_col8, #T_36ff2_row9_col9, #T_36ff2_row10_col10, #T_36ff2_row11_col11 {
+  background-color: #b40426;
+  color: #f1f1f1;
+}
+#T_36ff2_row0_col1, #T_36ff2_row1_col0, #T_36ff2_row3_col8, #T_36ff2_row3_col10, #T_36ff2_row8_col3, #T_36ff2_row10_col3 {
+  background-color: #4358cb;
+  color: #f1f1f1;
+}
+#T_36ff2_row0_col2, #T_36ff2_row2_col0, #T_36ff2_row2_col8, #T_36ff2_row8_col2 {
+  background-color: #3b4cc0;
+  color: #f1f1f1;
+}
+#T_36ff2_row0_col3, #T_36ff2_row3_col0 {
+  background-color: #465ecf;
+  color: #f1f1f1;
+}
+#T_36ff2_row0_col4, #T_36ff2_row4_col0 {
+  background-color: #a3c2fe;
+  color: #000000;
+}
+#T_36ff2_row0_col5, #T_36ff2_row5_col0 {
+  background-color: #bbd1f8;
+  color: #000000;
+}
+#T_36ff2_row0_col6, #T_36ff2_row6_col0 {
+  background-color: #d2dbe8;
+  color: #000000;
+}
+#T_36ff2_row0_col7, #T_36ff2_row7_col0 {
+  background-color: #b1cbfc;
+  color: #000000;
+}
+#T_36ff2_row0_col8, #T_36ff2_row8_col0 {
+  background-color: #f5c4ac;
+  color: #000000;
+}
+#T_36ff2_row0_col9, #T_36ff2_row9_col0 {
+  background-color: #e9d5cb;
+  color: #000000;
+}
+#T_36ff2_row0_col10, #T_36ff2_row10_col0 {
+  background-color: #e8d6cc;
+  color: #000000;
+}
+#T_36ff2_row0_col11, #T_36ff2_row11_col0 {
+  background-color: #dfdbd9;
+  color: #000000;
+}
+#T_36ff2_row1_col2, #T_36ff2_row2_col1 {
+  background-color: #d85646;
+  color: #f1f1f1;
+}
+#T_36ff2_row1_col3, #T_36ff2_row3_col1 {
+  background-color: #f59c7d;
+  color: #000000;
+}
+#T_36ff2_row1_col4, #T_36ff2_row4_col1 {
+  background-color: #f59f80;
+  color: #000000;
+}
+#T_36ff2_row1_col5, #T_36ff2_row5_col1 {
+  background-color: #b9d0f9;
+  color: #000000;
+}
+#T_36ff2_row1_col6, #T_36ff2_row3_col7, #T_36ff2_row6_col1, #T_36ff2_row7_col3 {
+  background-color: #d8dce2;
+  color: #000000;
+}
+#T_36ff2_row1_col7, #T_36ff2_row7_col1 {
+  background-color: #c3d5f4;
+  color: #000000;
+}
+#T_36ff2_row1_col8, #T_36ff2_row8_col1 {
+  background-color: #5977e3;
+  color: #f1f1f1;
+}
+#T_36ff2_row1_col9, #T_36ff2_row9_col1 {
+  background-color: #bcd2f7;
+  color: #000000;
+}
+#T_36ff2_row1_col10, #T_36ff2_row10_col1 {
+  background-color: #b7cff9;
+  color: #000000;
+}
+#T_36ff2_row1_col11, #T_36ff2_row4_col8, #T_36ff2_row8_col4, #T_36ff2_row11_col1 {
+  background-color: #cbd8ee;
+  color: #000000;
+}
+#T_36ff2_row2_col3, #T_36ff2_row3_col2 {
+  background-color: #c53334;
+  color: #f1f1f1;
+}
+#T_36ff2_row2_col4, #T_36ff2_row4_col2 {
+  background-color: #c9d7f0;
+  color: #000000;
+}
+#T_36ff2_row2_col5, #T_36ff2_row5_col2 {
+  background-color: #d4dbe6;
+  color: #000000;
+}
+#T_36ff2_row2_col6, #T_36ff2_row6_col2 {
+  background-color: #9bbcff;
+  color: #000000;
+}
+#T_36ff2_row2_col7, #T_36ff2_row7_col2 {
+  background-color: #d3dbe7;
+  color: #000000;
+}
+#T_36ff2_row2_col9, #T_36ff2_row9_col2 {
+  background-color: #5f7fe8;
+  color: #f1f1f1;
+}
+#T_36ff2_row2_col10, #T_36ff2_row10_col2 {
+  background-color: #5a78e4;
+  color: #f1f1f1;
+}
+#T_36ff2_row2_col11, #T_36ff2_row11_col2 {
+  background-color: #7295f4;
+  color: #f1f1f1;
+}
+#T_36ff2_row3_col4, #T_36ff2_row4_col3 {
+  background-color: #85a8fc;
+  color: #f1f1f1;
+}
+#T_36ff2_row3_col5, #T_36ff2_row5_col3 {
+  background-color: #e3d9d3;
+  color: #000000;
+}
+#T_36ff2_row3_col6, #T_36ff2_row6_col3 {
+  background-color: #7da0f9;
+  color: #f1f1f1;
+}
+#T_36ff2_row3_col9, #T_36ff2_row9_col3 {
+  background-color: #4055c8;
+  color: #f1f1f1;
+}
+#T_36ff2_row3_col11, #T_36ff2_row11_col3 {
+  background-color: #536edd;
+  color: #f1f1f1;
+}
+#T_36ff2_row4_col5, #T_36ff2_row5_col4 {
+  background-color: #97b8ff;
+  color: #000000;
+}
+#T_36ff2_row4_col6, #T_36ff2_row6_col4 {
+  background-color: #f4c6af;
+  color: #000000;
+}
+#T_36ff2_row4_col7, #T_36ff2_row5_col11, #T_36ff2_row7_col4, #T_36ff2_row7_col11, #T_36ff2_row11_col5, #T_36ff2_row11_col7 {
+  background-color: #adc9fd;
+  color: #000000;
+}
+#T_36ff2_row4_col9, #T_36ff2_row4_col10, #T_36ff2_row9_col4, #T_36ff2_row10_col4 {
+  background-color: #f7b093;
+  color: #000000;
+}
+#T_36ff2_row4_col11, #T_36ff2_row11_col4 {
+  background-color: #f7ad90;
+  color: #000000;
+}
+#T_36ff2_row5_col6, #T_36ff2_row6_col5 {
+  background-color: #dedcdb;
+  color: #000000;
+}
+#T_36ff2_row5_col7, #T_36ff2_row7_col5 {
+  background-color: #cfdaea;
+  color: #000000;
+}
+#T_36ff2_row5_col8, #T_36ff2_row8_col5 {
+  background-color: #6788ee;
+  color: #f1f1f1;
+}
+#T_36ff2_row5_col9, #T_36ff2_row9_col5 {
+  background-color: #9fbfff;
+  color: #000000;
+}
+#T_36ff2_row5_col10, #T_36ff2_row10_col5 {
+  background-color: #a5c3fe;
+  color: #000000;
+}
+#T_36ff2_row6_col7, #T_36ff2_row7_col6 {
+  background-color: #cdd9ec;
+  color: #000000;
+}
+#T_36ff2_row6_col8, #T_36ff2_row8_col6 {
+  background-color: #94b6ff;
+  color: #000000;
+}
+#T_36ff2_row6_col9, #T_36ff2_row9_col6 {
+  background-color: #d24b40;
+  color: #f1f1f1;
+}
+#T_36ff2_row6_col10, #T_36ff2_row10_col6 {
+  background-color: #df634e;
+  color: #f1f1f1;
+}
+#T_36ff2_row6_col11, #T_36ff2_row11_col6 {
+  background-color: #cb3e38;
+  color: #f1f1f1;
+}
+#T_36ff2_row7_col8, #T_36ff2_row8_col7 {
+  background-color: #6282ea;
+  color: #f1f1f1;
+}
+#T_36ff2_row7_col9, #T_36ff2_row9_col7 {
+  background-color: #a7c5fe;
+  color: #000000;
+}
+#T_36ff2_row7_col10, #T_36ff2_row10_col7 {
+  background-color: #a2c1ff;
+  color: #000000;
+}
+#T_36ff2_row8_col9, #T_36ff2_row9_col8 {
+  background-color: #e4d9d2;
+  color: #000000;
+}
+#T_36ff2_row8_col10, #T_36ff2_row10_col8 {
+  background-color: #f1ccb8;
+  color: #000000;
+}
+#T_36ff2_row8_col11, #T_36ff2_row11_col8 {
+  background-color: #d7dce3;
+  color: #000000;
+}
+#T_36ff2_row9_col10, #T_36ff2_row10_col9 {
+  background-color: #c0282f;
+  color: #f1f1f1;
+}
+#T_36ff2_row9_col11, #T_36ff2_row11_col9 {
+  background-color: #b8122a;
+  color: #f1f1f1;
+}
+#T_36ff2_row10_col11, #T_36ff2_row11_col10 {
+  background-color: #bb1b2c;
+  color: #f1f1f1;
+}
+</style>
+<table id="T_36ff2">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_36ff2_level0_col0" class="col_heading level0 col0" >label</th>
+      <th id="T_36ff2_level0_col1" class="col_heading level0 col1" >maximum</th>
+      <th id="T_36ff2_level0_col2" class="col_heading level0 col2" >mean</th>
+      <th id="T_36ff2_level0_col3" class="col_heading level0 col3" >minimum</th>
+      <th id="T_36ff2_level0_col4" class="col_heading level0 col4" >variance</th>
+      <th id="T_36ff2_level0_col5" class="col_heading level0 col5" >elongation</th>
+      <th id="T_36ff2_level0_col6" class="col_heading level0 col6" >feret_diameter</th>
+      <th id="T_36ff2_level0_col7" class="col_heading level0 col7" >flatness</th>
+      <th id="T_36ff2_level0_col8" class="col_heading level0 col8" >roundness</th>
+      <th id="T_36ff2_level0_col9" class="col_heading level0 col9" >equivalent_spherical_radius</th>
+      <th id="T_36ff2_level0_col10" class="col_heading level0 col10" >number_of_pixels</th>
+      <th id="T_36ff2_level0_col11" class="col_heading level0 col11" >perimeter</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_36ff2_level0_row0" class="row_heading level0 row0" >label</th>
+      <td id="T_36ff2_row0_col0" class="data row0 col0" >1.000000</td>
+      <td id="T_36ff2_row0_col1" class="data row0 col1" >-0.605035</td>
+      <td id="T_36ff2_row0_col2" class="data row0 col2" >-0.651268</td>
+      <td id="T_36ff2_row0_col3" class="data row0 col3" >-0.581233</td>
+      <td id="T_36ff2_row0_col4" class="data row0 col4" >-0.134539</td>
+      <td id="T_36ff2_row0_col5" class="data row0 col5" >-0.014857</td>
+      <td id="T_36ff2_row0_col6" class="data row0 col6" >0.105859</td>
+      <td id="T_36ff2_row0_col7" class="data row0 col7" >-0.066384</td>
+      <td id="T_36ff2_row0_col8" class="data row0 col8" >0.381267</td>
+      <td id="T_36ff2_row0_col9" class="data row0 col9" >0.251968</td>
+      <td id="T_36ff2_row0_col10" class="data row0 col10" >0.246869</td>
+      <td id="T_36ff2_row0_col11" class="data row0 col11" >0.190365</td>
+    </tr>
+    <tr>
+      <th id="T_36ff2_level0_row1" class="row_heading level0 row1" >maximum</th>
+      <td id="T_36ff2_row1_col0" class="data row1 col0" >-0.605035</td>
+      <td id="T_36ff2_row1_col1" class="data row1 col1" >1.000000</td>
+      <td id="T_36ff2_row1_col2" class="data row1 col2" >0.824653</td>
+      <td id="T_36ff2_row1_col3" class="data row1 col3" >0.577706</td>
+      <td id="T_36ff2_row1_col4" class="data row1 col4" >0.563160</td>
+      <td id="T_36ff2_row1_col5" class="data row1 col5" >-0.028076</td>
+      <td id="T_36ff2_row1_col6" class="data row1 col6" >0.144944</td>
+      <td id="T_36ff2_row1_col7" class="data row1 col7" >0.025563</td>
+      <td id="T_36ff2_row1_col8" class="data row1 col8" >-0.485114</td>
+      <td id="T_36ff2_row1_col9" class="data row1 col9" >-0.011892</td>
+      <td id="T_36ff2_row1_col10" class="data row1 col10" >-0.035078</td>
+      <td id="T_36ff2_row1_col11" class="data row1 col11" >0.068570</td>
+    </tr>
+    <tr>
+      <th id="T_36ff2_level0_row2" class="row_heading level0 row2" >mean</th>
+      <td id="T_36ff2_row2_col0" class="data row2 col0" >-0.651268</td>
+      <td id="T_36ff2_row2_col1" class="data row2 col1" >0.824653</td>
+      <td id="T_36ff2_row2_col2" class="data row2 col2" >1.000000</td>
+      <td id="T_36ff2_row2_col3" class="data row2 col3" >0.918750</td>
+      <td id="T_36ff2_row2_col4" class="data row2 col4" >0.052848</td>
+      <td id="T_36ff2_row2_col5" class="data row2 col5" >0.122359</td>
+      <td id="T_36ff2_row2_col6" class="data row2 col6" >-0.173872</td>
+      <td id="T_36ff2_row2_col7" class="data row2 col7" >0.112322</td>
+      <td id="T_36ff2_row2_col8" class="data row2 col8" >-0.644827</td>
+      <td id="T_36ff2_row2_col9" class="data row2 col9" >-0.451865</td>
+      <td id="T_36ff2_row2_col10" class="data row2 col10" >-0.478943</td>
+      <td id="T_36ff2_row2_col11" class="data row2 col11" >-0.362011</td>
+    </tr>
+    <tr>
+      <th id="T_36ff2_level0_row3" class="row_heading level0 row3" >minimum</th>
+      <td id="T_36ff2_row3_col0" class="data row3 col0" >-0.581233</td>
+      <td id="T_36ff2_row3_col1" class="data row3 col1" >0.577706</td>
+      <td id="T_36ff2_row3_col2" class="data row3 col2" >0.918750</td>
+      <td id="T_36ff2_row3_col3" class="data row3 col3" >1.000000</td>
+      <td id="T_36ff2_row3_col4" class="data row3 col4" >-0.273489</td>
+      <td id="T_36ff2_row3_col5" class="data row3 col5" >0.217240</td>
+      <td id="T_36ff2_row3_col6" class="data row3 col6" >-0.311868</td>
+      <td id="T_36ff2_row3_col7" class="data row3 col7" >0.148296</td>
+      <td id="T_36ff2_row3_col8" class="data row3 col8" >-0.600965</td>
+      <td id="T_36ff2_row3_col9" class="data row3 col9" >-0.615060</td>
+      <td id="T_36ff2_row3_col10" class="data row3 col10" >-0.604247</td>
+      <td id="T_36ff2_row3_col11" class="data row3 col11" >-0.521081</td>
+    </tr>
+    <tr>
+      <th id="T_36ff2_level0_row4" class="row_heading level0 row4" >variance</th>
+      <td id="T_36ff2_row4_col0" class="data row4 col0" >-0.134539</td>
+      <td id="T_36ff2_row4_col1" class="data row4 col1" >0.563160</td>
+      <td id="T_36ff2_row4_col2" class="data row4 col2" >0.052848</td>
+      <td id="T_36ff2_row4_col3" class="data row4 col3" >-0.273489</td>
+      <td id="T_36ff2_row4_col4" class="data row4 col4" >1.000000</td>
+      <td id="T_36ff2_row4_col5" class="data row4 col5" >-0.191963</td>
+      <td id="T_36ff2_row4_col6" class="data row4 col6" >0.370870</td>
+      <td id="T_36ff2_row4_col7" class="data row4 col7" >-0.084841</td>
+      <td id="T_36ff2_row4_col8" class="data row4 col8" >0.069065</td>
+      <td id="T_36ff2_row4_col9" class="data row4 col9" >0.485770</td>
+      <td id="T_36ff2_row4_col10" class="data row4 col10" >0.490167</td>
+      <td id="T_36ff2_row4_col11" class="data row4 col11" >0.500228</td>
+    </tr>
+    <tr>
+      <th id="T_36ff2_level0_row5" class="row_heading level0 row5" >elongation</th>
+      <td id="T_36ff2_row5_col0" class="data row5 col0" >-0.014857</td>
+      <td id="T_36ff2_row5_col1" class="data row5 col1" >-0.028076</td>
+      <td id="T_36ff2_row5_col2" class="data row5 col2" >0.122359</td>
+      <td id="T_36ff2_row5_col3" class="data row5 col3" >0.217240</td>
+      <td id="T_36ff2_row5_col4" class="data row5 col4" >-0.191963</td>
+      <td id="T_36ff2_row5_col5" class="data row5 col5" >1.000000</td>
+      <td id="T_36ff2_row5_col6" class="data row5 col6" >0.184445</td>
+      <td id="T_36ff2_row5_col7" class="data row5 col7" >0.091196</td>
+      <td id="T_36ff2_row5_col8" class="data row5 col8" >-0.418459</td>
+      <td id="T_36ff2_row5_col9" class="data row5 col9" >-0.152117</td>
+      <td id="T_36ff2_row5_col10" class="data row5 col10" >-0.125144</td>
+      <td id="T_36ff2_row5_col11" class="data row5 col11" >-0.083723</td>
+    </tr>
+    <tr>
+      <th id="T_36ff2_level0_row6" class="row_heading level0 row6" >feret_diameter</th>
+      <td id="T_36ff2_row6_col0" class="data row6 col0" >0.105859</td>
+      <td id="T_36ff2_row6_col1" class="data row6 col1" >0.144944</td>
+      <td id="T_36ff2_row6_col2" class="data row6 col2" >-0.173872</td>
+      <td id="T_36ff2_row6_col3" class="data row6 col3" >-0.311868</td>
+      <td id="T_36ff2_row6_col4" class="data row6 col4" >0.370870</td>
+      <td id="T_36ff2_row6_col5" class="data row6 col5" >0.184445</td>
+      <td id="T_36ff2_row6_col6" class="data row6 col6" >1.000000</td>
+      <td id="T_36ff2_row6_col7" class="data row6 col7" >0.083095</td>
+      <td id="T_36ff2_row6_col8" class="data row6 col8" >-0.201787</td>
+      <td id="T_36ff2_row6_col9" class="data row6 col9" >0.854090</td>
+      <td id="T_36ff2_row6_col10" class="data row6 col10" >0.785360</td>
+      <td id="T_36ff2_row6_col11" class="data row6 col11" >0.896780</td>
+    </tr>
+    <tr>
+      <th id="T_36ff2_level0_row7" class="row_heading level0 row7" >flatness</th>
+      <td id="T_36ff2_row7_col0" class="data row7 col0" >-0.066384</td>
+      <td id="T_36ff2_row7_col1" class="data row7 col1" >0.025563</td>
+      <td id="T_36ff2_row7_col2" class="data row7 col2" >0.112322</td>
+      <td id="T_36ff2_row7_col3" class="data row7 col3" >0.148296</td>
+      <td id="T_36ff2_row7_col4" class="data row7 col4" >-0.084841</td>
+      <td id="T_36ff2_row7_col5" class="data row7 col5" >0.091196</td>
+      <td id="T_36ff2_row7_col6" class="data row7 col6" >0.083095</td>
+      <td id="T_36ff2_row7_col7" class="data row7 col7" >1.000000</td>
+      <td id="T_36ff2_row7_col8" class="data row7 col8" >-0.438565</td>
+      <td id="T_36ff2_row7_col9" class="data row7 col9" >-0.111196</td>
+      <td id="T_36ff2_row7_col10" class="data row7 col10" >-0.137907</td>
+      <td id="T_36ff2_row7_col11" class="data row7 col11" >-0.085824</td>
+    </tr>
+    <tr>
+      <th id="T_36ff2_level0_row8" class="row_heading level0 row8" >roundness</th>
+      <td id="T_36ff2_row8_col0" class="data row8 col0" >0.381267</td>
+      <td id="T_36ff2_row8_col1" class="data row8 col1" >-0.485114</td>
+      <td id="T_36ff2_row8_col2" class="data row8 col2" >-0.644827</td>
+      <td id="T_36ff2_row8_col3" class="data row8 col3" >-0.600965</td>
+      <td id="T_36ff2_row8_col4" class="data row8 col4" >0.069065</td>
+      <td id="T_36ff2_row8_col5" class="data row8 col5" >-0.418459</td>
+      <td id="T_36ff2_row8_col6" class="data row8 col6" >-0.201787</td>
+      <td id="T_36ff2_row8_col7" class="data row8 col7" >-0.438565</td>
+      <td id="T_36ff2_row8_col8" class="data row8 col8" >1.000000</td>
+      <td id="T_36ff2_row8_col9" class="data row8 col9" >0.225241</td>
+      <td id="T_36ff2_row8_col10" class="data row8 col10" >0.330182</td>
+      <td id="T_36ff2_row8_col11" class="data row8 col11" >0.137811</td>
+    </tr>
+    <tr>
+      <th id="T_36ff2_level0_row9" class="row_heading level0 row9" >equivalent_spherical_radius</th>
+      <td id="T_36ff2_row9_col0" class="data row9 col0" >0.251968</td>
+      <td id="T_36ff2_row9_col1" class="data row9 col1" >-0.011892</td>
+      <td id="T_36ff2_row9_col2" class="data row9 col2" >-0.451865</td>
+      <td id="T_36ff2_row9_col3" class="data row9 col3" >-0.615060</td>
+      <td id="T_36ff2_row9_col4" class="data row9 col4" >0.485770</td>
+      <td id="T_36ff2_row9_col5" class="data row9 col5" >-0.152117</td>
+      <td id="T_36ff2_row9_col6" class="data row9 col6" >0.854090</td>
+      <td id="T_36ff2_row9_col7" class="data row9 col7" >-0.111196</td>
+      <td id="T_36ff2_row9_col8" class="data row9 col8" >0.225241</td>
+      <td id="T_36ff2_row9_col9" class="data row9 col9" >1.000000</td>
+      <td id="T_36ff2_row9_col10" class="data row9 col10" >0.948357</td>
+      <td id="T_36ff2_row9_col11" class="data row9 col11" >0.976222</td>
+    </tr>
+    <tr>
+      <th id="T_36ff2_level0_row10" class="row_heading level0 row10" >number_of_pixels</th>
+      <td id="T_36ff2_row10_col0" class="data row10 col0" >0.246869</td>
+      <td id="T_36ff2_row10_col1" class="data row10 col1" >-0.035078</td>
+      <td id="T_36ff2_row10_col2" class="data row10 col2" >-0.478943</td>
+      <td id="T_36ff2_row10_col3" class="data row10 col3" >-0.604247</td>
+      <td id="T_36ff2_row10_col4" class="data row10 col4" >0.490167</td>
+      <td id="T_36ff2_row10_col5" class="data row10 col5" >-0.125144</td>
+      <td id="T_36ff2_row10_col6" class="data row10 col6" >0.785360</td>
+      <td id="T_36ff2_row10_col7" class="data row10 col7" >-0.137907</td>
+      <td id="T_36ff2_row10_col8" class="data row10 col8" >0.330182</td>
+      <td id="T_36ff2_row10_col9" class="data row10 col9" >0.948357</td>
+      <td id="T_36ff2_row10_col10" class="data row10 col10" >1.000000</td>
+      <td id="T_36ff2_row10_col11" class="data row10 col11" >0.964439</td>
+    </tr>
+    <tr>
+      <th id="T_36ff2_level0_row11" class="row_heading level0 row11" >perimeter</th>
+      <td id="T_36ff2_row11_col0" class="data row11 col0" >0.190365</td>
+      <td id="T_36ff2_row11_col1" class="data row11 col1" >0.068570</td>
+      <td id="T_36ff2_row11_col2" class="data row11 col2" >-0.362011</td>
+      <td id="T_36ff2_row11_col3" class="data row11 col3" >-0.521081</td>
+      <td id="T_36ff2_row11_col4" class="data row11 col4" >0.500228</td>
+      <td id="T_36ff2_row11_col5" class="data row11 col5" >-0.083723</td>
+      <td id="T_36ff2_row11_col6" class="data row11 col6" >0.896780</td>
+      <td id="T_36ff2_row11_col7" class="data row11 col7" >-0.085824</td>
+      <td id="T_36ff2_row11_col8" class="data row11 col8" >0.137811</td>
+      <td id="T_36ff2_row11_col9" class="data row11 col9" >0.976222</td>
+      <td id="T_36ff2_row11_col10" class="data row11 col10" >0.964439</td>
+      <td id="T_36ff2_row11_col11" class="data row11 col11" >1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="exercise">
-<h1>Exercise<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h1>
-<p>Plot sinus and cosinus of values between 0 and 360 degrees in one plot.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1013,20 +1595,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="readme.html"
+       href="multivariate_views.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Plotting</p>
+        <p class="prev-next-title">Multivariate views</p>
       </div>
     </a>
     <a class="right-next"
-       href="plotting_seaborn.html"
+       href="interpolating_between_feature_spaces.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Introduction to Seaborn</p>
+        <p class="prev-next-title">Visualizing relationships between feature spaces</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1046,13 +1628,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Plotting with Matplotlib</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sub-plots">Sub-plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data">Load data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-matrix">Correlation matrix</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
-</ul>
-
   </nav></div>
 
 </div></div>
